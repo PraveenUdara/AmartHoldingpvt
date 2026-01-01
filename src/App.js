@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Events from "./pages/Events";
 import ContactUs from "./pages/ContactUs";
+import Search from "./pages/search";
 
 // Business Pages
 import Pharmaceuticals from "./pages/pharma";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/events" element={<Events />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/search" element={<Search />} />
 
           {/* Business Pages */}
           <Route path="/business/pharmaceuticals" element={<Pharmaceuticals />} />

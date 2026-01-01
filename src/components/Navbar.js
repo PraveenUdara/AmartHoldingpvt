@@ -1,6 +1,6 @@
 // src/components/Navbar.js
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import whiteLogo from "../assets/whiellogo.png";
 import "./Navbar.css";
@@ -47,6 +47,7 @@ const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [shrink, setShrink] = useState(false);
+  const navigate = useNavigate();
 
   const navRef = useRef(null);
   const closeTimer = useRef(null);
@@ -88,26 +89,11 @@ const Navbar = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    const term = searchValue.trim().toLowerCase();
+    const term = searchValue.trim();
     if (!term) return;
 
-    // clear previous highlights
-    document.querySelectorAll(".search-hit").forEach(el => el.classList.remove("search-hit"));
-
-    // find first matching element in visible page content
-    const candidates = document.querySelectorAll("main, section, article, div, p, li, h1, h2, h3, h4, h5, h6, span, a");
-    let target = null;
-    for (const el of candidates) {
-      if (el.innerText && el.innerText.toLowerCase().includes(term)) {
-        target = el;
-        break;
-      }
-    }
-
-    if (target) {
-      target.classList.add("search-hit");
-      target.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
+    closeMenus();
+    navigate(`/search?q=${encodeURIComponent(term)}`);
   };
 
   const closeMenus = () => {

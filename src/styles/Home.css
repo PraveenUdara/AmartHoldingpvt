@@ -395,36 +395,37 @@
   flex: 1.5;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 1px;
 }
 
 .business-btn-card {
-  background: linear-gradient(to bottom, #f7f9fc, #e6edf5);
-  border-radius: 20px;
-  padding: 10px;
-  height: 120px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+  box-shadow: none;
   transition: 0.35s ease;
 }
 
 .business-btn-card:hover {
-  background: #0d6efd;
-  transform: translateY(-6px);
+  background: transparent;
+  transform: translateY(-4px);
 }
 
 .business-btn-img {
-  width: 100px;
-  height: 120px;
+  width: 400px;
+  height: 130px;
   object-fit: contain;
   transition: 0.25s ease;
 }
 
 .business-btn-card:hover .business-btn-img {
   transform: scale(1.15);
+  filter: drop-shadow(0 12px 20px rgba(13, 79, 134, 0.25));
 }
 
 

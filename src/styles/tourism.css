@@ -155,7 +155,7 @@
 .tourism-tab-panel {
   margin-top: 12px;
   padding: 22px 0 0;
-  max-width: 1100px;
+  max-width: 1200px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -173,12 +173,12 @@
 .tourism-split {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: 26px;
+  gap: clamp(20px, 3vw, 32px);
   align-items: center;
   background: #ffffff;
-  padding: 22px;
-  border-radius: 16px;
-  box-shadow: 0 14px 38px rgba(9, 45, 92, 0.12);
+  padding: clamp(38px, 5vw, 60px) clamp(20px, 6vw, 52px);
+  border-radius: 20px;
+  box-shadow: 0 18px 42px rgba(13, 31, 60, 0.12);
   opacity: 1;
 }
 
