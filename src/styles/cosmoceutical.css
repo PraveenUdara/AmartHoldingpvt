@@ -1,11 +1,11 @@
-.helaya-diagnostic-page {
+.cosmoceutical-page {
   width: 100%;
   font-family: "Poppins", sans-serif;
   background: #f7f9fc;
   color: #0a2540;
 }
 
-.helaya-diagnostic-hero {
+.cosmoceutical-hero {
   position: relative;
   width: 100%;
   height: 50vh;
@@ -13,16 +13,17 @@
   overflow: hidden;
 }
 
-.helaya-diagnostic-hero-img {
+.cosmoceutical-hero-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transform: scale(1.02);
 }
 
-.helaya-diagnostic-hero-overlay {
+.cosmoceutical-hero-overlay {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -33,34 +34,34 @@
   text-align: center;
   background: linear-gradient(
     120deg,
-    rgba(10, 34, 54, 0.7),
-    rgba(10, 34, 54, 0.25)
+    rgba(10, 34, 54, 0.6),
+    rgba(10, 34, 54, 0.2)
   );
   padding: 0 8%;
 }
 
-.helaya-diagnostic-hero-content {
+.cosmoceutical-hero-content {
   max-width: 820px;
   color: #ffffff;
 }
 
-.helaya-diagnostic-hero-content h1 {
+.cosmoceutical-hero-content h1 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
-.helaya-diagnostic-hero-content p {
+.cosmoceutical-hero-content p {
   font-size: 1.1rem;
   line-height: 1.6;
   opacity: 0.95;
 }
 
-.helaya-diagnostic-body {
+.cosmoceutical-body {
   padding: 60px 8%;
 }
 
-.helaya-diagnostic-card {
+.cosmoceutical-card {
   max-width: 980px;
   margin: 0 auto;
   background: #ffffff;
@@ -71,59 +72,37 @@
   text-align: center;
 }
 
-.helaya-diagnostic-card h2 {
+.cosmoceutical-card h2 {
   font-size: 2rem;
   color: #0a2540;
   margin-bottom: 14px;
 }
 
-.helaya-diagnostic-card p {
+.cosmoceutical-card p {
   color: #425768;
   line-height: 1.7;
   margin-bottom: 12px;
 }
 
-.helaya-diagnostic-cta {
-  margin-top: 18px;
-}
-
-.helaya-diagnostic-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 28px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #0a4b86, #0ac2bb);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  box-shadow: 0 10px 24px rgba(10, 75, 134, 0.24);
-}
-
-.helaya-diagnostic-btn:hover {
-  filter: brightness(1.05);
-}
-
 @media (max-width: 900px) {
-  .helaya-diagnostic-hero {
+  .cosmoceutical-hero {
     height: 50vh;
     min-height: 320px;
   }
 
-  .helaya-diagnostic-hero-content h1 {
+  .cosmoceutical-hero-content h1 {
     font-size: 2.2rem;
   }
 
-  .helaya-diagnostic-hero-content p {
+  .cosmoceutical-hero-content p {
     font-size: 1rem;
   }
 
-  .helaya-diagnostic-body {
+  .cosmoceutical-body {
     padding: 50px 6%;
   }
 
-  .helaya-diagnostic-card {
+  .cosmoceutical-card {
     padding: 24px 20px;
   }
 }

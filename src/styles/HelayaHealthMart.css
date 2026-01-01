@@ -8,7 +8,7 @@
 .helaya-healthmart-hero {
   position: relative;
   width: 100%;
-  height: 55vh;
+  height: 50vh;
   min-height: 360px;
   overflow: hidden;
 }
@@ -185,7 +185,7 @@
 
 @media (max-width: 900px) {
   .helaya-healthmart-hero {
-    height: 48vh;
+    height: 50vh;
     min-height: 320px;
   }
 

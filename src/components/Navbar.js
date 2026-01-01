@@ -34,9 +34,10 @@ const businessColumns = [
     title: "Brands & Ventures",
     items: [
       { label: "A Mart Branding & Design", path: "/business/branding-design" },
-      { label: "Expia", path: "/business/expia" },
+      { label: "Exfea", path: "/business/expia" },
       { label: "Helaya International", path: "/business/helaya-international" },
       { label: "Manufacture", path: "/business/manufacture" },
+      { label: "Cosmeceutical", path: "/business/cosmeceutical" },
     ],
   },
 ];

@@ -23,7 +23,8 @@ import MedicalCenters from "./pages/clinic";
 import BrandingDesign from "./pages/amart-design";
 import HelayaInternational from "./pages/helaya-international";
 import Manufacture from "./pages/manufacture";
-import Expia from "./pages/expia";
+import Expia from "./pages/exfea";
+import Cosmoceutical from "./pages/cosmoceutical";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route path="/business/helaya-international" element={<HelayaInternational />} />
           <Route path="/business/manufacture" element={<Manufacture />} />
           <Route path="/business/expia" element={<Expia />} />
+          <Route path="/business/cosmeceutical" element={<Cosmoceutical />} />
         </Routes>
       </main>
 

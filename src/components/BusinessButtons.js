@@ -73,14 +73,14 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
       desc: "Creative branding, marketing and digital design studio.",
     },
     {
-      title: "Helaya Clinic",
-      path: "/business/medical-centers",
+      title: "Cosmeceutical",
+      path: "/business/cosmeceutical",
       icon: helayaClinicImg,
       preview: preview7,
-      desc: "Clinical consultations and preventive healthcare services.",
+      desc: "Science-led skincare and cosmetic wellness solutions.",
     },
     {
-      title: "Expia",
+      title: "Exfea",
       path: "/business/expia",
       icon: expiaImg,
       preview: preview8,

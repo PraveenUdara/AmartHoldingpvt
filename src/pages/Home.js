@@ -13,8 +13,6 @@ import techHero from "../assets/hero_tech_healthcare.jpg";
 import leftPost from "../assets/lab_bg.jpg";
 import rightPost from "../assets/lab_bg2.jpg";
 import doctorsImg from "../assets/doctors.png";
-import feedbackVideoOne from "../assets/feedbackvideo/Customer Feedback.mp4";
-import feedbackVideoTwo from "../assets/feedbackvideo/Customer Feedback 2.mp4";
 import partner01 from "../assets/Partners/1.png";
 import partner02 from "../assets/Partners/2.png";
 import partner03 from "../assets/Partners/3.png";
@@ -130,12 +128,12 @@ const Home = () => {
 
   const STORIES = [
     {
-      src: feedbackVideoOne,
+      src: "/feedbackvideo/Customer Feedback.mp4",
       name: "Ms. Nishanthi Ernadima Munasingha",
       label: "Customer Feedback",
     },
     {
-      src: feedbackVideoTwo,
+      src: "/feedbackvideo/Customer Feedback 2.mp4",
       name: "Mr. W.P.S.T Sadruwan",
       label: "Customer Feedback",
     },

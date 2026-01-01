@@ -122,6 +122,9 @@ const ContactUs = () => {
 
       </div>
 
+      {/* SECTION DIVIDER */}
+      <div className="contact-section-divider" aria-hidden="true"></div>
+
       {/* MAP + INFO */}
       <div className="map-info-section">
 
@@ -174,7 +177,7 @@ const ContactUs = () => {
 
         <div className="box open-hours-box fade-up delay-1">
           <h3>Open Hours</h3>
-          <p>Mon - Fri: 8.00 am - 5.00 pm</p>
+          <p>Mon - Fri: 8.30 am - 6.00 pm</p>
           <p>Sat - Sun: Closed</p>
           <p>Poya Day: Closed</p>
         </div>
