@@ -417,8 +417,9 @@
 }
 
 .business-btn-img {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 120px;
+  object-fit: contain;
   transition: 0.25s ease;
 }
 
@@ -426,16 +427,6 @@
   transform: scale(1.15);
 }
 
-.business-btn-overlay h3 {
-  margin-top: 12px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #003d73;
-}
-
-.business-btn-card:hover h3 {
-  color: #ffffff;
-}
 
 /* ---------------------- WHY CHOOSE US ---------------------- */
 .choose-section {

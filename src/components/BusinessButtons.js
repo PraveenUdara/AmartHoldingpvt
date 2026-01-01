@@ -116,9 +116,6 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
           }}
         >
           <img src={btn.icon} className="business-btn-img" alt={btn.title} width="75" height="75" />
-          <div className="business-btn-overlay">
-            <h3>{btn.title}</h3>
-          </div>
         </Link>
       ))}
     </div>
