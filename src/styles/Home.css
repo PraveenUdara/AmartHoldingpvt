@@ -19,7 +19,7 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(1);
+  transform: scale(1.08);
   transition: opacity 1.4s ease-in-out;
 }
 
@@ -598,29 +598,115 @@
     min-height: 460px;
   }
 
+  .hero-overlay-right {
+    padding: 0 6% 10%;
+  }
+
+  .hero-content-right {
+    max-width: 100%;
+  }
+
   .hero-title {
-    font-size: 2.2rem;
+    font-size: clamp(2rem, 6vw, 2.4rem);
   }
 
   .hero-content-right {
     text-align: left;
   }
 
+  .hero-text,
+  .hero-text-strong {
+    font-size: 1rem;
+  }
+
   .hero-slide-info {
-    left: 5%;
-    bottom: 6%;
+    position: static;
+    margin-top: 16px;
+    max-width: 100%;
+  }
+
+  .hero-slide-title {
+    font-size: 1.4rem;
+  }
+
+  .hero-slide-desc {
+    font-size: 0.98rem;
   }
 
   .home-post-section {
     flex-direction: column;
+    padding: 40px 6%;
   }
 
   .home-post-card {
     width: 100%;
+    height: 240px;
+  }
+
+  .post-overlay {
+    left: 16px;
+    right: 16px;
+    max-width: 90%;
+  }
+
+  .post-overlay h1 {
+    font-size: 1.35rem;
+  }
+
+  .post-overlay p {
+    font-size: 0.92rem;
+  }
+
+  .about-amart {
+    padding: 36px 6% 10px;
+  }
+
+  .about-card {
+    padding: 22px 18px;
+  }
+
+  .stories-section {
+    padding: 20px 6% 18px;
+  }
+
+  .stories-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .story-meta {
+    padding: 14px 16px 16px;
   }
 
   .business-buttons-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .business-section-wrapper {
+    padding: 50px 6%;
+  }
+
+  .business-preview-image {
+    height: 260px;
+  }
+
+  .business-btn-img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+  }
+
+  .choose-section {
+    padding: 60px 6%;
+  }
+
+  .partners-section {
+    padding: 60px 6% 70px;
+  }
+
+  .partner-card {
+    flex: 0 1 150px;
+    min-height: 96px;
   }
 
   .home-section-divider {
@@ -630,7 +716,33 @@
 }
 
 @media (max-width: 500px) {
+  .hero-section {
+    height: 58vh;
+    min-height: 380px;
+  }
+
+  .hero-slide-title {
+    font-size: 1.25rem;
+  }
+
+  .hero-slide-desc {
+    font-size: 0.95rem;
+  }
+
   .business-buttons-container {
     grid-template-columns: 1fr;
+  }
+
+  .home-post-card {
+    height: 220px;
+  }
+
+  .business-preview-image {
+    height: 220px;
+  }
+
+  .partner-card {
+    flex: 0 1 140px;
+    min-height: 90px;
   }
 }

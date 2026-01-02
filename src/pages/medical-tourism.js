@@ -167,12 +167,7 @@ const MedicalTourism = () => {
         </div>
       </section>
 
-      <section
-        className="tourism-content"
-        style={{
-          backgroundImage: `linear-gradient(0deg, rgba(245,247,250,0.94), rgba(245,247,250,0.94))`,
-        }}
-      >
+      <section className="tourism-content">
         <img
           src={medicalTourismBg}
           alt=""

@@ -8,30 +8,25 @@ import "./Navbar.css";
 const businessColumns = [
   {
     title: "Healthcare Services",
+    path: "/business/healthcare-services",
     items: [
       { label: "Pharmaceuticals", path: "/business/pharmaceuticals" },
       { label: "Diagnostics", path: "/business/diagnostics" },
-      {
-        label: "Medical Tourism",
-        path: "/business/medical-tourism",
-        sublinks: [
-          { label: "India", path: "/business/medical-tourism#india" },
-          { label: "Singapore", path: "/business/medical-tourism#singapore" },
-        ],
-      },
-      {
-        label: "Helaya Health Mart",
-        path: "/business/helaya-health-mart",
-        sublinks: [
-          { label: "Helaya Pharmacy", path: "/business/helaya-pharmacy" },
-          { label: "Helaya Diagnostic", path: "/business/helaya-diagnostic" },
-          { label: "Medical Centers", path: "/business/medical-centers" },
-        ],
-      },
+      { label: "Medical Tourism", path: "/business/medical-tourism" },
+    ],
+  },
+  {
+    title: "Helaya Health Mart",
+    path: "/business/helaya-health-mart",
+    items: [
+      { label: "Helaya Pharmacy", path: "/business/helaya-pharmacy" },
+      { label: "Helaya Diagnostic", path: "/business/helaya-diagnostic" },
+      { label: "Medical Centers", path: "/business/medical-centers" },
     ],
   },
   {
     title: "Brands & Ventures",
+    path: "/business/brands-ventures",
     items: [
       { label: "A Mart Branding & Design", path: "/business/branding-design" },
       { label: "Exfea", path: "/business/expia" },
@@ -158,7 +153,13 @@ const Navbar = () => {
                 <div className="mega-columns">
                   {businessColumns.map(column => (
                     <div className="mega-column" key={column.title}>
-                      <h4 className="mega-heading">{column.title}</h4>
+                      <NavLink
+                        to={column.path}
+                        onClick={closeMenus}
+                        className="mega-heading mega-heading-link"
+                      >
+                        {column.title}
+                      </NavLink>
                       <div className="mega-column-links">
                         {column.items.map(item => (
                           <div className="mega-item" key={item.path}>

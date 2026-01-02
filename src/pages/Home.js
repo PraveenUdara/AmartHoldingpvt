@@ -92,7 +92,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 4500); // smooth timing
+    }, 6000); // match zoom duration before switching
 
     return () => clearInterval(interval);
   }, []);
@@ -161,19 +161,15 @@ const Home = () => {
         <div className="hero-overlay hero-overlay-right">
           <div className="hero-content hero-content-right">
 
-            {/* MAIN BRAND MESSAGE ƒ?" DO NOT REMOVE */}
+            {/* MAIN BRAND MESSAGE ’'?" DO NOT REMOVE */}
             <h1 className="hero-title fade-in delay-1">
               Welcome to A Mart Holdings
             </h1>
 
             <p className="hero-text hero-text-strong fade-in delay-2">
-              One of Sri Lankaƒ?Ts fastest-growing conglomerates, built on
+              One of Sri Lanka's fastest-growing conglomerates, built on
               innovation, leadership, and trust.
             </p>
-
-            <a className="hero-cta fade-in delay-3" href="/contact">
-              Contact Us
-            </a>
 
             {/* SLIDE LABEL */}
             <div key={heroIndex} className="hero-slide-info">
@@ -186,6 +182,29 @@ const Home = () => {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ================= ABOUT A MART ================= */}
+      <section className="about-amart reveal">
+        <div className="about-card">
+          <h2>About A Mart Holdings</h2>
+          <p>
+            A Mart is one of Sri Lanka's fastest-growing conglomerates, evolving from humble
+            beginnings in 2018 into a dynamic group with diverse operations in Pharmaceuticals,
+            Diagnostics, Medical Tourism, Branding & Design, Helaya Pharmacy, International Trading
+            (UAE), and Power & Energy.
+          </p>
+          <p>
+            Driven by a bold leadership team and a highly skilled workforce, we continue to expand
+            into new markets while strengthening our core businesses. Our commitment to innovation,
+            quality, and service excellence has positioned A Mart as a trusted partner in Sri
+            Lanka's healthcare and wellness sectors.
+          </p>
+          <p>
+            With cutting-edge technology, strategic foresight, and a passion for progress, we remain
+            dedicated to shaping a healthier and more prosperous future for the nation.
+          </p>
         </div>
       </section>
 
@@ -214,29 +233,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ================= ABOUT A MART ================= */}
-      <section className="about-amart reveal">
-        <div className="about-card">
-          <h2>About A Mart Holdings</h2>
-          <p>
-            A Mart is one of Sri Lanka's fastest-growing conglomerates, evolving from humble
-            beginnings in 2018 into a dynamic group with diverse operations in Pharmaceuticals,
-            Diagnostics, Medical Tourism, Branding & Design, Helaya Pharmacy, International Trading
-            (UAE), and Power & Energy.
-          </p>
-          <p>
-            Driven by a bold leadership team and a highly skilled workforce, we continue to expand
-            into new markets while strengthening our core businesses. Our commitment to innovation,
-            quality, and service excellence has positioned A Mart as a trusted partner in Sri
-            Lanka's healthcare and wellness sectors.
-          </p>
-          <p>
-            With cutting-edge technology, strategic foresight, and a passion for progress, we remain
-            dedicated to shaping a healthier and more prosperous future for the nation.
-          </p>
-        </div>
-      </section>
-
       {/* ================= INSPIRING STORIES ================= */}
       <section className="stories-section reveal">
         <div className="stories-header">
@@ -254,7 +250,7 @@ const Home = () => {
               onClick={() => setStoryIndex((prev) => (prev === 0 ? STORIES.length - 1 : prev - 1))}
               aria-label="Previous story"
             >
-              ←
+              ‹
             </button>
             <div className="stories-indicator">
               {storyIndex + 1} / {STORIES.length}
@@ -265,7 +261,7 @@ const Home = () => {
               onClick={() => setStoryIndex((prev) => (prev + 1) % STORIES.length)}
               aria-label="Next story"
             >
-              →
+              ›
             </button>
           </div>
 
@@ -298,15 +294,12 @@ const Home = () => {
       <section className="business-section-wrapper reveal">
         <div className="business-left-content">
           <img
-  src={hoverData?.preview || defaultPreview}
-  alt="Preview"
-  width="640"
-  height="420"
-  className="business-preview-image"
-/>
-
-            
-          
+            src={hoverData?.preview || defaultPreview}
+            alt="Preview"
+            width="640"
+            height="420"
+            className="business-preview-image"
+          />
         </div>
 
         <BusinessButtons

@@ -16,6 +16,32 @@ body {
   line-height: 1.6;
 }
 
+p {
+  text-align: left;
+}
+
+.pharma-hero-text,
+.business-cover-overlay,
+.tourism-overlay,
+.exfea-hero-overlay,
+.events-hero-overlay,
+.cosmoceutical-hero-overlay,
+.contact-hero-overlay,
+.clinic-hero-overlay,
+.design-hero-overlay,
+.about-hero-overlay,
+.helaya-diagnostic-hero-overlay,
+.intl-hero-overlay,
+.helaya-healthmart-hero-overlay,
+.helaya-cover-overlay {
+  background: transparent;
+}
+
+.tourism-overlay::after {
+  content: none;
+}
+
+
 .app {
   min-height: 100vh;
   display: flex;
@@ -94,5 +120,80 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section,
+  .pharma-hero,
+  .business-cover,
+  .tourism-cover,
+  .exfea-hero,
+  .cosmoceutical-hero,
+  .contact-hero,
+  .events-hero,
+  .clinic-hero,
+  .design-hero,
+  .about-hero,
+  .helaya-diagnostic-hero,
+  .intl-hero,
+  .helaya-healthmart-hero,
+  .helaya-cover {
+    height: 56vh;
+    min-height: 360px;
+  }
+
+  .hero-content-right,
+  .pharma-hero-text,
+  .business-cover-content,
+  .tourism-cover-content,
+  .exfea-hero-content,
+  .cosmoceutical-hero-content,
+  .contact-hero-inner,
+  .events-hero-overlay,
+  .clinic-hero-text,
+  .design-hero-text,
+  .about-hero-inner,
+  .helaya-diagnostic-hero-content,
+  .intl-hero-text,
+  .helaya-healthmart-hero-content,
+  .helaya-cover-content {
+    max-width: 92%;
+  }
+
+  .hero-title,
+  .pharma-hero-text h1,
+  .business-cover-title,
+  .tourism-cover-content h1,
+  .exfea-hero-content h1,
+  .cosmoceutical-hero-content h1,
+  .contact-hero-title,
+  .events-hero-title,
+  .clinic-hero-text h1,
+  .design-hero-text h1,
+  .about-hero-title,
+  .helaya-diagnostic-hero-content h1,
+  .intl-hero-text h1,
+  .helaya-healthmart-hero-content h1,
+  .helaya-cover-content h1 {
+    font-size: clamp(1.9rem, 6vw, 2.4rem);
+  }
+
+  .hero-text,
+  .hero-text-strong,
+  .business-cover-desc,
+  .tourism-cover-content p,
+  .exfea-hero-content p,
+  .cosmoceutical-hero-content p,
+  .contact-hero-sub,
+  .events-hero-sub,
+  .clinic-hero-text p,
+  .design-hero-text p,
+  .about-hero-subtitle,
+  .helaya-diagnostic-hero-content p,
+  .intl-hero-text p,
+  .helaya-healthmart-hero-content p,
+  .helaya-cover-content p {
+    font-size: clamp(0.95rem, 3.4vw, 1.05rem);
   }
 }

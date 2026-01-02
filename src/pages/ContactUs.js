@@ -126,63 +126,75 @@ const ContactUs = () => {
       <div className="contact-section-divider" aria-hidden="true"></div>
 
       {/* MAP + INFO */}
-      <div className="map-info-section">
+      <section className="contact-location-section">
+        <div className="contact-location-shell">
+          <div className="contact-location-header fade-up">
+            <h2>Visit Us</h2>
+            <p>Find us easily and reach out with any questions.</p>
+          </div>
 
-        <div className="map-container fade-up">
-          <iframe
-            title="A Mart Location"
-            width="100%"
-            height="100%"
-            style={{ border: 0, borderRadius: "12px" }}
-            loading="lazy"
-            allowFullScreen
-            src="https://www.google.com/maps?q=A%20Mart%20Holdings%20(Pvt)%20Ltd,%20City%20Center,%20Sunethradevi%20Rd,%20Kohuwala&output=embed"
-          ></iframe>
+          <div className="map-info-section">
+            <div className="map-container fade-up">
+              <iframe
+                title="A Mart Location"
+                width="100%"
+                height="100%"
+                style={{ border: 0, borderRadius: "12px" }}
+                loading="lazy"
+                allowFullScreen
+                src="https://www.google.com/maps?q=A%20Mart%20Holdings%20(Pvt)%20Ltd,%20City%20Center,%20Sunethradevi%20Rd,%20Kohuwala&output=embed"
+              ></iframe>
+            </div>
+
+            <div className="info-panel fade-up delay-1">
+              <div className="info-block">
+                <h3 className="info-title">Address</h3>
+                <p className="info-text">
+                  A Mart Holdings (Pvt) Ltd <br />
+                  City Center, No.12,<br />
+                  Sunethradevi Road, Kohuwala,<br />
+                  Sri Lanka.
+                </p>
+              </div>
+
+              <div className="info-block">
+                <h3 className="info-title">Contact Numbers</h3>
+                <p className="info-text">
+                  Tel / WhatsApp:<br />
+                  +94 77 7744 816<br />
+                  +94 77 7648 888
+                </p>
+              </div>
+
+              <div className="info-block">
+                <h3 className="info-title">Email</h3>
+                <p className="info-text">info@amartholdings.com</p>
+              </div>
+            </div>
+          </div>
+
+          {/* BOTTOM BOXES */}
+          <div className="bottom-boxes">
+            <div className="box get-direction-box fade-up">
+              <h3>Get Directions</h3>
+              <a
+                href="https://www.google.com/maps?q=A%20Mart%20Holdings%20(Pvt)%20Ltd,%20City%20Center,%20Sunethradevi%20Rd,%20Kohuwala"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open in Google Maps
+              </a>
+            </div>
+
+            <div className="box open-hours-box fade-up delay-1">
+              <h3>Open Hours</h3>
+              <p>Mon - Fri: 8.30 am - 6.00 pm</p>
+              <p>Sat - Sun: Closed</p>
+              <p>Poya Day: Closed</p>
+            </div>
+          </div>
         </div>
-
-        <div className="info-panel fade-up delay-1">
-          <h2 className="info-title">Address</h2>
-          <p className="info-text">
-            A Mart Holdings (Pvt) Ltd <br />
-            City Center, No.12,<br />
-            Sunethradevi Road, Kohuwala,<br />
-            Sri Lanka.
-          </p>
-
-          <h2 className="info-title">Contact Numbers</h2>
-          <p className="info-text">
-            Tel / WhatsApp:<br />
-            +94 77 7744 816<br />
-            +94 77 7648 888
-          </p>
-
-          <h2 className="info-title">Email</h2>
-          <p className="info-text">info@amartholdings.com</p>
-        </div>
-      </div>
-
-      {/* BOTTOM BOXES */}
-      <div className="bottom-boxes">
-
-        <div className="box get-direction-box fade-up">
-          <h3>Get Directions</h3>
-          <a
-            href="https://www.google.com/maps?q=A%20Mart%20Holdings%20(Pvt)%20Ltd,%20City%20Center,%20Sunethradevi%20Rd,%20Kohuwala"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open in Google Maps
-          </a>
-        </div>
-
-        <div className="box open-hours-box fade-up delay-1">
-          <h3>Open Hours</h3>
-          <p>Mon - Fri: 8.30 am - 6.00 pm</p>
-          <p>Sat - Sun: Closed</p>
-          <p>Poya Day: Closed</p>
-        </div>
-
-      </div>
+      </section>
     </div>
   );
 };
