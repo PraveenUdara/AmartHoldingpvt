@@ -8,10 +8,8 @@ const Footer = () => {
   return (
     <footer className="footer">
 
-      {/* ================= TOP SECTION ================= */}
       <div className="footer-top">
 
-        {/* Column 1: Logo + Address + Social */}
         <div className="footer-col footer-info">
           <img src={logo} alt="A Mart Holdings" className="footer-logo" />
 
@@ -23,12 +21,10 @@ const Footer = () => {
             10250, Sri Lanka
           </p>
 
-          {/* FOLLOW US TEXT */}
           <p className="footer-text" style={{ marginTop: "12px", fontWeight: 500 }}>
             Follow us on social media
           </p>
 
-          {/* SOCIAL ICONS */}
           <div className="footer-social">
             <a
               href="https://www.facebook.com/amartholdings"
@@ -37,7 +33,6 @@ const Footer = () => {
               aria-label="A Mart Holdings Facebook"
               className="social-icon facebook"
             >
-              {/* Facebook SVG */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -51,7 +46,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Column 2: Contact */}
         <div className="footer-col">
           <h3 className="footer-heading">Contact</h3>
 
@@ -66,7 +60,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Column 3: Google Map */}
         <div className="footer-col footer-map-col">
           <h3 className="footer-heading">Our Location</h3>
 
@@ -82,7 +75,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Column 4: Business Links */}
         <div className="footer-col">
           <h3 className="footer-heading">Our Businesses</h3>
 
@@ -120,12 +112,10 @@ const Footer = () => {
 
       </div>
 
-      {/* Divider */}
       <div className="footer-divider"></div>
 
-      {/* Bottom */}
       <div className="footer-bottom">
-        © {new Date().getFullYear()} A Mart Holdings. All rights reserved.
+        Ac {new Date().getFullYear()} A Mart Holdings. All rights reserved.
       </div>
 
     </footer>

@@ -1,4 +1,4 @@
-// src/pages/pharmaceuticals.js
+// src/pages/pharma.js
 import React, { useEffect } from "react";
 import pharmaCover from "../assets/9 pages/pharmaceuticals.jpg";
 import pharmaImage2 from "../assets/9 pages/ph2.jpg";
@@ -6,10 +6,8 @@ import "../styles/pharma.css";
 
 const Pharmaceuticals = () => {
 
-  /* ================= SCROLL ANIMATION ================= */
   useEffect(() => {
     const elements = document.querySelectorAll(".reveal");
-
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -20,7 +18,6 @@ const Pharmaceuticals = () => {
       },
       { threshold: 0.15 }
     );
-
     elements.forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -28,7 +25,6 @@ const Pharmaceuticals = () => {
   return (
     <div className="pharma-page">
 
-      {/* ================= HERO ================= */}
       <div className="pharma-hero">
         <img src={pharmaCover} alt="Pharmaceuticals" />
         <div className="pharma-hero-text">
@@ -39,7 +35,6 @@ const Pharmaceuticals = () => {
         </div>
       </div>
 
-      {/* ================= INFO SECTION ================= */}
       <section className="pharma-info reveal">
         <div className="pharma-text">
           <h2>Pharmaceuticals</h2>
@@ -67,14 +62,12 @@ const Pharmaceuticals = () => {
             better patient outcomes and overall well-being.
           </p>
 
-          {/* CERTIFICATIONS */}
           <div className="pharma-certifications">
             <div className="cert-badge">ISO Certified</div>
             <div className="cert-badge">GMP Compliant</div>
             <div className="cert-badge">NMRA Approved</div>
           </div>
 
-          {/* CTA */}
           <div className="pharma-cta">
             <a href="/contact">Contact Us</a>
           </div>
@@ -89,7 +82,6 @@ const Pharmaceuticals = () => {
         </div>
       </section>
 
-      {/* ================= QUALITY SECTION ================= */}
       <section className="pharma-quality reveal">
         <div className="pharma-quality-image">
           <img src={pharmaImage2} alt="Quality pharmaceutical products" />

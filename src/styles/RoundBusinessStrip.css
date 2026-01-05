@@ -1,0 +1,66 @@
+.round-strip {
+  margin: 30px auto 0;
+  padding: 14px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.round-strip-inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  gap: 16px;
+  align-items: center;
+}
+
+.round-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  text-decoration: none;
+  color: #0a2540;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(12, 38, 60, 0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.round-btn img {
+  width: 74px;
+  height: 74px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(13, 79, 134, 0.16);
+  background: #f7f9fc;
+}
+
+.round-btn span {
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.round-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  border-color: rgba(13, 79, 134, 0.3);
+}
+
+@media (max-width: 600px) {
+  .round-strip-inner {
+    grid-template-columns: repeat(3, minmax(110px, 1fr));
+    gap: 10px;
+  }
+
+  .round-btn img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .round-btn span {
+    font-size: 0.85rem;
+  }
+}
