@@ -40,6 +40,127 @@
   line-height: 1.7;
 }
 
+.healthservice-content {
+  padding: 70px 8% 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #0a2540;
+}
+
+.healthservice-content-inner {
+  text-align: center;
+}
+
+.healthservice-content-inner h2 {
+  font-size: clamp(1.8rem, 2vw + 1rem, 2.3rem);
+  margin-bottom: 12px;
+}
+
+.healthservice-content-inner p {
+  max-width: 880px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+  color: #3f4c5a;
+}
+
+.healthservice-icon-section {
+  padding: 10px 8% 80px;
+}
+
+.healthservice-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.healthservice-icon-card {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.healthservice-icon-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
+}
+
+.healthservice-icon-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.healthservice-icon-card:hover img {
+  transform: scale(1.04);
+}
+
+.healthservice-icon-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 22px;
+  color: #ffffff;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 18, 32, 0.08) 0%,
+    rgba(10, 48, 92, 0.5) 65%,
+    rgba(8, 58, 120, 0.85) 100%
+  );
+  transition: background 0.25s ease;
+}
+
+.healthservice-icon-card:hover .healthservice-icon-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(6, 18, 32, 0.18) 0%,
+    rgba(10, 48, 92, 0.7) 65%,
+    rgba(8, 58, 120, 0.95) 100%
+  );
+}
+
+.healthservice-icon-overlay h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.healthservice-icon-overlay p {
+  margin: 0;
+  line-height: 1.55;
+  color: #eaf2fb;
+}
+
+.healthservice-icon-btn {
+  align-self: flex-start;
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #d7ecff;
+  color: #0a2540;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 10px 24px rgba(10, 75, 134, 0.18);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.healthservice-icon-btn:hover {
+  background: #0a4b86;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .healthservice-hero {
     height: 45vh;
@@ -58,6 +179,18 @@
 
   .healthservice-hero-content p {
     font-size: 0.98rem;
+  }
+
+  .healthservice-content {
+    padding: 60px 6% 80px;
+  }
+
+  .healthservice-icon-section {
+    padding: 0 6% 70px;
+  }
+
+  .healthservice-icon-grid {
+    grid-template-columns: 1fr;
   }
 }
 

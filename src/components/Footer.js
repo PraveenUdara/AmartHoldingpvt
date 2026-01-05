@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="footer-top">
 
         {/* Column 1: Logo + Address + Social */}
-        <div className="footer-col">
+        <div className="footer-col footer-info">
           <img src={logo} alt="A Mart Holdings" className="footer-logo" />
 
           <h3 className="footer-heading">A Mart Holdings (Pvt) Ltd</h3>
@@ -86,15 +86,36 @@ const Footer = () => {
         <div className="footer-col">
           <h3 className="footer-heading">Our Businesses</h3>
 
-          <Link className="footer-link" to="/business/pharmaceuticals">Pharmaceutical</Link>
-          <Link className="footer-link" to="/business/diagnostics">Diagnostics</Link>
-          <Link className="footer-link" to="/business/medical-tourism">Medical Tourist</Link>
-          <Link className="footer-link" to="/business/helaya-pharmacy">Helaya Pharmacy</Link>
-          <Link className="footer-link" to="/business/medical-centers">Medical Centers</Link>
-          <Link className="footer-link" to="/business/branding-design">Branding & Design</Link>
-          <Link className="footer-link" to="/business/helaya-international">Helaya International</Link>
-          <Link className="footer-link" to="/business/manufacture">Manufacture</Link>
-          <Link className="footer-link" to="/business/expia">Expia</Link>
+          <div className="footer-business-row">
+            <div className="footer-link-group">
+              <Link className="footer-main-link" to="/business/healthcare-services">Healthcare Services</Link>
+              <div className="footer-sublinks">
+                <Link className="footer-link" to="/business/pharmaceuticals">Pharmaceuticals</Link>
+                <Link className="footer-link" to="/business/diagnostics">Diagnostics</Link>
+                <Link className="footer-link" to="/business/medical-tourism">Medical Tourism</Link>
+              </div>
+            </div>
+
+            <div className="footer-link-group">
+              <Link className="footer-main-link" to="/business/helaya-health-mart">Helaya Health Mart</Link>
+              <div className="footer-sublinks">
+                <Link className="footer-link" to="/business/helaya-pharmacy">Helaya Pharmacy</Link>
+                <Link className="footer-link" to="/business/helaya-diagnostic">Helaya Diagnostic</Link>
+                <Link className="footer-link" to="/business/medical-centers">Medical Centers</Link>
+              </div>
+            </div>
+
+            <div className="footer-link-group footer-brands-block">
+              <Link className="footer-main-link" to="/business/brands-ventures">Brands & Ventures</Link>
+              <div className="footer-sublinks">
+                <Link className="footer-link" to="/business/branding-design">Branding & Design</Link>
+                <Link className="footer-link" to="/business/expia">Exfea</Link>
+                <Link className="footer-link" to="/business/helaya-international">Helaya International</Link>
+                <Link className="footer-link" to="/business/manufacture">Manufacture</Link>
+                <Link className="footer-link" to="/business/cosmeceutical">Cosmeceutical</Link>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

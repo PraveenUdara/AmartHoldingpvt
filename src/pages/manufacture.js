@@ -1,5 +1,5 @@
 // src/pages/Manufacture.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/manufacture.css";
 import manufactureImg from "../assets/9 pages/manufacture/manufatcure.png";
 
@@ -28,6 +28,13 @@ const Manufacture = () => {
       ],
     },
   };
+
+  useEffect(() => {
+    document.body.classList.add("nav-darktext");
+    return () => {
+      document.body.classList.remove("nav-darktext");
+    };
+  }, []);
 
   return (
     <div className="manufacture-page">

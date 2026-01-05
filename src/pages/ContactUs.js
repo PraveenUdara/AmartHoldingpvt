@@ -1,10 +1,54 @@
 // src/pages/ContactUs.js
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
 import "../styles/ContactUs.css";
 import contactCover from "../assets/contact_cover.jpg";
 
 const ContactUs = () => {
+  // ================= FORM STATE =================
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // ================= SUBMIT HANDLER =================
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Thank you! Your message has been sent successfully.");
+        setName("");
+        setPhone("");
+        setEmail("");
+        setMessage("");
+      } else {
+        alert(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Server error. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="contact-page">
 
@@ -66,19 +110,15 @@ const ContactUs = () => {
               Our team will respond as soon as possible.
             </p>
 
-            <form
-              className="contact-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Thank you! Your message has been sent.");
-              }}
-            >
+            <form className="contact-form" onSubmit={handleSubmit}>
               <div className="two-column">
                 <div className="form-group">
                   <label className="form-label">Name</label>
                   <input
                     className="form-input"
                     placeholder="Your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     required
                   />
                 </div>
@@ -89,6 +129,8 @@ const ContactUs = () => {
                     className="form-input"
                     type="tel"
                     placeholder="07X XXX XXXX"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     required
                   />
                 </div>
@@ -100,6 +142,8 @@ const ContactUs = () => {
                   className="form-input"
                   type="email"
                   placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -109,12 +153,14 @@ const ContactUs = () => {
                 <textarea
                   className="form-textarea"
                   placeholder="Write your message here..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   required
                 />
               </div>
 
-              <button className="btn-submit" type="submit">
-                Send Message
+              <button className="btn-submit" type="submit" disabled={loading}>
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
@@ -128,6 +174,7 @@ const ContactUs = () => {
       {/* MAP + INFO */}
       <section className="contact-location-section">
         <div className="contact-location-shell">
+
           <div className="contact-location-header fade-up">
             <h2>Visit Us</h2>
             <p>Find us easily and reach out with any questions.</p>
@@ -193,6 +240,7 @@ const ContactUs = () => {
               <p>Poya Day: Closed</p>
             </div>
           </div>
+
         </div>
       </section>
     </div>

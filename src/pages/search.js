@@ -135,6 +135,11 @@ const SearchPage = () => {
   const [businessIndex, setBusinessIndex] = useState(0);
 
   useEffect(() => {
+    document.body.classList.add("nav-darktext");
+    return () => document.body.classList.remove("nav-darktext");
+  }, []);
+
+  useEffect(() => {
     setInput(initialQuery);
   }, [initialQuery]);
 

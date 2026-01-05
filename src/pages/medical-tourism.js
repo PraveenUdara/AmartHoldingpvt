@@ -249,6 +249,11 @@ const MedicalTourism = () => {
             <a href="/contact">our contact page</a> and our coordinators will craft a tailored
             itinerary.
           </p>
+          <div style={{ marginTop: "12px" }}>
+            <a className="tourism-cta-btn" href="/contact">
+              Contact Us
+            </a>
+          </div>
         </div>
       </section>
     </div>

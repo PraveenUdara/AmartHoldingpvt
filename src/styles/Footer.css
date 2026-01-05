@@ -39,12 +39,13 @@
 
 /* ====================== GRID LAYOUT ====================== */
 .footer-top {
-  max-width: 1280px;
-  margin: auto;
-  padding: 0 24px 60px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 40px 60px;
   display: grid;
   grid-template-columns: 1.4fr 1fr 1.4fr 1fr;
   gap: 64px;
+  align-items: flex-start;
   position: relative;
   z-index: 2;
 }
@@ -54,6 +55,13 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+  align-items: flex-start;
+}
+
+.footer-info {
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 0;
 }
 
 /* ====================== HEADINGS ====================== */
@@ -131,6 +139,53 @@
   width: 100%;
 }
 
+.footer-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.footer-business-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 18px 32px;
+  align-items: flex-start;
+}
+
+.footer-main-pair {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-main-link {
+  text-decoration: none;
+  color: #0a2540;
+  font-weight: 700;
+  font-size: 1rem;
+  position: relative;
+  width: fit-content;
+}
+
+.footer-main-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #0d6efd, #64b5f6);
+  opacity: 0.6;
+}
+
+.footer-sublinks {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-left: 8px;
+}
+
 /* ====================== SOCIAL SECTION ====================== */
 .footer-social {
   display: flex;
@@ -166,7 +221,7 @@
 
 .footer-map {
   width: 100%;
-  height: 190px;
+  height: 260px;
   border: none;
 }
 
@@ -201,6 +256,12 @@
     align-items: center;
   }
 
+  .footer-info {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
   .footer-text.location {
     padding-left: 0;
   }
@@ -221,11 +282,21 @@
     padding-top: 60px;
   }
 
+  .footer-main-pair {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-business-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
   .footer-logo {
     width: 155px;
   }
 
   .footer-map {
-    height: 170px;
+    height: 220px;
   }
 }
