@@ -531,8 +531,8 @@
 
   .mega-panel {
     position: static;
-    width: 92vw;
-    margin-top: 10px;
+    width: min(520px, 92vw);
+    margin: 10px auto 0;
     opacity: 1;
     transform: none;
     pointer-events: auto;
@@ -545,6 +545,16 @@
 
   .mega-columns {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .mega-panel {
+    width: 94vw;
+  }
+
+  .mega-columns {
+    grid-template-columns: 1fr;
   }
 }
 /* === ALIGN BUSINESS BUTTON WITH OTHER NAV LINKS === */
