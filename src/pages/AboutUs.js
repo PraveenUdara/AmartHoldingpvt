@@ -1,5 +1,5 @@
 // src/pages/AboutUs.js
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import aboutUsImg from "../assets/about_bg.jpg";
 import "../styles/AboutUs.css";
 
@@ -34,7 +34,37 @@ const AboutUs = () => {
   };
 
   const [activeKey, setActiveKey] = useState("mission");
+  const [underlineStyle, setUnderlineStyle] = useState({ width: 0, transform: "translateX(0px)" });
+  const tabRefs = useRef({});
+  const tabsWrapRef = useRef(null);
+  const tabKeys = useMemo(() => ["mission", "vision", "values"], []);
   const activeSection = sections[activeKey];
+
+  useEffect(() => {
+    const updateUnderline = () => {
+      const activeTab = tabRefs.current[activeKey];
+      const wrap = tabsWrapRef.current;
+      if (!activeTab || !wrap) return;
+      const left = activeTab.offsetLeft;
+      const width = activeTab.offsetWidth;
+      setUnderlineStyle({ width, transform: `translateX(${left}px)` });
+    };
+    updateUnderline();
+    window.addEventListener("resize", updateUnderline);
+    return () => window.removeEventListener("resize", updateUnderline);
+  }, [activeKey]);
+
+  const handlePrev = () => {
+    const index = tabKeys.indexOf(activeKey);
+    const nextIndex = (index - 1 + tabKeys.length) % tabKeys.length;
+    setActiveKey(tabKeys[nextIndex]);
+  };
+
+  const handleNext = () => {
+    const index = tabKeys.indexOf(activeKey);
+    const nextIndex = (index + 1) % tabKeys.length;
+    setActiveKey(tabKeys[nextIndex]);
+  };
 
   return (
     <div className="about-page">
@@ -107,7 +137,7 @@ const AboutUs = () => {
 
       {/* MISSION / VISION / VALUES */}
       <section className="mv-modern fade-up">
-        <div className="mv-tabs-modern">
+        <div className="mv-tabs-modern" ref={tabsWrapRef}>
           {Object.values(sections).map((sec) => (
             <button
               key={sec.key}
@@ -116,22 +146,24 @@ const AboutUs = () => {
                 (activeKey === sec.key ? " mv-tab-modern-active" : "")
               }
               onClick={() => setActiveKey(sec.key)}
+              ref={(node) => {
+                tabRefs.current[sec.key] = node;
+              }}
             >
               {sec.label}
             </button>
           ))}
 
-          <div
-            className="mv-tab-underline"
-            style={{
-              transform:
-                activeKey === "mission"
-                  ? "translateX(0%)"
-                  : activeKey === "vision"
-                  ? "translateX(100%)"
-                  : "translateX(200%)",
-            }}
-          ></div>
+          <div className="mv-tab-underline" style={underlineStyle}></div>
+
+          <div className="mv-tab-arrows">
+            <button type="button" className="mv-arrow" onClick={handlePrev} aria-label="Previous">
+              ‹
+            </button>
+            <button type="button" className="mv-arrow" onClick={handleNext} aria-label="Next">
+              ›
+            </button>
+          </div>
         </div>
 
         <div className="mv-cards-container">

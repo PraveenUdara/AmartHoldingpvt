@@ -1,10 +1,11 @@
 // src/pages/Manufacture.js
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/manufacture.css";
 import manufactureImg from "../assets/9 pages/manufacture/manufatcure.png";
 
 const Manufacture = () => {
   const [activeEntity, setActiveEntity] = useState("cosmoderma");
+  const switcherRef = useRef(null);
 
   const manufactureData = {
     cosmoderma: {
@@ -34,6 +35,24 @@ const Manufacture = () => {
     return () => {
       document.body.classList.remove("nav-darktext");
     };
+  }, []);
+
+  useEffect(() => {
+    const syncFromHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes("helaya-biosim")) {
+        setActiveEntity("biosim");
+      } else if (hash.includes("helaya-cosmoderma")) {
+        setActiveEntity("cosmoderma");
+      }
+      if (hash) {
+        switcherRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
   }, []);
 
   return (
@@ -74,7 +93,7 @@ const Manufacture = () => {
       </section>
 
       {/* ENTITY SWITCHER */}
-      <section className="manufacture-switcher">
+      <section className="manufacture-switcher" ref={switcherRef}>
         <div className="manufacture-tabs">
           <button
             type="button"

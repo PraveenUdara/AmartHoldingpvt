@@ -98,14 +98,19 @@ const Footer = () => {
             </div>
 
             <div className="footer-link-group footer-brands-block">
-              <Link className="footer-main-link" to="/business/brands-ventures">Brands & Ventures</Link>
+              <Link className="footer-main-link" to="/business/helaya-international">Energy & Trading</Link>
               <div className="footer-sublinks">
-                <Link className="footer-link" to="/business/branding-design">Branding & Design</Link>
                 <Link className="footer-link" to="/business/expia">Exfea</Link>
                 <Link className="footer-link" to="/business/helaya-international">Helaya International</Link>
-                <Link className="footer-link" to="/business/manufacture">Manufacture</Link>
-                <Link className="footer-link" to="/business/cosmeceutical">Cosmeceutical</Link>
               </div>
+            </div>
+
+            <div className="footer-link-group">
+              <Link className="footer-main-link" to="/business/manufacture">Manufacture</Link>
+            </div>
+
+            <div className="footer-link-group">
+              <Link className="footer-main-link" to="/business/branding-design">A Mart Branding & Solutions</Link>
             </div>
           </div>
         </div>

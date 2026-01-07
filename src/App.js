@@ -22,12 +22,12 @@ import HelayaHeatlthMart from "./pages/HelayaHeatlthMart";
 import HelayaDiagnostic from "./pages/HelayaDiagnostic";
 import MedicalCenters from "./pages/clinic";
 import BrandingDesign from "./pages/amart-design";
+import AiSolution from "./pages/AiSolution";
 import HelayaInternational from "./pages/helaya-international";
 import Manufacture from "./pages/manufacture";
 import Expia from "./pages/exfea";
 import Cosmoceutical from "./pages/cosmoceutical";
 import HealthcareService from "./pages/HealthcareService";
-import BrandsVenture from "./pages/Brands&Venture";
 
 function App() {
   return (
@@ -54,12 +54,12 @@ function App() {
           <Route path="/business/helaya-diagnostic" element={<HelayaDiagnostic />} />
           <Route path="/business/medical-centers" element={<MedicalCenters />} />
           <Route path="/business/branding-design" element={<BrandingDesign />} />
+          <Route path="/business/ai-solution" element={<AiSolution />} />
           <Route path="/business/helaya-international" element={<HelayaInternational />} />
           <Route path="/business/manufacture" element={<Manufacture />} />
           <Route path="/business/expia" element={<Expia />} />
           <Route path="/business/cosmeceutical" element={<Cosmoceutical />} />
           <Route path="/business/healthcare-services" element={<HealthcareService />} />
-          <Route path="/business/brands-ventures" element={<BrandsVenture />} />
         </Routes>
       </main>
 

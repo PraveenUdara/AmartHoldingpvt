@@ -37,8 +37,27 @@ const HelayaInternational = () => {
         <div className="intl-text">
           <h2>Worldwide reach, trusted partners</h2>
           <p>
-            We connect with leading manufacturers and logistics partners to ensure consistent, compliant delivery
-            of pharmaceuticals and medical supplies across borders.
+            Helaya International Trading, operating as Requisites Trading Co. L.L.C in Dubai, is a
+            globally connected trading company specializing in the import, export, and distribution
+            of high-quality products across international markets.
+          </p>
+          <p>
+            Leveraging Dubai's strategic position as a global trade hub, we bridge manufacturers and
+            consumers through efficient supply chain management, reliable logistics, and
+            competitive pricing. Our operations span multiple sectors, including pharmaceuticals,
+            healthcare, beauty & personal care, consumer goods, and industrial products, ensuring
+            seamless trade solutions for diverse market needs.
+          </p>
+          <p>
+            We are committed to sourcing and delivering premium-quality products that meet global
+            standards of safety, compliance, and sustainability. Our experienced team ensures timely
+            deliveries, transparent processes, and consistent quality across every transaction.
+          </p>
+          <p>
+            Driven by trust, long-term partnerships, and operational excellence, Helaya International
+            Trading continues to expand its global footprint. With a strong focus on innovation and
+            customer satisfaction, we remain dedicated to supporting our partners and advancing
+            international trade with integrity and reliability.
           </p>
           <div className="intl-tags">
             <span className="tag">Global sourcing</span>

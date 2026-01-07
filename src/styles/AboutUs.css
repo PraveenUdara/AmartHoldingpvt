@@ -223,6 +223,7 @@
   border-bottom: 2px solid #dce6f3;
   position: relative;
   margin-bottom: 45px;
+  align-items: center;
 }
 
 .mv-tab-modern-btn {
@@ -248,10 +249,36 @@
   position: absolute;
   bottom: -2px;
   height: 3px;
-  width: 33%;
   background: #005b8e;
   border-radius: 10px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.mv-tab-arrows {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 8px;
+}
+
+.mv-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 63, 92, 0.2);
+  background: #ffffff;
+  color: #003f5c;
+  font-size: 1.4rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mv-arrow:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 .mv-cards-container {
@@ -345,6 +372,13 @@
 
   .mv-tabs-modern {
     gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .mv-tab-arrows {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 8px;
   }
 }
 

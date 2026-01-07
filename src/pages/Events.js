@@ -32,6 +32,63 @@ const cmeImages = importAll(
   )
 );
 
+const kandyHelayaImages = importAll(
+  require.context(
+    "../assets/Events/Kandy Helaya Pharamcey opens",
+    false,
+    /\.(webp|jpg|jpeg|png)$/
+  )
+);
+
+const kandyHelayaVideos = importAll(
+  require.context(
+    "../assets/Events/Kandy Helaya Pharamcey opens",
+    false,
+    /\.(mp4|webm|mov)$/
+  )
+);
+
+const kandyHelayaPosters = importAll(
+  require.context(
+    "../assets/Events/Kandy Helaya Pharamcey opens",
+    false,
+    /_poster\.(jpg|jpeg|png)$/
+  )
+);
+
+const kandyHelayaPosterMap = kandyHelayaPosters.reduce((acc, src) => {
+  const match = src.match(/\/([^/]+)_poster\.(jpg|jpeg|png)$/i);
+  if (match) {
+    acc[match[1]] = src;
+  }
+  return acc;
+}, {});
+
+const kandyHelayaVideoItems = kandyHelayaVideos.map((src) => {
+  const match = src.match(/\/([^/]+)\.(mp4|webm|mov)$/i);
+  const baseName = match ? match[1] : "";
+  return {
+    src,
+    poster: kandyHelayaPosterMap[baseName],
+  };
+});
+
+const kduChemoImages = importAll(
+  require.context(
+    "../assets/Events/KDU hospital chemotherapy unit opens",
+    false,
+    /\.(webp|jpg|jpeg|png)$/
+  )
+);
+
+const manipalEventImages = importAll(
+  require.context(
+    "../assets/Events/Manipal Hospital Event",
+    false,
+    /\.(webp|jpg|jpeg|png)$/
+  )
+);
+
 const Events = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -111,6 +168,68 @@ const Events = () => {
                 key={i}
                 src={img}
                 alt="CME Event"
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* EVENT 04 */}
+        <div className="event-section fade-up delay-1">
+          <h2>Kandy Helaya Pharmacy opens</h2>
+          <div className="event-gallery">
+            {kandyHelayaImages.map((img, i) => (
+              <img
+                key={i}
+                src={img}
+                alt="Kandy Helaya Pharmacy"
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
+          {kandyHelayaVideos.length > 0 && (
+            <div className="event-video-section">
+              <h4>Event Videos</h4>
+              <div className="event-video-grid">
+                {kandyHelayaVideoItems.map((video, i) => (
+                  <video
+                    key={i}
+                    src={video.src}
+                    poster={video.poster}
+                    controls
+                    preload="metadata"
+                    className="event-video"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* EVENT 05 */}
+        <div className="event-section fade-up">
+          <h2>KDU hospital chemotherapy unit opens</h2>
+          <div className="event-gallery">
+            {kduChemoImages.map((img, i) => (
+              <img
+                key={i}
+                src={img}
+                alt="KDU chemotherapy unit"
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* EVENT 06 */}
+        <div className="event-section fade-up delay-2">
+          <h2>Manipal Hospital Event</h2>
+          <div className="event-gallery">
+            {manipalEventImages.map((img, i) => (
+              <img
+                key={i}
+                src={img}
+                alt="Manipal Hospital Event"
                 onClick={() => setSelectedImage(img)}
               />
             ))}

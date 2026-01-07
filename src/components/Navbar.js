@@ -25,14 +25,27 @@ const businessColumns = [
     ],
   },
   {
-    title: "Brands & Ventures",
-    path: "/business/brands-ventures",
+    title: "Energy & Trading",
+    path: null,
     items: [
-      { label: "A Mart Branding & Design", path: "/business/branding-design" },
       { label: "Exfea", path: "/business/expia" },
       { label: "Helaya International", path: "/business/helaya-international" },
-      { label: "Manufacture", path: "/business/manufacture" },
-      { label: "Cosmeceutical", path: "/business/cosmeceutical" },
+    ],
+  },
+  {
+    title: "Manufacture",
+    path: "/business/manufacture",
+    items: [
+      { label: "Helaya Biosim (Pvt) Ltd", path: "/business/manufacture#helaya-biosim" },
+      { label: "Helaya CosmoDerma (Pvt) Ltd", path: "/business/manufacture#helaya-cosmoderma" },
+    ],
+  },
+  {
+    title: "A Mart Branding & Solutions",
+    path: "/business/branding-design",
+    items: [
+      { label: "A Mart Branding", path: "/business/branding-design" },
+      { label: "A.I Solution", path: "/business/ai-solution" },
     ],
   },
 ];
@@ -69,6 +82,7 @@ const Navbar = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -153,36 +167,42 @@ const Navbar = () => {
                 <div className="mega-columns">
                   {businessColumns.map(column => (
                     <div className="mega-column" key={column.title}>
-                      <NavLink
-                        to={column.path}
-                        onClick={closeMenus}
-                        className="mega-heading mega-heading-link"
-                      >
-                        {column.title}
-                      </NavLink>
-                      <div className="mega-column-links">
-                        {column.items.map(item => (
-                          <div className="mega-item" key={item.path}>
-                            <NavLink to={item.path} onClick={closeMenus} className="mega-text">
-                              {item.label}
-                            </NavLink>
-                            {item.sublinks && (
-                              <div className="mega-sublist">
-                                {item.sublinks.map(sub => (
-                                  <Link
-                                    key={sub.path}
-                                    to={sub.path}
-                                    className="mega-subitem"
-                                    onClick={closeMenus}
-                                  >
-                                    {sub.label}
-                                  </Link>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
+                      {column.path ? (
+                        <NavLink
+                          to={column.path}
+                          onClick={closeMenus}
+                          className="mega-heading mega-heading-link"
+                        >
+                          {column.title}
+                        </NavLink>
+                      ) : (
+                        <span className="mega-heading">{column.title}</span>
+                      )}
+                      {column.items?.length > 0 && (
+                        <div className="mega-column-links">
+                          {column.items.map(item => (
+                            <div className="mega-item" key={item.path}>
+                              <NavLink to={item.path} onClick={closeMenus} className="mega-text">
+                                {item.label}
+                              </NavLink>
+                              {item.sublinks && (
+                                <div className="mega-sublist">
+                                  {item.sublinks.map(sub => (
+                                    <Link
+                                      key={sub.path}
+                                      to={sub.path}
+                                      className="mega-subitem"
+                                      onClick={closeMenus}
+                                    >
+                                      {sub.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>

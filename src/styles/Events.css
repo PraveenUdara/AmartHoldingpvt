@@ -130,6 +130,33 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
 }
 
+/* ================= VIDEO SECTION ================= */
+.event-video-section {
+  margin-top: 26px;
+}
+
+.event-video-section h4 {
+  font-size: 1rem;
+  color: #546e7a;
+  margin-bottom: 12px;
+}
+
+.event-video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.event-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #0b1a2a;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
 /* ================= LIGHTBOX ================= */
 .lightbox-overlay {
   position: fixed;
@@ -230,6 +257,10 @@
   .event-gallery img {
     height: 160px;
   }
+
+  .event-video {
+    height: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -243,6 +274,10 @@
 
   .event-gallery img {
     height: 140px;
+  }
+
+  .event-video {
+    height: auto;
   }
 
   .lightbox-close {

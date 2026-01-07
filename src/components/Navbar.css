@@ -41,8 +41,8 @@
 }
 
 .navbar-shrink .navbar-inner {
-  min-height: 70px;
-  padding: 10px 16px;
+  min-height: 58px;
+  padding: 6px 14px;
   background: rgba(255, 255, 255, 0.96);
   border-radius: 12px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
@@ -67,8 +67,8 @@
 }
 
 .navbar-shrink .nav-logo-img {
-  height: 48px;
-  width: 96px;
+  height: 40px;
+  width: 82px;
 }
 
 .nav-logo-text {
@@ -81,7 +81,7 @@
 
 .navbar-shrink .nav-logo-text {
   color: #0b3c66;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
 }
 
 /* ========================
@@ -577,4 +577,8 @@
 
 .nav-darktext .navbar .nav-link::after {
   background: #0a2540;
+}
+
+.nav-darktext .navbar .arrow {
+  border-color: #0a2540;
 }
