@@ -155,18 +155,13 @@ const AboutUs = () => {
           ))}
 
           <div className="mv-tab-underline" style={underlineStyle}></div>
-
-          <div className="mv-tab-arrows">
-            <button type="button" className="mv-arrow" onClick={handlePrev} aria-label="Previous">
-              ‹
-            </button>
-            <button type="button" className="mv-arrow" onClick={handleNext} aria-label="Next">
-              ›
-            </button>
-          </div>
         </div>
 
         <div className="mv-cards-container">
+          <button type="button" className="mv-side-arrow mv-side-arrow-left" onClick={handlePrev} aria-label="Previous">
+            ‹
+          </button>
+
           <div key={activeKey} className="mv-card-image fade-up">
             <img
               src={activeSection.image}
@@ -184,6 +179,10 @@ const AboutUs = () => {
               {activeSection.text}
             </p>
           </div>
+
+          <button type="button" className="mv-side-arrow mv-side-arrow-right" onClick={handleNext} aria-label="Next">
+            ›
+          </button>
         </div>
       </section>
 
@@ -224,3 +223,4 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+
