@@ -41,7 +41,7 @@ const businessColumns = [
     ],
   },
   {
-    title: "A Mart Branding & Solutions",
+    title: "Branding and A.I Solution",
     path: "/business/branding-design",
     items: [
       { label: "A Mart Branding", path: "/business/branding-design" },

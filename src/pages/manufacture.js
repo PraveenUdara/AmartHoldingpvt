@@ -31,13 +31,6 @@ const Manufacture = () => {
   };
 
   useEffect(() => {
-    document.body.classList.add("nav-darktext");
-    return () => {
-      document.body.classList.remove("nav-darktext");
-    };
-  }, []);
-
-  useEffect(() => {
     const syncFromHash = () => {
       const hash = window.location.hash.toLowerCase();
       if (hash.includes("helaya-biosim")) {

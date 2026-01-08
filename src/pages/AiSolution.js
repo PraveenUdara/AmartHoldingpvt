@@ -1,13 +1,8 @@
 // src/pages/AiSolution.js
-import React, { useEffect } from "react";
+import React from "react";
 import "../styles/AiSolution.css";
 
 const AiSolution = () => {
-  useEffect(() => {
-    document.body.classList.add("nav-darktext");
-    return () => document.body.classList.remove("nav-darktext");
-  }, []);
-
   return (
     <div className="ai-page">
       <section className="ai-hero">

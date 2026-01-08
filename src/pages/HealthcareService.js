@@ -1,5 +1,5 @@
 // src/pages/HealthcareService.js
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/HealthcareService.css";
 import heroImage from "../assets/9 pages/healthservice/healthcareservice.png";
@@ -8,6 +8,11 @@ import pharmaImg from "../assets/9 pages/healthservice/pharamacutical.png";
 import diagnosticImg from "../assets/9 pages/healthservice/diagnostic.png";
 
 const HealthcareService = () => {
+  useEffect(() => {
+    document.body.classList.add("nav-darktext");
+    return () => document.body.classList.remove("nav-darktext");
+  }, []);
+
   return (
     <div className="healthservice-page">
       <section className="healthservice-hero">
