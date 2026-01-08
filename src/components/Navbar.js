@@ -7,7 +7,7 @@ import "./Navbar.css";
 
 const businessColumns = [
   {
-    title: "Healthcare Services",
+    title: "A Mart Holding",
     path: "/business/healthcare-services",
     items: [
       { label: "Pharmaceuticals", path: "/business/pharmaceuticals" },

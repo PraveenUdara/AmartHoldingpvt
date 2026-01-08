@@ -11,6 +11,8 @@ import foundationImg from "../assets/9 pages/diagnostic/foundati.webp";
 import canassistImg from "../assets/9 pages/diagnostic/wrkflow-canassist.webp";
 import oncquestImg from "../assets/9 pages/diagnostic/onca.webp";
 import basecareImg from "../assets/9 pages/diagnostic/Genomic-Data.webp";
+import tempusImg from "../assets/9 pages/diagnostic/Tempus.png";
+import dataGeneticImg from "../assets/9 pages/diagnostic/datar genatic.webp";
 
 const Diagnostics = () => {
   const [openSections, setOpenSections] = useState({
@@ -187,7 +189,7 @@ const Diagnostics = () => {
           <img src={canassistImg} alt="CanAssist Breast" />
         </div>
         <div className="dx-copy">
-          <h3>CanAssist-Breast</h3>
+          <h3>CanAssist-Breast Test</h3>
           <p>
             CanAssist-Breast test helps clinicians formulate personalized therapeutic programs for their patients. The result is precision medicine that could shorten recovery time and improve the patient's quality of life.
           </p>
@@ -309,6 +311,46 @@ const Diagnostics = () => {
             </div>
           </div>
           <a className="diag-contact-btn" href="/contact">Contact Us</a>
+        </div>
+      </section>
+
+      {/* ================= TEMPUS ================= */}
+      <section className="tempus-section">
+        <div className="tempus-image">
+          <img src={tempusImg} alt="Tempus" />
+        </div>
+        <div className="tempus-copy">
+          <h3>Tempus</h3>
+          <p>
+            Tempus delivers data-driven insights that help clinicians personalize care by combining
+            advanced diagnostics with real-world evidence.
+          </p>
+          <p>
+            Our team supports tailored testing strategies that enable faster, more informed treatment
+            decisions across oncology and complex care pathways.
+          </p>
+          <a className="diag-contact-btn" href="/contact">Contact Us</a>
+        </div>
+      </section>
+
+      {/* ================= DATA GENETIC ================= */}
+      <section className="data-genetic-section">
+        <div className="data-genetic-image">
+          <img src={dataGeneticImg} alt="Data Genetic" />
+        </div>
+        <div className="data-genetic-copy">
+          <h3>Datar Genatic</h3>
+          <h4>exacta</h4>
+          <p>
+            Every human being is different and unique, similarly every person’s cancer is unique.
+            Therefore, cancer should ideally be treated with a personalised strategy. Conventional
+            ‘Standard of Care’ approaches do not take into consideration the molecular-genetic
+            architecture of a particular patient‘s tumour. Consequently, patients could suffer due
+            to failed therapies or aggressive relapse. It is imperative that the molecular
+            architecture of the tumour is studied comprehensively before deciding on the treatment
+            plan. The therapy can thus be tailored to the individual patient and their disease. This
+            significantly increases the likelihood of successful treatment.
+          </p>
         </div>
       </section>
 
