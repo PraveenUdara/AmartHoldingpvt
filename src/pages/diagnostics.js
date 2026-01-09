@@ -9,7 +9,6 @@ import centogImg from "../assets/9 pages/diagnostic/centog.webp";
 import dxImg from "../assets/9 pages/diagnostic/dx.webp";
 import foundationImg from "../assets/9 pages/diagnostic/foundati.webp";
 import canassistImg from "../assets/9 pages/diagnostic/wrkflow-canassist.webp";
-import oncquestImg from "../assets/9 pages/diagnostic/onca.webp";
 import basecareImg from "../assets/9 pages/diagnostic/Genomic-Data.webp";
 import tempusImg from "../assets/9 pages/diagnostic/Tempus.png";
 import dataGeneticImg from "../assets/9 pages/diagnostic/datar genatic.webp";
@@ -17,8 +16,6 @@ import dataGeneticImg from "../assets/9 pages/diagnostic/datar genatic.webp";
 const Diagnostics = () => {
   const [openSections, setOpenSections] = useState({
     oncotype: false,
-    oncquestDx: false,
-    oncquestFirst: false,
     basecareSomatic: false,
     basecareHereditary: false,
   });
@@ -95,30 +92,6 @@ const Diagnostics = () => {
         </div>
       </section>
 
-      {/* ================= CENTOGENE FEATURE ================= */}
-      <section className="centogene-section">
-        <div className="centogene-copy">
-          <h3>CENTOGENE</h3>
-          <p>
-            Centogene is one of the largest genetic biotech companies worldwide, the
-            European market leader, and one of the global leaders in genetic
-            diagnostic analyses of rare inherited diseases.
-          </p>
-          <p>
-            Centogene is focused on transforming clinical, genetic, and biochemical
-            data into medical solutions for patients with a global network of
-            partners.
-          </p>
-          <p>
-            Click here to learn more about Centogene's diagnostic services.
-          </p>
-          <a className="diag-contact-btn" href="/contact">Contact Us</a>
-        </div>
-        <div className="centogene-image">
-          <img src={centogImg} alt="Centogene" />
-        </div>
-      </section>
-
       {/* ================= ONCOTYPE DX FEATURE ================= */}
       <section className="dx-section">
         <div className="dx-image">
@@ -183,6 +156,46 @@ const Diagnostics = () => {
         </div>
       </section>
 
+      {/* ================= TEMPUS ================= */}
+      <section className="tempus-section">
+        <div className="tempus-image">
+          <img src={tempusImg} alt="Tempus" />
+        </div>
+        <div className="tempus-copy">
+          <h3>Tempus</h3>
+          <p>
+            Tempus delivers data-driven insights that help clinicians personalize care by combining
+            advanced diagnostics with real-world evidence.
+          </p>
+          <p>
+            Our team supports tailored testing strategies that enable faster, more informed treatment
+            decisions across oncology and complex care pathways.
+          </p>
+          <a className="diag-contact-btn" href="/contact">Contact Us</a>
+        </div>
+      </section>
+
+      {/* ================= DATA GENETIC ================= */}
+      <section className="data-genetic-section">
+        <div className="data-genetic-image">
+          <img src={dataGeneticImg} alt="Data Genetic" />
+        </div>
+        <div className="data-genetic-copy">
+          <h3>Datar Genatic</h3>
+          <h4>exacta</h4>
+          <p>
+            Every human being is different and unique, similarly every person’s cancer is unique.
+            Therefore, cancer should ideally be treated with a personalised strategy. Conventional
+            ‘Standard of Care’ approaches do not take into consideration the molecular-genetic
+            architecture of a particular patient‘s tumour. Consequently, patients could suffer due
+            to failed therapies or aggressive relapse. It is imperative that the molecular
+            architecture of the tumour is studied comprehensively before deciding on the treatment
+            plan. The therapy can thus be tailored to the individual patient and their disease. This
+            significantly increases the likelihood of successful treatment.
+          </p>
+        </div>
+      </section>
+
       {/* ================= CANASSIST BREAST ================= */}
       <section className="dx-section">
         <div className="dx-image">
@@ -197,67 +210,6 @@ const Diagnostics = () => {
             CanAssist-Breast test provides additional information about the cancerous tumor. Along with the existing pathology report, this test result can help identify the likelihood of the cancer returning post-surgery and whether the patient is likely to benefit from adding chemotherapy to her hormone therapy.
           </p>
           <a className="diag-contact-btn" href="/contact">Contact Us</a>
-        </div>
-      </section>
-
-      {/* ================= ONCQUEST ================= */}
-      <section className="oncquest-section">
-        <div className="oncquest-copy">
-          <h3>Oncquest</h3>
-          <p>
-            India's Largest Cancer Diagnostic Network with over 18 years of experience under its belt, College of American Pathology (CAP) and NABL accredited laboratory, Oncquest is known for its excellence in Molecular and Clinical Diagnostics.
-          </p>
-          <a className="diag-contact-btn" href="/contact">Contact Us</a>
-
-          <div className="oncquest-dropdowns">
-            <div className="oncquest-block">
-              <button
-                type="button"
-                className={`diag-accordion ${openSections.oncquestDx ? "open" : ""}`}
-                onClick={() => toggleSection("oncquestDx")}
-              >
-                <span>Oncquest's Diagnosis Service</span>
-                <span className="diag-arrow" aria-hidden="true">v</span>
-              </button>
-              <div className={`diag-panel ${openSections.oncquestDx ? "show" : ""}`}>
-                <ul className="diag-list">
-                  <li>Patient stratification for alternate therapy</li>
-                  <li>RQ-PCR assays for monitoring & Break point analysis of CML patients</li>
-                  <li>RQ-PCR based gene amplification assays for profiling of Ca. Breast</li>
-                  <li>Gene sequencing for EGFR, GIST mutation, or C-Kit mutation</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="oncquest-block">
-              <button
-                type="button"
-                className={`diag-accordion ${openSections.oncquestFirst ? "open" : ""}`}
-                onClick={() => toggleSection("oncquestFirst")}
-              >
-                <span>Other First to Market Assays</span>
-                <span className="diag-arrow" aria-hidden="true">v</span>
-              </button>
-              <div className={`diag-panel ${openSections.oncquestFirst ? "show" : ""}`}>
-                <ul className="diag-list">
-                  <li>RT-PCR based diagnostic assays</li>
-                  <li>FLT3: For AML prognostication</li>
-                  <li>JAK2: For Polycythemia Vera</li>
-                  <li>FIP1L1-PDGFRa: For Chronic Eosinophilic Leukemia</li>
-                  <li>NPM1: For AML cases with normal karyotyping</li>
-                  <li>FISH method for MLL gene rearrangement</li>
-                  <li>Flow Cytometry: PNH (Paroxysmal Nocturnal Hemoglobinuria)</li>
-                  <li>CD20 study: Patient stratification for Rituximab therapy</li>
-                  <li>CD52 study: Patient stratification for Campath1 therapy</li>
-                  <li>Zap 70 testing: For CLL</li>
-                  <li>CD138 testing: For Multiple Myeloma</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="oncquest-image">
-          <img src={oncquestImg} alt="Oncquest Diagnostics" />
         </div>
       </section>
 
@@ -314,43 +266,27 @@ const Diagnostics = () => {
         </div>
       </section>
 
-      {/* ================= TEMPUS ================= */}
-      <section className="tempus-section">
-        <div className="tempus-image">
-          <img src={tempusImg} alt="Tempus" />
-        </div>
-        <div className="tempus-copy">
-          <h3>Tempus</h3>
+      {/* ================= CENTOGENE FEATURE ================= */}
+      <section className="centogene-section">
+        <div className="centogene-copy">
+          <h3>CENTOGENE</h3>
           <p>
-            Tempus delivers data-driven insights that help clinicians personalize care by combining
-            advanced diagnostics with real-world evidence.
+            Centogene is one of the largest genetic biotech companies worldwide, the
+            European market leader, and one of the global leaders in genetic
+            diagnostic analyses of rare inherited diseases.
           </p>
           <p>
-            Our team supports tailored testing strategies that enable faster, more informed treatment
-            decisions across oncology and complex care pathways.
+            Centogene is focused on transforming clinical, genetic, and biochemical
+            data into medical solutions for patients with a global network of
+            partners.
+          </p>
+          <p>
+            Click here to learn more about Centogene's diagnostic services.
           </p>
           <a className="diag-contact-btn" href="/contact">Contact Us</a>
         </div>
-      </section>
-
-      {/* ================= DATA GENETIC ================= */}
-      <section className="data-genetic-section">
-        <div className="data-genetic-image">
-          <img src={dataGeneticImg} alt="Data Genetic" />
-        </div>
-        <div className="data-genetic-copy">
-          <h3>Datar Genatic</h3>
-          <h4>exacta</h4>
-          <p>
-            Every human being is different and unique, similarly every person’s cancer is unique.
-            Therefore, cancer should ideally be treated with a personalised strategy. Conventional
-            ‘Standard of Care’ approaches do not take into consideration the molecular-genetic
-            architecture of a particular patient‘s tumour. Consequently, patients could suffer due
-            to failed therapies or aggressive relapse. It is imperative that the molecular
-            architecture of the tumour is studied comprehensively before deciding on the treatment
-            plan. The therapy can thus be tailored to the individual patient and their disease. This
-            significantly increases the likelihood of successful treatment.
-          </p>
+        <div className="centogene-image">
+          <img src={centogImg} alt="Centogene" />
         </div>
       </section>
 
