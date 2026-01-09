@@ -4,94 +4,86 @@ import { Link } from "react-router-dom";
 import "../components/BusinessButtons.css";
 import "../index.css";
 
-// Button icon images
-import pharmaImg from "../assets/pharma.jpg";
-import diagnosticsImg from "../assets/diagnostics.jpg";
-import tourismImg from "../assets/tourism.jpg";
-import helayaPharmacyImg from "../assets/helaya_pharmacy.webp";
-import helayaInternationalImg from "../assets/helaya_international.jpg";
-import brandingImg from "../assets/amart_branding.jpg";
-import helayaClinicImg from "../assets/helaya_clinic.jpg";
-import expiaImg from "../assets/expia.jpg";
-import manufactureImg from "../assets/manufacture.jpg"; // ⭐ NEW
+// New home button icons
+import holdingIcon from "../assets/Home page icon/A Mart Holdings Logo.png";
+import aiIcon from "../assets/Home page icon/Aisolution.png";
+import brandingIcon from "../assets/Home page icon/Branding Design.png";
+import energyIcon from "../assets/Home page icon/Energy & treading.png";
+import helayaHealthIcon from "../assets/Home page icon/HelayaHealthMArt.png";
+import manufactureIcon from "../assets/Home page icon/manufacture.png";
 
-// Preview images
-import preview1 from "../assets/businessPreview/1.jpg";
-import preview2 from "../assets/businessPreview/2.jpg";
-import preview3 from "../assets/businessPreview/3.jpg";
-import preview4 from "../assets/businessPreview/4.jpg";
-import preview5 from "../assets/businessPreview/5.jpg";
-import preview6 from "../assets/businessPreview/6.jpg";
-import preview7 from "../assets/businessPreview/7.jpg";
-import preview8 from "../assets/businessPreview/8.jpg";
-import preview9 from "../assets/businessPreview/9.jpg"; // ⭐ NEW
+// Preview images (reused)
+import defaultPreview from "../assets/businessPreview/default.jpg";
+import holdingPreview from "../assets/businessPreview/AmartHoldings.png";
+import aiPreview from "../assets/businessPreview/Ai solution.png";
+import brandingPreview from "../assets/businessPreview/branding and design.png";
+import healthMartPreview from "../assets/businessPreview/HealayaHealth Mart.png";
+import energyPreview from "../assets/businessPreview/Energey And trading.png";
+import manufacturePreview from "../assets/businessPreview/Manufacring.png";
 
 const BusinessButtons = ({ onHoverChange, resetPreview }) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const items = [
     {
-      title: "Pharmaceuticals",
-      path: "/business/pharmaceuticals",
-      icon: pharmaImg,
-      preview: preview1,
-      desc: "Provides high-quality medicines and therapeutic products.",
+      title: "A Mart Holdings",
+      path: "/business/healthcare-services",
+      icon: holdingIcon,
+      preview: holdingPreview,
+      desc: "Pharmaceuticals, diagnostics, and medical tourism under one group.",
+      services: [
+        "Pharmaceuticals",
+        "Diagnostics",
+        "Medical Tourism",
+      ],
     },
     {
-      title: "Medical Diagnostics",
-      path: "/business/diagnostics",
-      icon: diagnosticsImg,
-      preview: preview2,
-      desc: "Advanced diagnostic testing with international lab partners.",
+      title: "AI Solution",
+      path: "/business/ai-solution",
+      icon: aiIcon,
+      preview: aiPreview,
+      desc: "AI Solution",
     },
     {
-      title: "Medical Tourism",
-      path: "/business/medical-tourism",
-      icon: tourismImg,
-      preview: preview3,
-      desc: "Access world-class treatment in Singapore and India.",
-    },
-    {
-      title: "Helaya Heatlth Mart",
-      path: "/business/helaya-health-mart",
-      icon: helayaPharmacyImg,
-      preview: preview4,
-      desc: "Modern pharmacy chain with genuine medicines.",
-    },
-    {
-      title: "Helaya International",
-      path: "/business/helaya-international",
-      icon: helayaInternationalImg,
-      preview: preview5,
-      desc: "Global sourcing, partnerships and healthcare solutions.",
-    },
-    {
-      title: "A Mart Branding & Design",
+      title: "Branding & Design",
       path: "/business/branding-design",
-      icon: brandingImg,
-      preview: preview6,
-      desc: "Creative branding, marketing and digital design studio.",
+      icon: brandingIcon,
+      preview: brandingPreview,
+      desc: "A Mart Branding & Design",
     },
     {
-      title: "Cosmeceutical",
-      path: "/business/cosmeceutical",
-      icon: helayaClinicImg,
-      preview: preview7,
-      desc: "Science-led skincare and cosmetic wellness solutions.",
+      title: "Helaya Health Mart",
+      path: "/business/helaya-health-mart",
+      icon: helayaHealthIcon,
+      preview: healthMartPreview,
+      desc: "Helaya Pharmacy, Helaya Diagnostic, and Medical Centers",
+      services: [
+        "Helaya Pharmacy",
+        "Helaya Diagnostic",
+        "Medical Centers",
+      ],
     },
     {
-      title: "Exfea",
-      path: "/business/expia",
-      icon: expiaImg,
-      preview: preview8,
-      desc: "Premium wellness and nutritional supplement brand.",
+      title: "Energy & Trading",
+      path: "/business/helaya-international",
+      icon: energyIcon,
+      preview: energyPreview,
+      desc: "Exfea and Helaya International",
+      services: [
+        "Exfea",
+        "Helaya International",
+      ],
     },
     {
-      title: "Manufacturing",
+      title: "Manufacture",
       path: "/business/manufacture",
-      icon: manufactureImg,
-      preview: preview9,
-      desc: "Pharmaceutical and healthcare manufacturing with quality-driven processes.",
+      icon: manufactureIcon,
+      preview: manufacturePreview,
+      desc: "Helaya Biosim (Pvt) Ltd and Helaya CosmoDerma (Pvt) Ltd",
+      services: [
+        "Helaya Biosim (Pvt) Ltd",
+        "Helaya CosmoDerma (Pvt) Ltd",
+      ],
     },
   ];
 
@@ -108,11 +100,12 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
               title: btn.title,
               desc: btn.desc,
               preview: btn.preview,
+              services: btn.services,
             });
           }}
           onMouseLeave={() => {
             setActiveIndex(null);
-            onHoverChange(resetPreview);
+            resetPreview();
           }}
         >
           <img src={btn.icon} className="business-btn-img" alt={btn.title} width="75" height="75" />

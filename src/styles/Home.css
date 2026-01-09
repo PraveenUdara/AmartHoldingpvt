@@ -390,6 +390,52 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.18);
 }
 
+.business-preview-wrapper {
+  position: relative;
+}
+
+.business-preview-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  min-width: 200px;
+  color: #0a2540;
+}
+
+.business-preview-overlay-title {
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+.business-preview-overlay-desc {
+  margin: 0 0 8px;
+  color: #0a2540;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.business-preview-overlay-sub {
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 4px;
+  font-size: 0.98rem;
+}
+
+.business-preview-overlay ul {
+  margin: 0;
+  padding-left: 16px;
+  color: #0a2540;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
 /* ---------------------- BUTTON GRID ---------------------- */
 .business-buttons-container {
   flex: 1.5;

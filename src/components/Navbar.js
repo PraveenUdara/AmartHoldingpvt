@@ -41,11 +41,17 @@ const businessColumns = [
     ],
   },
   {
-    title: "Branding and A.I Solution",
+    title: "Branding & Design",
     path: "/business/branding-design",
     items: [
-      { label: "A Mart Branding", path: "/business/branding-design" },
-      { label: "A.I Solution", path: "/business/ai-solution" },
+      { label: "A Mart Branding & Design", path: "/business/branding-design" },
+    ],
+  },
+  {
+    title: "AI Solutions",
+    path: "/business/ai-solution",
+    items: [
+      { label: "AI Solution", path: "/business/ai-solution" },
     ],
   },
 ];
@@ -120,7 +126,6 @@ const Navbar = () => {
             className="nav-logo-img"
             alt="A Mart Holdings Logo"
           />
-          <span className="nav-logo-text">A Mart Holdings</span>
         </NavLink>
 
         {/* CENTER : NAVIGATION */}

@@ -120,7 +120,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="footer-link-group footer-brands-block">
+            <div className="footer-link-group">
               <Link className="footer-main-link" to="/business/helaya-international">Energy & Trading</Link>
               <div className="footer-sublinks">
                 <Link className="footer-link" to="/business/expia">Exfea</Link>
@@ -137,7 +137,11 @@ const Footer = () => {
             </div>
 
             <div className="footer-link-group">
-              <Link className="footer-main-link" to="/business/branding-design">Branding and A.I Solution</Link>
+              <Link className="footer-main-link" to="/business/branding-design">Branding & Design</Link>
+            </div>
+
+            <div className="footer-link-group">
+              <Link className="footer-main-link" to="/business/ai-solution">AI Solutions</Link>
             </div>
           </div>
         </div>
@@ -147,7 +151,7 @@ const Footer = () => {
       <div className="footer-divider"></div>
 
       <div className="footer-bottom">
-        Ac {new Date().getFullYear()} A Mart Holdings. All rights reserved.
+         {new Date().getFullYear()} A Mart Holdings. All rights reserved.
       </div>
 
     </footer>

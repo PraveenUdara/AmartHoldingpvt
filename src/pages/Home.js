@@ -121,7 +121,17 @@ const Home = () => {
 
   /* ---------------- BUSINESS PREVIEW ---------------- */
   const defaultHoverData = {
+    title: "Our Services",
+    desc: "",
     preview: defaultPreview,
+    services: [
+      "A Mart Holdings",
+      "AI Solution",
+      "Branding & Design",
+      "Helaya Health Mart",
+      "Energy & Trading",
+      "Manufacture",
+    ],
   };
 
   const [hoverData, setHoverData] = useState(defaultHoverData);
@@ -293,13 +303,37 @@ const Home = () => {
       {/* ================= BUSINESS SECTION ================= */}
       <section className="business-section-wrapper reveal">
         <div className="business-left-content">
-          <img
-            src={hoverData?.preview || defaultPreview}
-            alt="Preview"
-            width="640"
-            height="420"
-            className="business-preview-image"
-          />
+          <div className="business-preview-wrapper">
+            <img
+              src={hoverData?.preview || defaultPreview}
+              alt="Preview"
+              width="640"
+              height="420"
+              className="business-preview-image"
+            />
+            {(hoverData?.desc || hoverData?.services) && (
+              <div className="business-preview-overlay">
+                {hoverData?.title && (
+                  <div className="business-preview-overlay-title">
+                    {hoverData.title}
+                  </div>
+                )}
+                {hoverData?.desc && (
+                  <p className="business-preview-overlay-desc">{hoverData.desc}</p>
+                )}
+                {hoverData?.services && (
+                  <>
+                    <div className="business-preview-overlay-sub">What we do</div>
+                    <ul>
+                      {hoverData.services.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
         </div>
 
         <BusinessButtons
