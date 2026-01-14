@@ -13,7 +13,6 @@ import helayaHealthIcon from "../assets/Home page icon/HelayaHealthMArt.png";
 import manufactureIcon from "../assets/Home page icon/manufacture.png";
 
 // Preview images (reused)
-import defaultPreview from "../assets/businessPreview/default.jpg";
 import holdingPreview from "../assets/businessPreview/AmartHoldings.png";
 import aiPreview from "../assets/businessPreview/Ai solution.png";
 import brandingPreview from "../assets/businessPreview/branding and design.png";
