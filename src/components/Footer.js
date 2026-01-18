@@ -13,7 +13,10 @@ const Footer = () => {
         <div className="footer-col footer-info">
           <img src={logo} alt="A Mart Holdings" className="footer-logo" />
 
-          <h3 className="footer-heading">A Mart Holdings (Pvt) Ltd</h3>
+          <p className="footer-text footer-company-desc">
+            A Mart Holdings is a diversified healthcare and wellness group delivering
+            trusted pharmaceuticals, diagnostics, medical tourism, and pharmacy services.
+          </p>
 
           <p className="footer-text location">
             #12 City Center,<br />

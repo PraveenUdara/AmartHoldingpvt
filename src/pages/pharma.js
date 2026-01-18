@@ -2,6 +2,10 @@
 import React, { useEffect } from "react";
 import pharmaCover from "../assets/9 pages/pharmaceuticals.jpg";
 import pharmaImage2 from "../assets/9 pages/ph2.jpg";
+import gpImage from "../assets/9 pages/pharamcutical/GP.jpg";
+import cimImage from "../assets/9 pages/pharamcutical/Cim.png";
+import sayreImage from "../assets/9 pages/pharamcutical/sy.png";
+import sayrePortfolioImage from "../assets/9 pages/pharamcutical/images.png";
 import "../styles/pharma.css";
 
 const Pharmaceuticals = () => {
@@ -79,6 +83,66 @@ const Pharmaceuticals = () => {
             alt="Pharmaceutical distribution"
             className="pharma-info-image"
           />
+        </div>
+      </section>
+
+      <section className="pharma-partner pharma-partner-reverse reveal">
+        <div className="pharma-partner-image">
+          <img src={sayreImage} alt="Sayre Therapeutics" />
+        </div>
+        <div className="pharma-partner-text">
+          <h3>Sayre Therapeutics</h3>
+          <p>
+            Sayre Therapeutics is a healthcare company founded in 2015 with a mission
+            to transform patient care by bringing life-saving therapies to those who
+            need them most. The company focuses on innovative pharmaceuticals, medical
+            devices, and advanced diagnostics, especially in the fields of oncology
+            (cancer) and immunology (immune system disorders).
+          </p>
+        </div>
+      </section>
+
+      <section className="pharma-partner reveal">
+        <div className="pharma-partner-text">
+          <h3>Therapeutic Portfolio</h3>
+          <p>
+            The company specialises in developing and marketing a wide range of
+            pharmaceutical drugs, medical devices, and nutraceuticals (food supplements)
+            across several therapeutic areas, including gynaecology, urology,
+            endocrinology, and general medicine. Its mission is to provide high-quality,
+            effective products that improve patient well-being and support clinical care.
+          </p>
+        </div>
+        <div className="pharma-partner-image">
+          <img src={sayrePortfolioImage} alt="Sayre Therapeutics products" />
+        </div>
+      </section>
+
+      <section className="pharma-partner pharma-partner-reverse reveal">
+        <div className="pharma-partner-image">
+          <img src={cimImage} alt="CIM" />
+        </div>
+        <div className="pharma-partner-text">
+          <h3>CIM</h3>
+          <p>
+            CIM is a Cuban public biotech research and pharmaceutical institution specializing in
+            immunotherapy, cancer vaccines, monoclonal antibodies, and biologically derived
+            treatments — from lab research to production and marketing.
+          </p>
+        </div>
+      </section>
+
+      <section className="pharma-partner reveal">
+        <div className="pharma-partner-text">
+          <h3>GP Pharm</h3>
+          <p>
+            GP Pharm is an innovative Spanish pharma company that develops sophisticated injectable
+            medicines, leverages advanced delivery technologies, and operates internationally both
+            through its own products and collaborative manufacturing/services.
+          </p>
+        </div>
+        <div className="pharma-partner-image">
+          <img src={gpImage} alt="GP Pharm" />
         </div>
       </section>
 

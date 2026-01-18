@@ -146,6 +146,52 @@
   background: #ffffff;
 }
 
+/* ===================== PARTNER SECTION ===================== */
+.pharma-partner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  padding: 0 8% 80px;
+}
+
+.pharma-partner-text h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #0d2744;
+  margin-bottom: 12px;
+}
+
+.pharma-partner-text p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: #44505d;
+}
+
+.pharma-partner-image {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pharma-partner-image img {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 14px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.14);
+}
+
+.pharma-partner-reverse {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.pharma-partner-reverse .pharma-partner-image {
+  justify-content: flex-start;
+}
+
 /* ===================== QUALITY SECTION ===================== */
 .pharma-quality {
   display: grid;
@@ -199,6 +245,16 @@
 
   .pharma-info-image {
     max-width: 100%;
+  }
+
+  .pharma-partner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 6% 70px;
+  }
+
+  .pharma-partner-image {
+    justify-content: flex-start;
   }
 
   .pharma-quality {

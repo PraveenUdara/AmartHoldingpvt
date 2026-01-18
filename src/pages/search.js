@@ -1,15 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import searchCover from "../assets/9 pages/search/search.png";
-import pharmaImg from "../assets/pharma.jpg";
-import diagnosticsImg from "../assets/diagnostics.jpg";
-import tourismImg from "../assets/tourism.jpg";
-import helayaPharmacyImg from "../assets/helaya_pharmacy.webp";
-import helayaInternationalImg from "../assets/helaya_international.jpg";
-import brandingImg from "../assets/amart_branding.jpg";
-import helayaClinicImg from "../assets/helaya_clinic.jpg";
-import expiaImg from "../assets/expia.jpg";
-import manufactureImg from "../assets/manufacture.jpg";
 import "../styles/search.css";
 
 const SEARCH_INDEX = [
@@ -111,20 +102,6 @@ const SEARCH_INDEX = [
   },
 ];
 
-const BUSINESSES = [
-  { title: "Pharmaceuticals", path: "/business/pharmaceuticals", icon: pharmaImg },
-  { title: "Diagnostics", path: "/business/diagnostics", icon: diagnosticsImg },
-  { title: "Medical Tourism", path: "/business/medical-tourism", icon: tourismImg },
-  { title: "Helaya Pharmacy", path: "/business/helaya-pharmacy", icon: helayaPharmacyImg },
-  { title: "Helaya Diagnostic", path: "/business/helaya-diagnostic", icon: diagnosticsImg },
-  { title: "Medical Centers", path: "/business/medical-centers", icon: helayaClinicImg },
-  { title: "Helaya Health Mart", path: "/business/helaya-health-mart", icon: helayaPharmacyImg },
-  { title: "A Mart Branding & Design", path: "/business/branding-design", icon: brandingImg },
-  { title: "Helaya International", path: "/business/helaya-international", icon: helayaInternationalImg },
-  { title: "Exfea", path: "/business/expia", icon: expiaImg },
-  { title: "Manufacture", path: "/business/manufacture", icon: manufactureImg },
-];
-
 const normalize = (value) => value.toLowerCase();
 
 const SearchPage = () => {
@@ -132,7 +109,6 @@ const SearchPage = () => {
   const navigate = useNavigate();
   const initialQuery = useMemo(() => new URLSearchParams(location.search).get("q") || "", [location.search]);
   const [input, setInput] = useState(initialQuery);
-  const [businessIndex, setBusinessIndex] = useState(0);
 
   useEffect(() => {
     document.body.classList.add("nav-darktext");
@@ -161,16 +137,12 @@ const SearchPage = () => {
     navigate(`/search?q=${encodeURIComponent(next)}`);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setBusinessIndex((prev) => (prev + 3) % BUSINESSES.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const handleBlur = () => {
+    if (!input.trim()) return;
+    setInput("");
+    navigate("/search", { replace: true });
+  };
 
-  const visibleBusinesses = [0, 1, 2].map(
-    (offset) => BUSINESSES[(businessIndex + offset) % BUSINESSES.length]
-  );
 
   return (
     <div className="search-page">
@@ -192,6 +164,7 @@ const SearchPage = () => {
               placeholder="Search for services, pages, or products..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onBlur={handleBlur}
             />
             <button type="submit">Search</button>
           </form>
@@ -224,7 +197,7 @@ const SearchPage = () => {
 
           {searchTerm && results.length === 0 && (
             <div className="search-empty">
-              Something went wrong — no matches found for “{searchTerm}”. Please try another keyword.
+              No matches found for "${searchTerm}". Please try another keyword.
             </div>
           )}
         </div>
@@ -240,22 +213,6 @@ const SearchPage = () => {
             </p>
           </div>
 
-          <div className="search-footer-business">
-            <h3>Our Businesses</h3>
-            <div className="search-business-grid">
-              {visibleBusinesses.map((biz) => (
-                <Link
-                  key={biz.path}
-                  to={biz.path}
-                  className="search-business-btn"
-                  aria-label={biz.title}
-                  title={biz.title}
-                >
-                  <img src={biz.icon} alt="" className="search-business-icon" width="84" height="84" />
-                </Link>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
     </div>
@@ -263,3 +220,4 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
+

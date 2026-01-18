@@ -243,63 +243,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ================= INSPIRING STORIES ================= */}
-      <section className="stories-section reveal">
-        <div className="stories-header">
-          <h2>Inspiring Stories!</h2>
-          <p>
-            Real voices from our customers, sharing how A Mart Holdings supports their health and wellness.
-          </p>
-        </div>
-
-        <div className="stories-slider">
-          <div className="stories-nav">
-            <button
-              type="button"
-              className="stories-arrow"
-              onClick={() => setStoryIndex((prev) => (prev === 0 ? STORIES.length - 1 : prev - 1))}
-              aria-label="Previous story"
-            >
-              ‹
-            </button>
-            <div className="stories-indicator">
-              {storyIndex + 1} / {STORIES.length}
-            </div>
-            <button
-              type="button"
-              className="stories-arrow"
-              onClick={() => setStoryIndex((prev) => (prev + 1) % STORIES.length)}
-              aria-label="Next story"
-            >
-              ›
-            </button>
-          </div>
-
-          <div className="story-card">
-            <div className="story-media">
-              <video
-                key={STORIES[storyIndex].src}
-                className="story-video"
-                src={STORIES[storyIndex].src}
-                width="1980"
-                height="1080"
-                controls
-                preload="metadata"
-                playsInline
-                title={`Customer Feedback featuring ${STORIES[storyIndex].name}`}
-              />
-            </div>
-            <div className="story-meta">
-              <h3>{STORIES[storyIndex].name}</h3>
-              <p>{STORIES[storyIndex].label}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= SECTION DIVIDER ================= */}
-      <div className="home-section-divider reveal" aria-hidden="true"></div>
-
       {/* ================= BUSINESS SECTION ================= */}
       <section className="business-section-wrapper reveal">
         <div className="business-left-content">
@@ -370,6 +313,63 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* ================= INSPIRING STORIES ================= */}
+      <section className="stories-section reveal">
+        <div className="stories-header">
+          <h2>Inspiring Stories!</h2>
+          <p>
+            Real voices from our customers, sharing how A Mart Holdings supports their health and wellness.
+          </p>
+        </div>
+
+        <div className="stories-slider">
+          <div className="stories-nav">
+            <button
+              type="button"
+              className="stories-arrow"
+              onClick={() => setStoryIndex((prev) => (prev === 0 ? STORIES.length - 1 : prev - 1))}
+              aria-label="Previous story"
+            >
+              ‹
+            </button>
+            <div className="stories-indicator">
+              {storyIndex + 1} / {STORIES.length}
+            </div>
+            <button
+              type="button"
+              className="stories-arrow"
+              onClick={() => setStoryIndex((prev) => (prev + 1) % STORIES.length)}
+              aria-label="Next story"
+            >
+              ›
+            </button>
+          </div>
+
+          <div className="story-card">
+            <div className="story-media">
+              <video
+                key={STORIES[storyIndex].src}
+                className="story-video"
+                src={STORIES[storyIndex].src}
+                width="1980"
+                height="1080"
+                controls
+                preload="metadata"
+                playsInline
+                title={`Customer Feedback featuring ${STORIES[storyIndex].name}`}
+              />
+            </div>
+            <div className="story-meta">
+              <h3>{STORIES[storyIndex].name}</h3>
+              <p>{STORIES[storyIndex].label}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= SECTION DIVIDER ================= */}
+      <div className="home-section-divider reveal" aria-hidden="true"></div>
 
       {/* ================= GLOBAL PARTNERS ================= */}
       <section className="partners-section reveal">

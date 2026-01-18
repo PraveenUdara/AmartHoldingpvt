@@ -54,6 +54,17 @@ const AboutUs = () => {
     return () => window.removeEventListener("resize", updateUnderline);
   }, [activeKey]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveKey((prevKey) => {
+        const index = tabKeys.indexOf(prevKey);
+        const nextIndex = (index + 1) % tabKeys.length;
+        return tabKeys[nextIndex];
+      });
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [tabKeys]);
+
   const handlePrev = () => {
     const index = tabKeys.indexOf(activeKey);
     const nextIndex = (index - 1 + tabKeys.length) % tabKeys.length;

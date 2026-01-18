@@ -126,6 +126,9 @@ p {
 @media (max-width: 768px) {
   .hero-section,
   .pharma-hero,
+  .healthservice-hero,
+  .manufacture-hero,
+  .search-hero,
   .business-cover,
   .tourism-cover,
   .exfea-hero,
@@ -145,6 +148,7 @@ p {
 
   .hero-content-right,
   .pharma-hero-text,
+  .healthservice-hero-content,
   .business-cover-content,
   .tourism-cover-content,
   .exfea-hero-content,
@@ -163,6 +167,7 @@ p {
 
   .hero-title,
   .pharma-hero-text h1,
+  .healthservice-hero-content h1,
   .business-cover-title,
   .tourism-cover-content h1,
   .exfea-hero-content h1,
@@ -181,6 +186,7 @@ p {
 
   .hero-text,
   .hero-text-strong,
+  .healthservice-hero-content p,
   .business-cover-desc,
   .tourism-cover-content p,
   .exfea-hero-content p,
@@ -195,5 +201,48 @@ p {
   .helaya-healthmart-hero-content p,
   .helaya-cover-content p {
     font-size: clamp(0.95rem, 3.4vw, 1.05rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section,
+  .pharma-hero,
+  .healthservice-hero,
+  .manufacture-hero,
+  .search-hero,
+  .business-cover,
+  .tourism-cover,
+  .exfea-hero,
+  .cosmoceutical-hero,
+  .contact-hero,
+  .events-hero,
+  .clinic-hero,
+  .design-hero,
+  .about-hero,
+  .helaya-diagnostic-hero,
+  .intl-hero,
+  .helaya-healthmart-hero,
+  .helaya-cover {
+    height: 52vh;
+    min-height: 300px;
+  }
+
+  .hero-title,
+  .pharma-hero-text h1,
+  .healthservice-hero-content h1,
+  .business-cover-title,
+  .tourism-cover-content h1,
+  .exfea-hero-content h1,
+  .cosmoceutical-hero-content h1,
+  .contact-hero-title,
+  .events-hero-title,
+  .clinic-hero-text h1,
+  .design-hero-text h1,
+  .about-hero-title,
+  .helaya-diagnostic-hero-content h1,
+  .intl-hero-text h1,
+  .helaya-healthmart-hero-content h1,
+  .helaya-cover-content h1 {
+    font-size: clamp(1.7rem, 7vw, 2.1rem);
   }
 }
