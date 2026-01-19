@@ -133,6 +133,14 @@ const Diagnostics = () => {
 
       {/* ================= FOUNDATION ONE CDx ================= */}
       <section className="foundation-section">
+        <div className="foundation-image">
+          <img src={foundationImg} alt="FoundationOne CDx" />
+          <p className="foundation-caption">
+            A single test that analyzes all guideline-recommended genes in solid tumors, including companion diagnostic indications with a direct path to therapy.
+            Results include MSI and TMB with the option to add PD-L1 testing to help inform immunotherapy decisions.
+            Click here to learn more about FoundationOne CDx genomic test.
+          </p>
+        </div>
         <div className="foundation-copy">
           <h3>FoundationOne CDx</h3>
           <p>
@@ -145,14 +153,6 @@ const Diagnostics = () => {
             Every test result includes microsatellite instability (MSI) and tumor mutational burden (TMB) to help inform immunotherapy decisions.
           </p>
           <a className="diag-contact-btn" href="/contact">Contact Us</a>
-        </div>
-        <div className="foundation-image">
-          <img src={foundationImg} alt="FoundationOne CDx" />
-          <p className="foundation-caption">
-            A single test that analyzes all guideline-recommended genes in solid tumors, including companion diagnostic indications with a direct path to therapy.
-            Results include MSI and TMB with the option to add PD-L1 testing to help inform immunotherapy decisions.
-            Click here to learn more about FoundationOne CDx genomic test.
-          </p>
         </div>
       </section>
 
@@ -268,6 +268,9 @@ const Diagnostics = () => {
 
       {/* ================= CENTOGENE FEATURE ================= */}
       <section className="centogene-section">
+        <div className="centogene-image">
+          <img src={centogImg} alt="Centogene" />
+        </div>
         <div className="centogene-copy">
           <h3>CENTOGENE</h3>
           <p>
@@ -284,9 +287,6 @@ const Diagnostics = () => {
             Click here to learn more about Centogene's diagnostic services.
           </p>
           <a className="diag-contact-btn" href="/contact">Contact Us</a>
-        </div>
-        <div className="centogene-image">
-          <img src={centogImg} alt="Centogene" />
         </div>
       </section>
 

@@ -37,7 +37,7 @@
   display: grid;
   grid-template-columns: 1.4fr 1fr 1.4fr 1fr;
   gap: 36px;
-  padding: 0 56px 60px;
+  padding: 0 56px 28px;
   position: relative;
   z-index: 2;
   max-width: none;
@@ -261,7 +261,7 @@
   width: 100%;
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(12, 38, 60, 0.22), transparent);
-  margin-top: 32px;
+  margin-top: 16px;
 }
 
 .footer-bottom {
@@ -275,7 +275,7 @@
   position: relative;
   z-index: 2;
   max-width: none;
-  margin: 20px 56px 34px;
+  margin: 12px 56px 20px;
 }
 
 /* ====================== RESPONSIVE ====================== */
@@ -283,7 +283,7 @@
   .footer-top {
     grid-template-columns: repeat(2, 1fr);
     text-align: center;
-    padding: 0 28px 48px;
+    padding: 0 28px 28px;
   }
 
   .footer-col,
@@ -310,7 +310,7 @@
   .footer-top {
     grid-template-columns: 1fr;
     gap: 44px;
-    padding: 0 20px 40px;
+    padding: 0 20px 24px;
   }
 
   .footer-logo {
@@ -332,6 +332,6 @@
   }
 
   .footer-bottom {
-    margin: 18px 20px 28px;
+    margin: 12px 20px 20px;
   }
 }

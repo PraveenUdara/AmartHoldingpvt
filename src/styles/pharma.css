@@ -146,6 +146,23 @@
   background: #ffffff;
 }
 
+/* ===================== SECTION BREAK ===================== */
+.pharma-break {
+  position: relative;
+  height: 36px;
+  margin: 0 8%;
+}
+
+.pharma-break::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, rgba(12, 38, 60, 0.32), transparent);
+}
+
 /* ===================== PARTNER SECTION ===================== */
 .pharma-partner {
   display: grid;
@@ -265,6 +282,10 @@
   .pharma-quality-image {
     justify-content: flex-start;
   }
+
+  .pharma-break {
+    margin: 0 6%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -287,5 +308,10 @@
 
   .pharma-quality {
     padding: 0 6% 80px;
+  }
+
+  .pharma-break {
+    margin: 0 6%;
+    height: 28px;
   }
 }

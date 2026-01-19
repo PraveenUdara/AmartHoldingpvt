@@ -31,6 +31,8 @@ import partner15 from "../assets/Partners/15.png";
 import partner16 from "../assets/Partners/16.png";
 import partner17 from "../assets/Partners/17.jpeg";
 import partner18 from "../assets/Partners/18.jpeg";
+import feedbackVideo1 from "../assets/feedbackvideo/Customer Feedback.mp4";
+import feedbackVideo2 from "../assets/feedbackvideo/Customer Feedback 2.mp4";
 
 import "../styles/Home.css";
 
@@ -138,12 +140,12 @@ const Home = () => {
 
   const STORIES = [
     {
-      src: "/feedbackvideo/Customer Feedback.mp4",
+      src: feedbackVideo1,
       name: "Ms. Nishanthi Ernadima Munasingha",
       label: "Customer Feedback",
     },
     {
-      src: "/feedbackvideo/Customer Feedback 2.mp4",
+      src: feedbackVideo2,
       name: "Mr. W.P.S.T Sadruwan",
       label: "Customer Feedback",
     },

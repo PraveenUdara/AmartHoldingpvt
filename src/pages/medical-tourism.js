@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import "../styles/tourism.css";
-import RoundBusinessStrip from "../components/RoundBusinessStrip";
 import tourismCover from "../assets/9 pages/medicaltcover.jpg";
 import indiaImage from "../assets/9 pages/medicalt/MH.jpg";
 import asterImage from "../assets/9 pages/medicalt/A-CMI.jpg";
@@ -258,7 +257,6 @@ const MedicalTourism = () => {
         </div>
       </section>
 
-      <RoundBusinessStrip />
     </div>
   );
 };

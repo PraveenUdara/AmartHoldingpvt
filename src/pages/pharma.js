@@ -86,6 +86,8 @@ const Pharmaceuticals = () => {
         </div>
       </section>
 
+      <div className="pharma-break" aria-hidden="true"></div>
+
       <section className="pharma-partner pharma-partner-reverse reveal">
         <div className="pharma-partner-image">
           <img src={sayreImage} alt="Sayre Therapeutics" />
@@ -101,6 +103,8 @@ const Pharmaceuticals = () => {
           </p>
         </div>
       </section>
+
+      <div className="pharma-break" aria-hidden="true"></div>
 
       <section className="pharma-partner reveal">
         <div className="pharma-partner-text">
@@ -118,6 +122,8 @@ const Pharmaceuticals = () => {
         </div>
       </section>
 
+      <div className="pharma-break" aria-hidden="true"></div>
+
       <section className="pharma-partner pharma-partner-reverse reveal">
         <div className="pharma-partner-image">
           <img src={cimImage} alt="CIM" />
@@ -132,6 +138,8 @@ const Pharmaceuticals = () => {
         </div>
       </section>
 
+      <div className="pharma-break" aria-hidden="true"></div>
+
       <section className="pharma-partner reveal">
         <div className="pharma-partner-text">
           <h3>GP Pharm</h3>
@@ -145,6 +153,8 @@ const Pharmaceuticals = () => {
           <img src={gpImage} alt="GP Pharm" />
         </div>
       </section>
+
+      <div className="pharma-break" aria-hidden="true"></div>
 
       <section className="pharma-quality reveal">
         <div className="pharma-quality-image">

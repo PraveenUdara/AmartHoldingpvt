@@ -501,7 +501,7 @@
     flex-direction: column;
     background: rgba(8, 28, 42, 0.96);
     backdrop-filter: blur(8px);
-    padding: 30px 0;
+    padding: 20px 14px;
     gap: 18px;
     align-items: stretch;
 
@@ -526,8 +526,9 @@
 
   .nav-link {
     width: 100%;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 12px 18px;
   }
 
   .nav-search-right {
@@ -543,7 +544,7 @@
     position: static;
     width: 100%;
     max-width: 100%;
-    margin: 10px 0 0;
+    margin: 6px 0 0;
     opacity: 1;
     transform: none;
     pointer-events: auto;
@@ -553,7 +554,9 @@
     background: transparent;
     border: none;
     box-shadow: none;
-    padding: 0;
+    padding: 0 8px;
+    border-radius: 0;
+    align-self: stretch;
   }
 
   .mega-panel.show {
@@ -562,29 +565,47 @@
 
   .mega-columns {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .nav-mega {
     width: 100%;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .nav-business-btn {
     width: 100%;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
     gap: 10px;
+    padding: 12px 18px;
   }
 
   .mega-text {
     font-size: 0.9rem;
-    padding: 10px;
+    padding: 12px 14px;
+    width: 100%;
+    background: #ffffff;
+    color: #0a2540;
+    border: 1px solid rgba(12, 38, 60, 0.12);
+    box-shadow: 0 6px 14px rgba(12, 38, 60, 0.08);
+  }
+
+  .mega-heading {
+    color: #0a2540;
+  }
+
+  .mega-heading-link {
+    border-bottom-color: rgba(12, 38, 60, 0.2);
   }
 }
 
 @media (max-width: 600px) {
   .mega-panel {
-    width: 94vw;
+    width: 100%;
+    margin: 6px 0 0;
+    padding: 0 6px;
   }
 
   .mega-columns {
@@ -592,14 +613,16 @@
   }
 }
 /* === ALIGN BUSINESS BUTTON WITH OTHER NAV LINKS === */
-.nav-mega {
-  padding-bottom: 0; /* remove extra push */
-}
+@media (min-width: 901px) {
+  .nav-mega {
+    padding-bottom: 0; /* remove extra push */
+  }
 
-.nav-business-btn {
-  padding: 12px 0; /* match .nav-link exactly */
-  display: inline-flex;
-  align-items: center;
+  .nav-business-btn {
+    padding: 12px 0; /* match .nav-link exactly */
+    display: inline-flex;
+    align-items: center;
+  }
 }
 
 /* Force dark nav text when pages add nav-darktext on body */
