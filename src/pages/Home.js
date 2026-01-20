@@ -202,20 +202,18 @@ const Home = () => {
         <div className="about-card">
           <h2>About A Mart Holdings</h2>
           <p>
-            A Mart is one of Sri Lanka's fastest-growing conglomerates, evolving from humble
-            beginnings in 2018 into a dynamic group with diverse operations in Pharmaceuticals,
-            Diagnostics, Medical Tourism, Branding & Design, Helaya Pharmacy, International Trading
-            (UAE), and Power & Energy.
+            A Mart is one of Sri Lanka's fastest growing companies, established in 2018 with a strong
+            focus on healthcare and innovation. Over the years, the company has successfully diversified
+            into multiple sectors, building a strong presence in Pharmaceuticals, Diagnostics, Medical
+            Tourism, Branding & Design, Helaya Pharmacy Chain, Helaya Health Centers, Helaya International
+            Trading (UAE), Helaya Pharmaceutical, Cosmeceutical and dermatology manufacturing facilities,
+            and Power & Energy Solutions.
           </p>
           <p>
-            Driven by a bold leadership team and a highly skilled workforce, we continue to expand
-            into new markets while strengthening our core businesses. Our commitment to innovation,
-            quality, and service excellence has positioned A Mart as a trusted partner in Sri
-            Lanka's healthcare and wellness sectors.
-          </p>
-          <p>
-            With cutting-edge technology, strategic foresight, and a passion for progress, we remain
-            dedicated to shaping a healthier and more prosperous future for the nation.
+            By strengthening its core businesses while exploring new opportunities and emerging markets,
+            A Mart continues to expand its footprint locally and internationally. With cutting-edge
+            technology, strategic foresight, and an energetic management team, we are committed to shaping
+            a healthier and more prosperous future for the nation.
           </p>
         </div>
       </section>

@@ -37,7 +37,7 @@
   display: grid;
   grid-template-columns: 1.4fr 1fr 1.4fr 1fr;
   gap: 36px;
-  padding: 0 56px 28px;
+  padding: 0 56px 12px;
   position: relative;
   z-index: 2;
   max-width: none;
@@ -261,7 +261,7 @@
   width: 100%;
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(12, 38, 60, 0.22), transparent);
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 .footer-bottom {
@@ -275,7 +275,7 @@
   position: relative;
   z-index: 2;
   max-width: none;
-  margin: 12px 56px 20px;
+  margin: 8px 56px 16px;
 }
 
 /* ====================== RESPONSIVE ====================== */
@@ -332,6 +332,6 @@
   }
 
   .footer-bottom {
-    margin: 12px 20px 20px;
+    margin: 8px 20px 16px;
   }
 }
