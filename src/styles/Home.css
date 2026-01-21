@@ -53,6 +53,7 @@
   max-width: 520px;
   text-align: right;
   color: #ffffff;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
 /* ---------------------- BRAND TEXT ---------------------- */
@@ -84,6 +85,17 @@
   text-align: left;
   opacity: 0;
   animation: heroSlideReveal 0.9s ease forwards;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+body.home-hero-light .hero-content-right {
+  color: #0a2540;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.65);
+}
+
+body.home-hero-light .hero-slide-info {
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 .hero-slide-title {
@@ -598,6 +610,7 @@
   color: #4b5b6b;
   line-height: 1.6;
   font-size: 1rem;
+  text-align: center;
 }
 
 .partners-grid {

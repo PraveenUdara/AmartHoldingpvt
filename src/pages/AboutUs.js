@@ -34,11 +34,13 @@ const AboutUs = () => {
   };
 
   const [activeKey, setActiveKey] = useState("mission");
+  const [prevKey, setPrevKey] = useState("mission");
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, transform: "translateX(0px)" });
   const tabRefs = useRef({});
   const tabsWrapRef = useRef(null);
   const tabKeys = useMemo(() => ["mission", "vision", "values"], []);
   const activeSection = sections[activeKey];
+  const lastKeyRef = useRef(activeKey);
 
   useEffect(() => {
     const updateUnderline = () => {
@@ -52,6 +54,11 @@ const AboutUs = () => {
     updateUnderline();
     window.addEventListener("resize", updateUnderline);
     return () => window.removeEventListener("resize", updateUnderline);
+  }, [activeKey]);
+
+  useEffect(() => {
+    setPrevKey(lastKeyRef.current);
+    lastKeyRef.current = activeKey;
   }, [activeKey]);
 
   useEffect(() => {
@@ -173,14 +180,25 @@ const AboutUs = () => {
             ‹
           </button>
 
-          <div key={activeKey} className="mv-card-image fade-up">
-            <img
-              src={activeSection.image}
-              alt={activeSection.title}
-              width="640"
-              height="400"
-              className="mv-modern-img"
-            />
+          <div className="mv-card-image">
+            <div className="mv-image-stack">
+              {prevKey !== activeKey && (
+                <img
+                  src={sections[prevKey].image}
+                  alt={sections[prevKey].title}
+                  width="640"
+                  height="400"
+                  className="mv-modern-img mv-image-layer is-prev"
+                />
+              )}
+              <img
+                src={activeSection.image}
+                alt={activeSection.title}
+                width="640"
+                height="400"
+                className="mv-modern-img mv-image-layer is-active"
+              />
+            </div>
           </div>
 
           <div key={`${activeKey}-text`} className="mv-card-text fade-up delay-1">

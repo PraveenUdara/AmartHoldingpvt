@@ -26,7 +26,6 @@ const HelayaPharmacy = () => {
   const branchContent = {
     kandy: {
       title: "Kandy Outlet",
-      hours: "Mon - Sun: 7:30 AM - 10:00 PM",
       address: "No.10, T.B.Thennakoon Mw, Suduhunpola, Kandy",
       phone: "0812201777",
       description: [
@@ -38,7 +37,6 @@ const HelayaPharmacy = () => {
     },
     kohuwala: {
       title: "Kohuwala Outlet",
-      hours: "Mon - Sun: 7:30 AM - 10:00 PM",
       address: "No.14/A, Sunethradevi rd, Kohuwala",
       phone: "0740102333",
       description: [
@@ -110,11 +108,9 @@ const HelayaPharmacy = () => {
         <div className="helaya-hours">
           <div className="hour-card">
             <div className="hour-location">Kandy</div>
-            <div className="hour-time">Mon - Sun: 8:00 AM - 10:00 PM</div>
           </div>
           <div className="hour-card">
             <div className="hour-location">Kohuwala</div>
-            <div className="hour-time">Mon - Sun: 8:00 AM - 10:00 PM</div>
           </div>
         </div>
       </section>
@@ -125,7 +121,6 @@ const HelayaPharmacy = () => {
         </div>
         <div className="branch-text" key={`${activeBranch}-text`}>
           <h3>{current.title}</h3>
-          <div className="branch-hours">Opening Hours: {current.hours}</div>
           {current.address && <p><strong>Address:</strong> {current.address}</p>}
           {current.phone && <p><strong>Phone:</strong> {current.phone}</p>}
           {current.description.map((line, idx) => (

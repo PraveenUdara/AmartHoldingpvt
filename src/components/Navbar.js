@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import whiteLogo from "../assets/whiellogo.png";
+import lightLogo from "../assets/footerlogo.png";
 import "./Navbar.css";
 
 const businessColumns = [
@@ -61,6 +62,7 @@ const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [shrink, setShrink] = useState(false);
+  const [isHomeHeroLight, setIsHomeHeroLight] = useState(false);
   const navigate = useNavigate();
 
   const navRef = useRef(null);
@@ -87,6 +89,16 @@ const Navbar = () => {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const updateHeroLight = () => {
+      setIsHomeHeroLight(document.body.classList.contains("home-hero-light"));
+    };
+    updateHeroLight();
+    const observer = new MutationObserver(updateHeroLight);
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
   }, []);
 
 
@@ -122,7 +134,7 @@ const Navbar = () => {
         {/* LEFT : LOGO */}
         <NavLink to="/" className="navbar-logo" onClick={closeMenus}>
           <img
-            src={shrink ? logo : whiteLogo}
+            src={shrink ? logo : isHomeHeroLight ? lightLogo : whiteLogo}
             className="nav-logo-img"
             alt="A Mart Holdings Logo"
           />

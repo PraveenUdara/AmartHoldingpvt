@@ -18,7 +18,6 @@ import partner02 from "../assets/Partners/2.png";
 import partner03 from "../assets/Partners/3.png";
 import partner04 from "../assets/Partners/4.png";
 import partner05 from "../assets/Partners/5.png";
-import partner06 from "../assets/Partners/6.png";
 import partner07 from "../assets/Partners/7.png";
 import partner08 from "../assets/Partners/8.png";
 import partner09 from "../assets/Partners/9.png";
@@ -31,6 +30,9 @@ import partner15 from "../assets/Partners/15.png";
 import partner16 from "../assets/Partners/16.png";
 import partner17 from "../assets/Partners/17.jpeg";
 import partner18 from "../assets/Partners/18.jpeg";
+import partner19 from "../assets/Partners/19.png";
+import partner20 from "../assets/Partners/20.png";
+import partner21 from "../assets/Partners/21.png";
 import feedbackVideo1 from "../assets/feedbackvideo/Customer Feedback.mp4";
 import feedbackVideo2 from "../assets/feedbackvideo/Customer Feedback 2.mp4";
 
@@ -66,29 +68,32 @@ const HERO_SLIDES = [
 ];
 
 const PARTNER_LOGOS = [
+  partner21,
+  partner16,
+  partner20,
+  partner14,
+  partner19,
   partner01,
-  partner02,
-  partner03,
-  partner04,
   partner05,
-  partner06,
-  partner07,
+  partner04,
   partner08,
+  partner07,
+  partner03,
   partner09,
   partner10,
   partner11,
-  partner12,
-  partner13,
-  partner14,
-  partner15,
-  partner16,
   partner17,
+  partner12,
+  partner02,
+  partner13,
+  partner15,
   partner18,
 ];
 
 const Home = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [storyIndex, setStoryIndex] = useState(0);
+  const [isHeroLight, setIsHeroLight] = useState(false);
 
   /* ---------------- HERO SLIDER (OPTION A) ---------------- */
   useEffect(() => {
@@ -120,6 +125,42 @@ const Home = () => {
   }, []);
 
   const currentSlide = HERO_SLIDES[heroIndex];
+
+  useEffect(() => {
+    let cancelled = false;
+    const img = new Image();
+    img.src = currentSlide.image;
+    img.onload = () => {
+      if (cancelled) return;
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      if (!ctx) return;
+      const size = 64;
+      canvas.width = size;
+      canvas.height = size;
+      ctx.drawImage(img, 0, 0, size, size);
+      const data = ctx.getImageData(0, 0, size, size).data;
+      let total = 0;
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        total += 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      }
+      const avg = total / (data.length / 4);
+      setIsHeroLight(avg > 175);
+    };
+    return () => {
+      cancelled = true;
+    };
+  }, [currentSlide.image]);
+
+  useEffect(() => {
+    document.body.classList.toggle("home-hero-light", isHeroLight);
+    return () => {
+      document.body.classList.remove("home-hero-light");
+    };
+  }, [isHeroLight]);
 
   /* ---------------- BUSINESS PREVIEW ---------------- */
   const defaultHoverData = {

@@ -71,7 +71,7 @@ const Footer = () => {
           </p>
 
           <p className="footer-text">
-            <span className="footer-contact-line">
+            <span className="footer-contact-line footer-contact-email">
               <span className="footer-contact-icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

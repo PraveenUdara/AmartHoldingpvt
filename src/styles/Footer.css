@@ -118,6 +118,10 @@
   display: block;
 }
 
+.footer-contact-email {
+  align-items: baseline;
+}
+
 .footer-company-desc {
   margin: 2px 0 10px;
   font-size: 0.93rem;
