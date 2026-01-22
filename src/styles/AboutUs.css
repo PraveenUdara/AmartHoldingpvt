@@ -392,9 +392,18 @@
 /* ------------------------------------- */
 
 @media (max-width: 900px) {
+  .about-hero {
+    height: 40vh;
+  }
+
   .about-highlight {
     grid-template-columns: 1fr 1fr;
     margin-top: -26px;
+  }
+
+  .about-card {
+    margin: 35px auto;
+    padding: 32px 34px;
   }
 
   .chairman-section {
@@ -412,7 +421,17 @@
   }
 
   .mv-card-image {
+    flex: 0 0 100%;
     width: 100%;
+  }
+
+  .mv-image-stack {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .mv-modern {
+    padding: 55px 6%;
   }
 
   .mv-side-arrow {
@@ -421,12 +440,45 @@
 }
 
 @media (max-width: 600px) {
+  .about-hero {
+    height: 36vh;
+  }
+
+  .about-hero-overlay {
+    padding: 0 6%;
+  }
+
   .about-hero-title {
     font-size: 2.2rem;
   }
 
+  .about-hero-subtitle {
+    font-size: 1.05rem;
+  }
+
   .about-highlight {
     grid-template-columns: 1fr;
+    margin-top: -18px;
+  }
+
+  .about-card {
+    padding: 24px 20px;
+  }
+
+  .chairman-section {
+    padding: 40px 5%;
+  }
+
+  .chairman-title {
+    font-size: 0.95rem;
+  }
+
+  .chairman-text {
+    font-size: 1rem;
+  }
+
+  .chairman-text-long {
+    font-size: 0.9rem;
   }
 
   .mv-tabs-modern {
@@ -438,6 +490,65 @@
     width: 100%;
     justify-content: flex-start;
     margin-top: 8px;
+  }
+
+  .mv-modern {
+    padding: 45px 5%;
+  }
+
+  .mv-image-stack {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .mv-modern-img {
+    object-fit: contain;
+  }
+
+  .mv-title-modern {
+    font-size: 1.6rem;
+  }
+
+  .mv-modern-text {
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-hero-title {
+    font-size: 1.9rem;
+  }
+
+  .mv-tabs-modern {
+    gap: 14px;
+  }
+
+  .mv-tab-modern-btn {
+    font-size: 0.95rem;
+    padding: 8px 0;
+  }
+
+  .mv-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+
+  .mv-modern {
+    padding: 38px 5%;
+  }
+
+  .mv-image-stack {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .mv-title-modern {
+    font-size: 1.45rem;
+  }
+
+  .mv-modern-text {
+    font-size: 0.95rem;
   }
 }
 

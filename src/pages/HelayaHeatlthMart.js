@@ -1,5 +1,6 @@
 // src/pages/HelayaHeatlthMart.js
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/HelayaHealthMart.css";
 import helayaHealthMartCover from "../assets/HelayaHealthmart.png";
 import helayaPharmacyImg from "../assets/9 pages/helacolombo.webp";
@@ -55,9 +56,9 @@ const HelayaHeatlthMart = () => {
               Helaya Pharmacy provides trusted access to prescriptions, wellness products,
               and pharmacist support with a focus on safe, reliable care.
             </p>
-            <a className="helaya-healthmart-btn" href="/business/helaya-pharmacy">
+            <Link className="helaya-healthmart-btn" to="/business/helaya-pharmacy">
               Explore More <span className="helaya-healthmart-btn-arrow">→</span>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -69,9 +70,9 @@ const HelayaHeatlthMart = () => {
               Our medical clinics provide compassionate consultations, primary care,
               and ongoing support for your everyday health needs.
             </p>
-            <a className="helaya-healthmart-btn" href="/business/medical-centers">
+            <Link className="helaya-healthmart-btn" to="/business/medical-centers">
               Explore More <span className="helaya-healthmart-btn-arrow">→</span>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -83,9 +84,9 @@ const HelayaHeatlthMart = () => {
               Accurate, timely diagnostic services with modern labs and expert
               professionals supporting informed healthcare decisions.
             </p>
-            <a className="helaya-healthmart-btn" href="/business/helaya-diagnostic">
+            <Link className="helaya-healthmart-btn" to="/business/helaya-diagnostic">
               Explore More <span className="helaya-healthmart-btn-arrow">→</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

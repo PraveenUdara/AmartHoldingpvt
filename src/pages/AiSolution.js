@@ -1,11 +1,19 @@
 // src/pages/AiSolution.js
 import React from "react";
 import "../styles/AiSolution.css";
+import aiHeroImg from "../assets/9 pages/Ai solution/AI_solution_hero.png";
 
 const AiSolution = () => {
   return (
     <div className="ai-page">
       <section className="ai-hero">
+        <img
+          src={aiHeroImg}
+          alt="AI Solution"
+          className="ai-hero-img"
+          loading="eager"
+          decoding="async"
+        />
         <div className="ai-hero-inner">
           <p className="ai-eyebrow">A Mart Branding & Solutions</p>
           <h1>A.I Solution</h1>

@@ -315,6 +315,13 @@
     grid-template-columns: 1fr;
     gap: 44px;
     padding: 0 20px 24px;
+    text-align: left;
+  }
+
+  .footer-col,
+  .footer-info {
+    align-items: flex-start;
+    text-align: left;
   }
 
   .footer-logo {
@@ -337,5 +344,6 @@
 
   .footer-bottom {
     margin: 8px 20px 16px;
+    text-align: left;
   }
 }

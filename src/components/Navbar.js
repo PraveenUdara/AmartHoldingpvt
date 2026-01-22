@@ -141,7 +141,7 @@ const Navbar = () => {
         </NavLink>
 
         {/* CENTER : NAVIGATION */}
-        <div className={`nav-center ${mobileMenu ? "mobile-open" : ""}`}>
+        <div className={`nav-center ${mobileMenu ? "mobile-open" : ""} ${bizOpen ? "biz-open" : ""}`}>
           <NavLink to="/" end className="nav-link" onClick={closeMenus}>
             Home
           </NavLink>
@@ -154,10 +154,14 @@ const Navbar = () => {
           <div
             className="nav-mega"
             onMouseEnter={() => {
+              if (mobileMenu) return;
               cancelClose();
               setBizOpen(true);
             }}
-            onMouseLeave={scheduleClose}
+            onMouseLeave={() => {
+              if (mobileMenu) return;
+              scheduleClose();
+            }}
           >
             <button
               className="nav-link nav-business-btn"
@@ -175,10 +179,14 @@ const Navbar = () => {
             <div
               className={`mega-panel ${bizOpen ? "show" : ""}`}
               onMouseEnter={() => {
+                if (mobileMenu) return;
                 cancelClose();
                 setBizOpen(true);
               }}
-              onMouseLeave={scheduleClose}
+              onMouseLeave={() => {
+                if (mobileMenu) return;
+                scheduleClose();
+              }}
             >
               <div className="mega-inner">
                 <div className="mega-columns">

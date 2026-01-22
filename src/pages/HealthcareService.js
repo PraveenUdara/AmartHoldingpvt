@@ -9,8 +9,8 @@ import diagnosticImg from "../assets/9 pages/healthservice/diagnostic.png";
 
 const HealthcareService = () => {
   useEffect(() => {
-    document.body.classList.add("nav-darktext");
-    return () => document.body.classList.remove("nav-darktext");
+    document.body.classList.add("nav-blacktext");
+    return () => document.body.classList.remove("nav-blacktext");
   }, []);
 
   return (

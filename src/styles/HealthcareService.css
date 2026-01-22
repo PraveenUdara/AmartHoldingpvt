@@ -190,7 +190,32 @@
   }
 
   .healthservice-icon-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .healthservice-icon-card {
+    height: 220px;
+  }
+
+  .healthservice-icon-overlay {
+    padding: 14px;
+  }
+
+  .healthservice-icon-overlay h3 {
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  .healthservice-icon-overlay p {
+    display: none;
+  }
+
+  .healthservice-icon-btn {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    border-radius: 10px;
+    align-self: flex-start;
   }
 }
 
@@ -202,5 +227,28 @@
 
   .healthservice-hero-content h1 {
     font-size: 1.9rem;
+  }
+
+  .healthservice-icon-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .healthservice-icon-card {
+    height: 170px;
+  }
+
+  .healthservice-icon-overlay {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .healthservice-icon-overlay h3 {
+    font-size: 0.9rem;
+  }
+
+  .healthservice-icon-btn {
+    font-size: 0.72rem;
+    padding: 6px 10px;
   }
 }

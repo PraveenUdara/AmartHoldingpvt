@@ -3,11 +3,34 @@ import React, { useState, useEffect } from "react";
 import "../styles/Home.css";
 import BusinessButtons from "../components/BusinessButtons";
 
-// HERO IMAGES
-import homeBg from "../assets/home_bg.jpg";
-import doctorHero from "../assets/hero_diagnostics.jpg";
-import diagnosticsHero from "../assets/labcv.jpg";
-import techHero from "../assets/hero_tech_healthcare.jpg";
+// HERO IMAGES (RESPONSIVE)
+import homeBg640Jpg from "../assets/hero-optimized/home_bg-640.jpg";
+import homeBg1024Jpg from "../assets/hero-optimized/home_bg-1024.jpg";
+import homeBg1600Jpg from "../assets/hero-optimized/home_bg-1600.jpg";
+import homeBg640Webp from "../assets/hero-optimized/home_bg-640.webp";
+import homeBg1024Webp from "../assets/hero-optimized/home_bg-1024.webp";
+import homeBg1600Webp from "../assets/hero-optimized/home_bg-1600.webp";
+
+import doctorHero640Jpg from "../assets/hero-optimized/hero_diagnostics-640.jpg";
+import doctorHero1024Jpg from "../assets/hero-optimized/hero_diagnostics-1024.jpg";
+import doctorHero1536Jpg from "../assets/hero-optimized/hero_diagnostics-1536.jpg";
+import doctorHero640Webp from "../assets/hero-optimized/hero_diagnostics-640.webp";
+import doctorHero1024Webp from "../assets/hero-optimized/hero_diagnostics-1024.webp";
+import doctorHero1536Webp from "../assets/hero-optimized/hero_diagnostics-1536.webp";
+
+import diagnosticsHero640Jpg from "../assets/hero-optimized/labcv-640.jpg";
+import diagnosticsHero1024Jpg from "../assets/hero-optimized/labcv-1024.jpg";
+import diagnosticsHero1536Jpg from "../assets/hero-optimized/labcv-1536.jpg";
+import diagnosticsHero640Webp from "../assets/hero-optimized/labcv-640.webp";
+import diagnosticsHero1024Webp from "../assets/hero-optimized/labcv-1024.webp";
+import diagnosticsHero1536Webp from "../assets/hero-optimized/labcv-1536.webp";
+
+import techHero640Jpg from "../assets/hero-optimized/hero_tech_healthcare-640.jpg";
+import techHero1024Jpg from "../assets/hero-optimized/hero_tech_healthcare-1024.jpg";
+import techHero1600Jpg from "../assets/hero-optimized/hero_tech_healthcare-1600.jpg";
+import techHero640Webp from "../assets/hero-optimized/hero_tech_healthcare-640.webp";
+import techHero1024Webp from "../assets/hero-optimized/hero_tech_healthcare-1024.webp";
+import techHero1600Webp from "../assets/hero-optimized/hero_tech_healthcare-1600.webp";
 
 // MINI POSTS
 import leftPost from "../assets/lab_bg.jpg";
@@ -46,22 +69,74 @@ import defaultPreview from "../assets/businessPreview/default.jpg";
 ---------------------------------- */
 const HERO_SLIDES = [
   {
-    image: homeBg,
+    imageSet: {
+      webp: [
+        { src: homeBg640Webp, width: 640 },
+        { src: homeBg1024Webp, width: 1024 },
+        { src: homeBg1600Webp, width: 1600 },
+      ],
+      jpg: [
+        { src: homeBg640Jpg, width: 640 },
+        { src: homeBg1024Jpg, width: 1024 },
+        { src: homeBg1600Jpg, width: 1600 },
+      ],
+      fallback: homeBg1600Jpg,
+      sample: homeBg640Jpg,
+    },
     title: "Diagnostics",
     desc: "Advanced laboratory diagnostics with global partner labs",
   },
   {
-    image: doctorHero,
+    imageSet: {
+      webp: [
+        { src: doctorHero640Webp, width: 640 },
+        { src: doctorHero1024Webp, width: 1024 },
+        { src: doctorHero1536Webp, width: 1536 },
+      ],
+      jpg: [
+        { src: doctorHero640Jpg, width: 640 },
+        { src: doctorHero1024Jpg, width: 1024 },
+        { src: doctorHero1536Jpg, width: 1536 },
+      ],
+      fallback: doctorHero1536Jpg,
+      sample: doctorHero640Jpg,
+    },
     title: "Pharmaceuticals",
     desc: "High-quality medicines and healthcare solutions",
   },
   {
-    image: diagnosticsHero,
+    imageSet: {
+      webp: [
+        { src: diagnosticsHero640Webp, width: 640 },
+        { src: diagnosticsHero1024Webp, width: 1024 },
+        { src: diagnosticsHero1536Webp, width: 1536 },
+      ],
+      jpg: [
+        { src: diagnosticsHero640Jpg, width: 640 },
+        { src: diagnosticsHero1024Jpg, width: 1024 },
+        { src: diagnosticsHero1536Jpg, width: 1536 },
+      ],
+      fallback: diagnosticsHero1536Jpg,
+      sample: diagnosticsHero640Jpg,
+    },
     title: "Medical Tourism",
     desc: "Access world-class treatment in Singapore & India",
   },
   {
-    image: techHero,
+    imageSet: {
+      webp: [
+        { src: techHero640Webp, width: 640 },
+        { src: techHero1024Webp, width: 1024 },
+        { src: techHero1600Webp, width: 1600 },
+      ],
+      jpg: [
+        { src: techHero640Jpg, width: 640 },
+        { src: techHero1024Jpg, width: 1024 },
+        { src: techHero1600Jpg, width: 1600 },
+      ],
+      fallback: techHero1600Jpg,
+      sample: techHero640Jpg,
+    },
     title: "Clinic",
     desc: "Patient-focused clinical care with modern technology",
   },
@@ -125,11 +200,13 @@ const Home = () => {
   }, []);
 
   const currentSlide = HERO_SLIDES[heroIndex];
+  const buildSrcSet = (sources) =>
+    sources.map((item) => `${item.src} ${item.width}w`).join(", ");
 
   useEffect(() => {
     let cancelled = false;
     const img = new Image();
-    img.src = currentSlide.image;
+    img.src = currentSlide.imageSet.sample;
     img.onload = () => {
       if (cancelled) return;
       const canvas = document.createElement("canvas");
@@ -153,7 +230,7 @@ const Home = () => {
     return () => {
       cancelled = true;
     };
-  }, [currentSlide.image]);
+  }, [currentSlide.imageSet.sample]);
 
   useEffect(() => {
     document.body.classList.toggle("home-hero-light", isHeroLight);
@@ -198,17 +275,33 @@ const Home = () => {
       {/* ================= HERO SECTION ================= */}
       <section className="hero-section">
 
-        {/* HERO IMAGES */}
-        {HERO_SLIDES.map((slide, index) => (
-          <img
-            key={index}
-            src={slide.image}
-            alt={slide.title}
-            width="1920"
-            height="1080"
-            className={`home-bg ${index === heroIndex ? "active" : ""}`}
-          />
-        ))}
+        <div className="hero-media">
+          {/* HERO IMAGES */}
+          {HERO_SLIDES.map((slide, index) => (
+            <picture key={index}>
+              <source
+                type="image/webp"
+                srcSet={buildSrcSet(slide.imageSet.webp)}
+                sizes="100vw"
+              />
+              <source
+                type="image/jpeg"
+                srcSet={buildSrcSet(slide.imageSet.jpg)}
+                sizes="100vw"
+              />
+              <img
+                src={slide.imageSet.fallback}
+                alt={slide.title}
+                width="1920"
+                height="1080"
+                className={`home-bg ${index === heroIndex ? "active" : ""}`}
+                loading={index === heroIndex ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={index === 0 ? "high" : "auto"}
+              />
+            </picture>
+          ))}
+        </div>
 
         {/* RIGHT-BOTTOM CONTENT */}
         <div className="hero-overlay hero-overlay-right">

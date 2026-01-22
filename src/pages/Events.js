@@ -91,6 +91,45 @@ const manipalEventImages = importAll(
 
 const Events = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const getCover = (images) => (images && images.length ? images[0] : eventsCover);
+  const mobileEventCards = [
+    {
+      id: "event-oncologists",
+      title: "1st Annual Academic Session",
+      subtitle: "Sri Lanka College of Oncologists",
+      cover: getCover(oncologistImages),
+    },
+    {
+      id: "event-stem-cell",
+      title: "Stem Cell Master Class",
+      subtitle: "Hotel Galadari, Colombo",
+      cover: getCover(stemCellImages),
+    },
+    {
+      id: "event-cme",
+      title: "Thromboembolism CME",
+      subtitle: "Grand Monarch, Thalawathugoda",
+      cover: getCover(cmeImages),
+    },
+    {
+      id: "event-kandy",
+      title: "Kandy Helaya Pharmacy",
+      subtitle: "Opening Event",
+      cover: getCover(kandyHelayaImages),
+    },
+    {
+      id: "event-kdu",
+      title: "KDU Chemotherapy Unit",
+      subtitle: "Opening Event",
+      cover: getCover(kduChemoImages),
+    },
+    {
+      id: "event-manipal",
+      title: "Manipal Hospital Event",
+      subtitle: "Special Program",
+      cover: getCover(manipalEventImages),
+    },
+  ];
 
   return (
     <div className="events-page">
@@ -114,10 +153,24 @@ const Events = () => {
       </section>
 
       {/* ================= EVENTS CONTENT ================= */}
+      <div className="events-mobile-nav">
+        {mobileEventCards.map((event) => (
+          <a key={event.id} href={`#${event.id}`} className="events-mobile-card">
+            <div className="events-mobile-thumb">
+              <img src={event.cover} alt={event.title} loading="lazy" />
+            </div>
+            <div className="events-mobile-info">
+              <h3>{event.title}</h3>
+              <p>{event.subtitle}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
       <div className="events-container">
 
         {/* EVENT 01 */}
-        <div className="event-section fade-up">
+        <div className="event-section fade-up" id="event-kdu">
           <h2>1st Annual Academic Session</h2>
           <h4>Sri Lanka College of Oncologists</h4>
           <p><strong>Date:</strong> Oct 11 – Oct 13, 2024</p>
@@ -136,7 +189,7 @@ const Events = () => {
         </div>
 
         {/* EVENT 02 */}
-        <div className="event-section fade-up delay-1">
+        <div className="event-section fade-up delay-1" id="event-kandy">
           <h2>Hematopoietic Stem Cell Transplantation Master Class</h2>
           <p><strong>Date:</strong> Oct 10, 2024</p>
           <p><strong>Venue:</strong> Hotel Galadari, Colombo</p>
@@ -154,7 +207,7 @@ const Events = () => {
         </div>
 
         {/* EVENT 03 */}
-        <div className="event-section fade-up delay-2">
+        <div className="event-section fade-up delay-2" id="event-manipal">
           <h2>
             CME on “The Management of Thromboembolism in Cancer Patients”
           </h2>
@@ -175,7 +228,7 @@ const Events = () => {
         </div>
 
         {/* EVENT 04 */}
-        <div className="event-section fade-up delay-1">
+        <div className="event-section fade-up delay-1" id="event-stem-cell">
           <h2>Kandy Helaya Pharmacy opens</h2>
           <div className="event-gallery">
             {kandyHelayaImages.map((img, i) => (
@@ -207,7 +260,7 @@ const Events = () => {
         </div>
 
         {/* EVENT 05 */}
-        <div className="event-section fade-up">
+        <div className="event-section fade-up" id="event-oncologists">
           <h2>KDU hospital chemotherapy unit opens</h2>
           <div className="event-gallery">
             {kduChemoImages.map((img, i) => (
@@ -222,7 +275,7 @@ const Events = () => {
         </div>
 
         {/* EVENT 06 */}
-        <div className="event-section fade-up delay-2">
+        <div className="event-section fade-up delay-2" id="event-cme">
           <h2>Manipal Hospital Event</h2>
           <div className="event-gallery">
             {manipalEventImages.map((img, i) => (
