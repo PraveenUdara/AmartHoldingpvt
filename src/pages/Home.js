@@ -85,6 +85,7 @@ const HERO_SLIDES = [
     },
     title: "Diagnostics",
     desc: "Advanced laboratory diagnostics with global partner labs",
+    mobilePosition: "100% 30%",
   },
   {
     imageSet: {
@@ -103,6 +104,7 @@ const HERO_SLIDES = [
     },
     title: "Pharmaceuticals",
     desc: "High-quality medicines and healthcare solutions",
+    mobilePosition: "center 25%",
   },
   {
     imageSet: {
@@ -121,6 +123,7 @@ const HERO_SLIDES = [
     },
     title: "Medical Tourism",
     desc: "Access world-class treatment in Singapore & India",
+    mobilePosition: "center 40%",
   },
   {
     imageSet: {
@@ -139,6 +142,7 @@ const HERO_SLIDES = [
     },
     title: "Clinic",
     desc: "Patient-focused clinical care with modern technology",
+    mobilePosition: "70% 20%",
   },
 ];
 
@@ -289,16 +293,17 @@ const Home = () => {
                 srcSet={buildSrcSet(slide.imageSet.jpg)}
                 sizes="100vw"
               />
-              <img
-                src={slide.imageSet.fallback}
-                alt={slide.title}
-                width="1920"
-                height="1080"
-                className={`home-bg ${index === heroIndex ? "active" : ""}`}
-                loading={index === heroIndex ? "eager" : "lazy"}
-                decoding="async"
-                fetchPriority={index === 0 ? "high" : "auto"}
-              />
+            <img
+              src={slide.imageSet.fallback}
+              alt={slide.title}
+              width="1920"
+              height="1080"
+              className={`home-bg ${index === heroIndex ? "active" : ""}`}
+              style={{ "--mobile-position": slide.mobilePosition }}
+              loading={index === heroIndex ? "eager" : "lazy"}
+              decoding="async"
+              fetchPriority={index === 0 ? "high" : "auto"}
+            />
             </picture>
           ))}
         </div>

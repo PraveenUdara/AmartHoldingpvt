@@ -37,7 +37,7 @@ const businessColumns = [
     title: "Manufacture",
     path: "/business/manufacture",
     items: [
-      { label: "Helaya Biocim (Pvt) Ltd", path: "/business/manufacture#helaya-biosim" },
+      { label: "Helaya Biocim (Pvt) Ltd", path: "/business/manufacture#helaya-biocim" },
       { label: "Helaya CosmoDerma (Pvt) Ltd", path: "/business/manufacture#helaya-cosmoderma" },
     ],
   },
@@ -63,6 +63,7 @@ const Navbar = () => {
   const [searchValue, setSearchValue] = useState("");
   const [shrink, setShrink] = useState(false);
   const [isHomeHeroLight, setIsHomeHeroLight] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
 
   const navRef = useRef(null);
@@ -101,6 +102,24 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 900px)");
+    const updateMobile = () => setIsMobile(media.matches);
+    updateMobile();
+    if (media.addEventListener) {
+      media.addEventListener("change", updateMobile);
+    } else {
+      media.addListener(updateMobile);
+    }
+    return () => {
+      if (media.removeEventListener) {
+        media.removeEventListener("change", updateMobile);
+      } else {
+        media.removeListener(updateMobile);
+      }
+    };
+  }, []);
+
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -134,8 +153,8 @@ const Navbar = () => {
         {/* LEFT : LOGO */}
         <NavLink to="/" className="navbar-logo" onClick={closeMenus}>
           <img
-            src={shrink ? logo : isHomeHeroLight ? lightLogo : whiteLogo}
-            className="nav-logo-img"
+            src={shrink ? logo : isMobile ? whiteLogo : isHomeHeroLight ? lightLogo : whiteLogo}
+            className={`nav-logo-img ${!shrink && (isMobile || !isHomeHeroLight) ? "nav-logo-white" : ""}`}
             alt="A Mart Holdings Logo"
           />
         </NavLink>

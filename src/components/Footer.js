@@ -134,7 +134,7 @@ const Footer = () => {
             <div className="footer-link-group">
               <Link className="footer-main-link" to="/business/manufacture">Manufacture</Link>
               <div className="footer-sublinks">
-                <Link className="footer-link" to="/business/manufacture#helaya-biosim">Helaya Biocim (Pvt) Ltd</Link>
+                <Link className="footer-link" to="/business/manufacture#helaya-biocim">Helaya Biocim (Pvt) Ltd</Link>
                 <Link className="footer-link" to="/business/manufacture#helaya-cosmoderma">Helaya CosmoDerma (Pvt) Ltd</Link>
               </div>
             </div>

@@ -18,12 +18,12 @@ const Manufacture = () => {
         "Portfolio spans cleansers, serums, sunscreens, targeted treatments, and post-procedure care.",
       ],
     },
-    biosim: {
+    biocim: {
       title: "Helaya Biosim (Pvt) Ltd",
       summary:
         "Biosimilar development and sterile manufacturing with a focus on quality, safety, and regulated market readiness.",
       points: [
-        "Process development, analytical characterization, and comparability protocols for biosimilars.",
+        "Process development, analytical characterization, and comparability protocols for biocimilars.",
         "Aseptic filling, controlled environments, and validation aligned to stringent QA/QC standards.",
         "Technology transfer support, documentation, and stability programs for global registrations.",
       ],
@@ -33,8 +33,8 @@ const Manufacture = () => {
   useEffect(() => {
     const syncFromHash = () => {
       const hash = window.location.hash.toLowerCase();
-      if (hash.includes("helaya-biosim")) {
-        setActiveEntity("biosim");
+      if (hash.includes("helaya-biocim")) {
+        setActiveEntity("biocim");
       } else if (hash.includes("helaya-cosmoderma")) {
         setActiveEntity("cosmoderma");
       }
@@ -97,8 +97,8 @@ const Manufacture = () => {
           </button>
           <button
             type="button"
-            className={`manufacture-tab ${activeEntity === "biosim" ? "active" : ""}`}
-            onClick={() => setActiveEntity("biosim")}
+            className={`manufacture-tab ${activeEntity === "biocim" ? "active" : ""}`}
+            onClick={() => setActiveEntity("biocim")}
           >
             Helaya Biosim (Pvt) Ltd
           </button>
