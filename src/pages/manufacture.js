@@ -9,7 +9,7 @@ const Manufacture = () => {
 
   const manufactureData = {
     cosmoderma: {
-      title: "Helaya CosmoDerma (Pvt) Ltd",
+      title: "Helaya CosmoDerma Life Sciences (Pvt) Ltd",
       summary:
         "Research-driven cosmeceuticals focused on dermatology-grade skincare, haircare, and aesthetic wellness with clinical formulation standards.",
       points: [
@@ -19,7 +19,7 @@ const Manufacture = () => {
       ],
     },
     biocim: {
-      title: "Helaya Biosim (Pvt) Ltd",
+      title: "Helaya Biocim (Pvt) Ltd",
       summary:
         "Biosimilar development and sterile manufacturing with a focus on quality, safety, and regulated market readiness.",
       points: [
@@ -93,14 +93,14 @@ const Manufacture = () => {
             className={`manufacture-tab ${activeEntity === "cosmoderma" ? "active" : ""}`}
             onClick={() => setActiveEntity("cosmoderma")}
           >
-            Helaya CosmoDerma (Pvt) Ltd
+            Helaya CosmoDerma Life Sciences (Pvt) Ltd
           </button>
           <button
             type="button"
             className={`manufacture-tab ${activeEntity === "biocim" ? "active" : ""}`}
             onClick={() => setActiveEntity("biocim")}
           >
-            Helaya Biosim (Pvt) Ltd
+            Helaya Biocim (Pvt) Ltd
           </button>
         </div>
 

@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer-col">
+        <div className="footer-col footer-contact">
           <h3 className="footer-heading">Contact</h3>
 
           <p className="footer-text">
@@ -81,7 +81,8 @@ const Footer = () => {
                   <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7 8-5H4l8 5zm-8 7h16V8l-8 5-8-5v10z" />
                 </svg>
               </span>
-              <span>Email: info@amartholdings.com</span>
+              <span>Email:</span>
+              <span className="footer-email-address">info@amartholdings.com</span>
             </span>
           </p>
         </div>
@@ -101,7 +102,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer-col">
+        <div className="footer-col footer-business">
           <h3 className="footer-heading">Our Businesses</h3>
 
           <div className="footer-business-row">

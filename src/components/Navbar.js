@@ -38,7 +38,7 @@ const businessColumns = [
     path: "/business/manufacture",
     items: [
       { label: "Helaya Biocim (Pvt) Ltd", path: "/business/manufacture#helaya-biocim" },
-      { label: "Helaya CosmoDerma (Pvt) Ltd", path: "/business/manufacture#helaya-cosmoderma" },
+      { label: "Helaya CosmoDerma Life Sciences (Pvt) Ltd", path: "/business/manufacture#helaya-cosmoderma" },
     ],
   },
   {

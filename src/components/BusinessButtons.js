@@ -78,9 +78,9 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
       path: "/business/manufacture",
       icon: manufactureIcon,
       preview: manufacturePreview,
-      desc: "Helaya Biosim (Pvt) Ltd and Helaya CosmoDerma (Pvt) Ltd",
+      desc: "Helaya Biocim (Pvt) Ltd and Helaya CosmoDerma (Pvt) Ltd",
       services: [
-        "Helaya Biosim (Pvt) Ltd",
+        "Helaya Biocim (Pvt) Ltd",
         "Helaya CosmoDerma (Pvt) Ltd",
       ],
     },

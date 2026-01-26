@@ -351,4 +351,13 @@
   .tourism-tabs {
     margin: 24px auto 14px;
   }
+
+  .tourism-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tourism-reveal.show {
+    animation: none;
+  }
 }

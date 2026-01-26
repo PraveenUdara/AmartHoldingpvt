@@ -206,11 +206,41 @@
   }
 
   .helaya-healthmart-feature {
-    grid-template-columns: 1fr;
-    padding: 10px 6% 60px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    padding: 10px 6% 50px;
   }
 
   .helaya-healthmart-feature-card {
-    height: 360px;
+    height: 220px;
+  }
+
+  .helaya-healthmart-feature-overlay {
+    padding: 14px;
+  }
+
+  .helaya-healthmart-feature-overlay h2 {
+    font-size: 1.1rem;
+  }
+
+  .helaya-healthmart-feature-overlay p {
+    font-size: 0.85rem;
+  }
+
+  .helaya-healthmart-btn {
+    font-size: 0.65rem;
+    padding: 4px 6px;
+    box-shadow: 0 6px 12px rgba(10, 36, 60, 0.18);
+    align-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .helaya-healthmart-feature-card {
+    height: 180px;
+  }
+
+  .helaya-healthmart-feature-overlay p {
+    display: none;
   }
 }
