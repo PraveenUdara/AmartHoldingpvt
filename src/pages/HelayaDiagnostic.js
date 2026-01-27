@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/HelayaDiagnostic.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 import diagnosticCover from "../assets/diagnostic2.jpg";
 
 const HelayaDiagnostic = () => {
@@ -13,6 +14,7 @@ const HelayaDiagnostic = () => {
           width="1920"
           height="1080"
         />
+        <Breadcrumbs variant="hero" />
         <div className="helaya-diagnostic-hero-overlay">
           <div className="helaya-diagnostic-hero-content">
             <h1>Helaya Diagnostics</h1>

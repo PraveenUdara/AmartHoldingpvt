@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/HelayaHealthMart.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 import helayaHealthMartCover from "../assets/HelayaHealthmart.png";
 import helayaPharmacyImg from "../assets/9 pages/helacolombo.webp";
 import medicalClinicImg from "../assets/clinic1.png";
@@ -16,6 +17,7 @@ const HelayaHeatlthMart = () => {
           alt="Helaya Health Mart"
           className="helaya-healthmart-hero-img"
         />
+        <Breadcrumbs variant="hero" />
         <div className="helaya-healthmart-hero-overlay">
           <div className="helaya-healthmart-hero-content">
             <h1>Helaya Health Mart</h1>

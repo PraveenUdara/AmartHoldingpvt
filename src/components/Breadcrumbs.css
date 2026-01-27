@@ -1,0 +1,150 @@
+/* ================= BREADCRUMBS ================= */
+.breadcrumbs {
+  width: 100%;
+  background: #f2f5f8;
+  border-bottom: 1px solid #e3ebf3;
+}
+
+.breadcrumbs-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: #607d8b;
+}
+
+.breadcrumb-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.breadcrumb-back:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-link {
+  color: #0d4f86;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 6px;
+  color: #90a4ae;
+}
+
+.breadcrumb-current {
+  color: #455a64;
+  font-weight: 600;
+}
+
+.breadcrumbs-hero {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border: none;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.breadcrumbs-hero .breadcrumbs-inner {
+  position: absolute;
+  left: 2%;
+  bottom: 18px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  color: #e3f2fd;
+  backdrop-filter: none;
+  pointer-events: auto;
+}
+
+.breadcrumbs-hero .breadcrumb-back {
+  color: #e3f2fd;
+}
+
+.breadcrumb-back-hero {
+  position: absolute;
+  top: 18px;
+  left: 2%;
+  z-index: 6;
+  color: #e3f2fd;
+  pointer-events: auto;
+  border: 1px solid rgba(227, 242, 253, 0.8);
+  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 23, 40, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.breadcrumbs-hero .breadcrumb-link {
+  color: #e3f2fd;
+}
+
+.breadcrumbs-hero .breadcrumb-separator {
+  color: rgba(227, 242, 253, 0.7);
+}
+
+.breadcrumbs-hero .breadcrumb-current {
+  color: #e3f2fd;
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs-inner {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+  }
+
+  .breadcrumbs-hero {
+    inset: 0;
+  }
+
+  .breadcrumbs-hero .breadcrumbs-inner {
+    left: 2%;
+    bottom: 14px;
+    padding: 0;
+  }
+
+  .breadcrumb-back-hero {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumbs-inner {
+    font-size: 0.8rem;
+  }
+
+  .breadcrumbs-hero {
+    inset: 0;
+  }
+
+  .breadcrumbs-hero .breadcrumbs-inner {
+    left: 2%;
+    bottom: 12px;
+  }
+
+  .breadcrumb-back-hero {
+    display: none;
+  }
+}

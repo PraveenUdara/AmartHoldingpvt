@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Home.css";
 import BusinessButtons from "../components/BusinessButtons";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 // HERO IMAGES (RESPONSIVE)
 import homeBg640Jpg from "../assets/hero-optimized/home_bg-640.jpg";
@@ -259,6 +260,7 @@ const Home = () => {
   };
 
   const [hoverData, setHoverData] = useState(defaultHoverData);
+  const [activePartner, setActivePartner] = useState(null);
 
   const STORIES = [
     {
@@ -278,6 +280,7 @@ const Home = () => {
 
       {/* ================= HERO SECTION ================= */}
       <section className="hero-section">
+        <Breadcrumbs variant="hero" />
 
         <div className="hero-media">
           {/* HERO IMAGES */}
@@ -516,9 +519,21 @@ const Home = () => {
           <h2>Global Partners</h2>
           <p>Trusted collaborations powering our healthcare ecosystem.</p>
         </div>
-        <div className="partners-grid">
+        <div className={`partners-grid ${activePartner !== null ? "has-active" : ""}`}>
           {PARTNER_LOGOS.map((logo, index) => (
-            <div className="partner-card" key={logo}>
+            <div
+              className={`partner-card ${activePartner === index ? "is-active" : ""}`}
+              key={logo}
+              onClick={() => setActivePartner(activePartner === index ? null : index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setActivePartner(activePartner === index ? null : index);
+                }
+              }}
+            >
               <img
                 src={logo}
                 alt={`Partner ${index + 1}`}

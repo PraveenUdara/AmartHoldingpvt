@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import intlCover from "../assets/9 pages/international/international.png";
 import "../styles/helaya-international.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const HelayaInternational = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const HelayaInternational = () => {
     <div className="intl-page">
       <section className="intl-hero">
         <img src={intlCover} alt="Helaya International cover" className="intl-hero-img" />
+        <Breadcrumbs variant="hero" />
         <div className="intl-hero-overlay">
           <div className="intl-hero-text">
             <h1>Helaya International</h1>

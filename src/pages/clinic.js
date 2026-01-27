@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import clinicCover from "../assets/9 pages/medical/clinic.png";
 import "../styles/clinic.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const MedicalCenters = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const MedicalCenters = () => {
     <div className="clinic-page">
       <section className="clinic-hero">
         <img src={clinicCover} alt="Medical center cover" className="clinic-hero-img" />
+        <Breadcrumbs variant="hero" />
         <div className="clinic-hero-overlay">
           <div className="clinic-hero-text">
             <h1>Medical Centers</h1>

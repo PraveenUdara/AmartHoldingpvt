@@ -1,6 +1,7 @@
 // src/pages/Events.js
 import React, { useState } from "react";
 import "../styles/Events.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 // 🔹 EVENTS COVER IMAGE
 import eventsCover from "../assets/events_cover.jpg";
@@ -141,6 +142,7 @@ const Events = () => {
           alt="Events Cover"
           className="events-hero-img"
         />
+        <Breadcrumbs variant="hero" />
 
         <div className="events-hero-overlay">
           <h1 className="events-hero-title fade-in-up">

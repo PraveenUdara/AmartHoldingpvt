@@ -7,6 +7,7 @@ import cimImage from "../assets/9 pages/pharamcutical/Cim.png";
 import sayreImage from "../assets/9 pages/pharamcutical/sy.png";
 import sayrePortfolioImage from "../assets/9 pages/pharamcutical/images.png";
 import "../styles/pharma.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const Pharmaceuticals = () => {
 
@@ -26,11 +27,20 @@ const Pharmaceuticals = () => {
     return () => observer.disconnect();
   }, []);
 
+  const mobilePartners = [
+    { id: "sayre", title: "Sayre Therapeutics", image: sayreImage },
+    { id: "portfolio", title: "Therapeutic Portfolio", image: sayrePortfolioImage },
+    { id: "cim", title: "CIM", image: cimImage },
+    { id: "gp", title: "GP Pharm", image: gpImage },
+    { id: "quality", title: "Quality Products", image: pharmaImage2 },
+  ];
+
   return (
     <div className="pharma-page">
 
       <div className="pharma-hero">
         <img src={pharmaCover} alt="Pharmaceuticals" />
+        <Breadcrumbs variant="hero" />
         <div className="pharma-hero-text">
           <h1>Pharmaceuticals</h1>
           <p>
@@ -86,9 +96,22 @@ const Pharmaceuticals = () => {
         </div>
       </section>
 
+      <div className="pharma-mobile-list">
+        {mobilePartners
+          .filter((item) => item.id !== "quality")
+          .map((item) => (
+            <a key={item.id} href={`#${item.id}`} className="pharma-mobile-card">
+              <div className="pharma-mobile-thumb">
+                <img src={item.image} alt={item.title} loading="lazy" />
+              </div>
+              <div className="pharma-mobile-title">{item.title}</div>
+            </a>
+          ))}
+      </div>
+
       <div className="pharma-break" aria-hidden="true"></div>
 
-      <section className="pharma-partner pharma-partner-reverse reveal">
+      <section className="pharma-partner pharma-partner-reverse reveal" id="sayre">
         <div className="pharma-partner-image">
           <img src={sayreImage} alt="Sayre Therapeutics" />
         </div>
@@ -106,7 +129,7 @@ const Pharmaceuticals = () => {
 
       <div className="pharma-break" aria-hidden="true"></div>
 
-      <section className="pharma-partner reveal">
+      <section className="pharma-partner reveal" id="portfolio">
         <div className="pharma-partner-text">
           <h3>Therapeutic Portfolio</h3>
           <p>
@@ -124,7 +147,7 @@ const Pharmaceuticals = () => {
 
       <div className="pharma-break" aria-hidden="true"></div>
 
-      <section className="pharma-partner pharma-partner-reverse reveal">
+      <section className="pharma-partner pharma-partner-reverse reveal" id="cim">
         <div className="pharma-partner-image">
           <img src={cimImage} alt="CIM" />
         </div>
@@ -140,7 +163,7 @@ const Pharmaceuticals = () => {
 
       <div className="pharma-break" aria-hidden="true"></div>
 
-      <section className="pharma-partner reveal">
+      <section className="pharma-partner reveal" id="gp">
         <div className="pharma-partner-text">
           <h3>GP Pharm</h3>
           <p>
@@ -156,7 +179,7 @@ const Pharmaceuticals = () => {
 
       <div className="pharma-break" aria-hidden="true"></div>
 
-      <section className="pharma-quality reveal">
+      <section className="pharma-quality reveal" id="quality">
         <div className="pharma-quality-image">
           <img src={pharmaImage2} alt="Quality pharmaceutical products" />
         </div>

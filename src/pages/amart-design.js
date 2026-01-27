@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import brandingCover from "../assets/9 pages/design/branding.png";
 import "../styles/amartdesign.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const BrandingDesign = () => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const BrandingDesign = () => {
     <div className="design-page">
       <section className="design-hero">
         <img src={brandingCover} alt="Branding and design cover" className="design-hero-img" />
+        <Breadcrumbs variant="hero" />
         <div className="design-hero-overlay">
           <div className="design-hero-text">
             <h1>Branding & Design</h1>

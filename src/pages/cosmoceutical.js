@@ -2,6 +2,7 @@
 import React from "react";
 import "../styles/cosmoceutical.css";
 import cosmeceuticalCover from "../assets/9 pages/cosmoceutical/cosmeceutical.png";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const Cosmoceutical = () => {
   return (
@@ -12,6 +13,7 @@ const Cosmoceutical = () => {
           alt="Cosmeceutical"
           className="cosmoceutical-hero-img"
         />
+        <Breadcrumbs variant="hero" />
         <div className="cosmoceutical-hero-overlay">
           <div className="cosmoceutical-hero-content">
             <h1>Cosmeceutical</h1>

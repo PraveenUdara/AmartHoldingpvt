@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/manufacture.css";
 import manufactureImg from "../assets/9 pages/manufacture/manufatcure.png";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const Manufacture = () => {
   const [activeEntity, setActiveEntity] = useState("cosmoderma");
@@ -54,6 +55,7 @@ const Manufacture = () => {
       {/* HERO */}
       <section className="manufacture-hero">
         <img src={manufactureImg} alt="Manufacturing" />
+        <Breadcrumbs variant="hero" />
       </section>
 
       {/* INTRO */}

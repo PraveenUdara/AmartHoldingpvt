@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "../index.css";
 import "../styles/ContactUs.css";
 import contactCover from "../assets/contact_cover.jpg";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const ContactUs = () => {
   // ================= FORM STATE =================
@@ -59,6 +60,7 @@ const ContactUs = () => {
           alt="Contact Us Cover"
           className="contact-hero-img"
         />
+        <Breadcrumbs variant="hero" />
 
         <div className="contact-hero-overlay">
           <div className="contact-hero-inner">

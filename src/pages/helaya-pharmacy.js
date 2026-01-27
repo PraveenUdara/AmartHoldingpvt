@@ -1,6 +1,7 @@
 // src/pages/helaya-pharmacy.js
 import React, { useState, useEffect } from "react";
 import "../styles/helayapharmacy.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 import helayaCover from "../assets/9 pages/helaya paharmcey.png";
 import helacolombo from "../assets/9 pages/helacolombo.webp";
 import helkandy from "../assets/9 pages/helaya kandy.jpg";
@@ -56,6 +57,7 @@ const HelayaPharmacy = () => {
         className="helaya-cover"
       >
         <img src={helayaCover} alt="Helaya Pharmacy" className="helaya-cover-img" />
+        <Breadcrumbs variant="hero" />
         <div className="helaya-cover-overlay">
           <div className="helaya-cover-content">
             <h1>Helaya Pharmacy</h1>

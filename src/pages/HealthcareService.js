@@ -6,6 +6,7 @@ import heroImage from "../assets/9 pages/healthservice/healthcareservice.png";
 import tourismImg from "../assets/9 pages/healthservice/tourisam.png";
 import pharmaImg from "../assets/9 pages/healthservice/pharamacutical.png";
 import diagnosticImg from "../assets/9 pages/healthservice/diagnostic.png";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const HealthcareService = () => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const HealthcareService = () => {
     <div className="healthservice-page">
       <section className="healthservice-hero">
         <img src={heroImage} alt="Healthcare Services" className="healthservice-hero-img" />
+        <Breadcrumbs variant="hero" />
         <div className="healthservice-hero-content">
           <h1>Healthcare Services</h1>
           <p>

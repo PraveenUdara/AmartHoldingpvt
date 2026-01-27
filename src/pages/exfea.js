@@ -2,12 +2,14 @@
 import React from "react";
 import "../styles/Exfea.css";
 import exfeaCover from "../assets/energy.png";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const Expia = () => {
   return (
     <div className="exfea-page">
       <section className="exfea-hero">
         <img src={exfeaCover} alt="Exfea" className="exfea-hero-img" />
+        <Breadcrumbs variant="hero" />
         <div className="exfea-hero-overlay">
           <div className="exfea-hero-content">
             <h1>Exfea</h1>

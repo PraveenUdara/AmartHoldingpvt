@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import "../styles/tourism.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 import tourismCover from "../assets/9 pages/medicaltcover.jpg";
 import indiaImage from "../assets/9 pages/medicalt/MH.jpg";
 import asterImage from "../assets/9 pages/medicalt/A-CMI.jpg";
@@ -128,22 +129,6 @@ const MedicalTourism = () => {
     return () => window.removeEventListener("hashchange", syncFromHash);
   }, []);
 
-  useEffect(() => {
-    const elements = document.querySelectorAll(".tourism-reveal");
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      },
-      { threshold: 0.18 }
-    );
-
-    elements.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, [activeCountry]);
 
   const handleTabChange = country => {
     setActiveCountry(country);
@@ -156,6 +141,7 @@ const MedicalTourism = () => {
         className="tourism-cover"
         style={{ backgroundImage: `url(${tourismCover})` }}
       >
+        <Breadcrumbs variant="hero" />
         <div className="tourism-overlay">
           <div className="tourism-cover-content">
             <h1>Medical Tourism</h1>
@@ -174,7 +160,7 @@ const MedicalTourism = () => {
           aria-hidden="true"
           className="tourism-bg-art"
         />
-        <div className="tourism-intro tourism-reveal">
+        <div className="tourism-intro">
           <h2>A Mart Holdings - Medical Tourism Division</h2>
           <p>
             A Mart Holdings - Medical Tourism Division connects patients with leading international
@@ -192,7 +178,7 @@ const MedicalTourism = () => {
           </p>
         </div>
 
-        <ul className="tourism-services-list tourism-reveal">
+        <ul className="tourism-services-list">
           <li>Professional recommendations on treatment options and specialists.</li>
           <li>Appointment scheduling within 24 hours.</li>
           <li>Teleconsultation arrangements.</li>
@@ -204,7 +190,7 @@ const MedicalTourism = () => {
           <li>Additional services tailored to individual needs.</li>
         </ul>
 
-        <div className="tourism-tabs tourism-reveal">
+        <div className="tourism-tabs">
           <button
             type="button"
             className={`tourism-tab ${activeCountry === "india" ? "active" : ""}`}
@@ -221,13 +207,23 @@ const MedicalTourism = () => {
           </button>
         </div>
 
+        <div className="tourism-mobile-hospitals">
+          {hospitalData[activeCountry].map(hospital => (
+            <a key={hospital.id} href={`#${hospital.id}`} className="tourism-mobile-card">
+              <div className="tourism-mobile-thumb">
+                <img src={hospital.image} alt={hospital.title} loading="lazy" />
+              </div>
+              <div className="tourism-mobile-title">{hospital.title}</div>
+            </a>
+          ))}
+        </div>
+
         <div className="tourism-tab-panel">
           {hospitalData[activeCountry].map(hospital => (
             <div
               key={hospital.id}
-              className={`tourism-split tourism-reveal ${
-                hospital.reverse ? "tourism-split-reverse" : ""
-              }`}
+              id={hospital.id}
+              className={`tourism-split ${hospital.reverse ? "tourism-split-reverse" : ""}`}
             >
               <div className="tourism-image">
                 <img src={hospital.image} alt={hospital.title} />
@@ -242,7 +238,7 @@ const MedicalTourism = () => {
           ))}
         </div>
 
-        <div className="tourism-intro tourism-reveal split-margin">
+        <div className="tourism-intro split-margin">
           <h2>Ready to plan your visit?</h2>
           <p>
             Share your reports and travel window at{" "}

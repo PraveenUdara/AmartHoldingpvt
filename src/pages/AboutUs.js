@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import aboutUsImg from "../assets/about_bg.jpg";
 import "../styles/AboutUs.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 import missionImg from "../assets/mission.jpg";
 import visionImg from "../assets/vision.jpg";
@@ -90,6 +91,7 @@ const AboutUs = () => {
       {/* HERO */}
       <div className="about-hero">
         <img src={aboutUsImg} alt="About Us" className="about-hero-bg" width="1600" height="800" />
+        <Breadcrumbs variant="hero" />
 
         <div className="about-hero-overlay">
           <div className="about-hero-inner">

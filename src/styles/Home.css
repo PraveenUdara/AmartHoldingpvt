@@ -653,6 +653,7 @@ body.home-hero-light .hero-slide-info {
   border: 1px solid rgba(12, 38, 60, 0.08);
   min-height: 110px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
 }
 
 .partner-card:hover {
@@ -696,6 +697,31 @@ body.home-hero-light .hero-slide-info {
 }
 
 @media (max-width: 768px) {
+  .partner-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .partner-card:hover {
+    transform: none;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .partner-card:hover .partner-logo {
+    opacity: 1;
+  }
+
+  .partners-grid.has-active .partner-card {
+    opacity: 0.65;
+  }
+
+  .partners-grid.has-active .partner-card.is-active {
+    opacity: 1;
+    transform: scale(1.12);
+    z-index: 2;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+    border-color: rgba(10, 75, 134, 0.35);
+  }
+
   .hero-section {
     height: 60vh;
     min-height: 420px;

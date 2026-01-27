@@ -1,6 +1,7 @@
 // src/pages/diagnostics.js
 import React, { useState } from "react";
 import "../styles/diagnostics.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 // COVER IMAGE
 import diagnosticsCover from "../assets/9 pages/diagnostics.jpg";
@@ -24,6 +25,17 @@ const Diagnostics = () => {
     setOpenSections((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
+  const mobileDiagnostics = [
+    { id: "medgenome", title: "Medgenome", image: medgenomeImg },
+    { id: "oncotype", title: "Oncotype DX", image: dxImg },
+    { id: "foundation", title: "FoundationOne CDx", image: foundationImg },
+    { id: "tempus", title: "Tempus", image: tempusImg },
+    { id: "data-genetic", title: "Datar Genatic", image: dataGeneticImg },
+    { id: "canassist", title: "CanAssist-Breast", image: canassistImg },
+    { id: "basecare", title: "4baseCare", image: basecareImg },
+    { id: "centogene", title: "Centogene", image: centogImg },
+  ];
+
   return (
     <div className="business-page">
 
@@ -32,6 +44,7 @@ const Diagnostics = () => {
         className="business-cover"
         style={{ backgroundImage: `url(${diagnosticsCover})` }}
       >
+        <Breadcrumbs variant="hero" />
         <div className="business-cover-overlay">
           <div className="business-cover-content">
             <h1 className="business-cover-title">Diagnostics</h1>
@@ -69,8 +82,19 @@ const Diagnostics = () => {
         </div>
       </section>
 
+      <div className="diagnostics-mobile-list">
+        {mobileDiagnostics.map((item) => (
+          <a key={item.id} href={`#${item.id}`} className="diagnostics-mobile-card">
+            <div className="diagnostics-mobile-thumb">
+              <img src={item.image} alt={item.title} loading="lazy" />
+            </div>
+            <div className="diagnostics-mobile-title">{item.title}</div>
+          </a>
+        ))}
+      </div>
+
       {/* ================= MEDGENOME FEATURE ================= */}
-      <section className="medgenome-section">
+      <section className="medgenome-section" id="medgenome">
         <div className="medgenome-image">
           <img src={medgenomeImg} alt="MedGenome" />
         </div>
@@ -93,7 +117,7 @@ const Diagnostics = () => {
       </section>
 
       {/* ================= ONCOTYPE DX FEATURE ================= */}
-      <section className="dx-section">
+      <section className="dx-section" id="oncotype">
         <div className="dx-image">
           <img src={dxImg} alt="Oncotype DX" />
         </div>
@@ -132,7 +156,7 @@ const Diagnostics = () => {
       </section>
 
       {/* ================= FOUNDATION ONE CDx ================= */}
-      <section className="foundation-section">
+      <section className="foundation-section" id="foundation">
         <div className="foundation-image">
           <img src={foundationImg} alt="FoundationOne CDx" />
           <p className="foundation-caption">
@@ -157,7 +181,7 @@ const Diagnostics = () => {
       </section>
 
       {/* ================= TEMPUS ================= */}
-      <section className="tempus-section">
+      <section className="tempus-section" id="tempus">
         <div className="tempus-image">
           <img src={tempusImg} alt="Tempus" />
         </div>
@@ -176,7 +200,7 @@ const Diagnostics = () => {
       </section>
 
       {/* ================= DATA GENETIC ================= */}
-      <section className="data-genetic-section">
+      <section className="data-genetic-section" id="data-genetic">
         <div className="data-genetic-image">
           <img src={dataGeneticImg} alt="Data Genetic" />
         </div>
@@ -197,7 +221,7 @@ const Diagnostics = () => {
       </section>
 
       {/* ================= CANASSIST BREAST ================= */}
-      <section className="dx-section">
+      <section className="dx-section" id="canassist">
         <div className="dx-image">
           <img src={canassistImg} alt="CanAssist Breast" />
         </div>
@@ -214,7 +238,7 @@ const Diagnostics = () => {
       </section>
 
       {/* ================= 4BASECARE ================= */}
-      <section className="basecare-section">
+      <section className="basecare-section" id="basecare">
         <div className="basecare-image">
           <img src={basecareImg} alt="4baseCare Genomic Data" />
         </div>
@@ -267,7 +291,7 @@ const Diagnostics = () => {
       </section>
 
       {/* ================= CENTOGENE FEATURE ================= */}
-      <section className="centogene-section">
+      <section className="centogene-section" id="centogene">
         <div className="centogene-image">
           <img src={centogImg} alt="Centogene" />
         </div>

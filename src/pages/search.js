@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import searchCover from "../assets/9 pages/search/search.png";
 import "../styles/search.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const SEARCH_INDEX = [
   {
@@ -152,6 +153,7 @@ const SearchPage = () => {
           backgroundImage: `url(${searchCover})`,
         }}
       >
+        <Breadcrumbs variant="hero" />
       </div>
 
       <div className="search-body">
