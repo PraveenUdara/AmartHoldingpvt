@@ -209,7 +209,7 @@ const MedicalTourism = () => {
 
         <div className="tourism-mobile-hospitals">
           {hospitalData[activeCountry].map(hospital => (
-            <a key={hospital.id} href={`#${hospital.id}`} className="tourism-mobile-card">
+            <a key={hospital.id} href={`#${hospital.id}-title`} className="tourism-mobile-card">
               <div className="tourism-mobile-thumb">
                 <img src={hospital.image} alt={hospital.title} loading="lazy" />
               </div>
@@ -229,7 +229,7 @@ const MedicalTourism = () => {
                 <img src={hospital.image} alt={hospital.title} />
               </div>
               <div className="tourism-copy">
-                <h3>{hospital.title}</h3>
+                <h3 id={`${hospital.id}-title`}>{hospital.title}</h3>
                 {hospital.description.map((text, index) => (
                   <p key={index}>{text}</p>
                 ))}

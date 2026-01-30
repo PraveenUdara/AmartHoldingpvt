@@ -9,7 +9,7 @@ const routeLabels = {
   "/events": "Events",
   "/contact": "Contact Us",
   "/search": "Search",
-  "/business/healthcare-services": "A Mart Holding",
+  "/business/healthcare-services": "A Mart Holdings",
   "/business/pharmaceuticals": "Pharmaceuticals",
   "/business/diagnostics": "Diagnostics",
   "/business/medical-tourism": "Medical Tourism",
@@ -38,6 +38,13 @@ const Breadcrumbs = ({ variant = "default" }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const isHero = variant === "hero";
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/", { replace: true });
+    }
+  };
 
   const crumbs = [{ label: "Home", path: "/" }];
 
@@ -82,7 +89,7 @@ const Breadcrumbs = ({ variant = "default" }) => {
         <button
           type="button"
           className="breadcrumb-back breadcrumb-back-hero"
-          onClick={() => navigate(-1)}
+          onClick={handleBack}
           aria-label="Go back"
         >
           <span aria-hidden="true">←</span>

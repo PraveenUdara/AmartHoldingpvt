@@ -84,7 +84,7 @@ const Diagnostics = () => {
 
       <div className="diagnostics-mobile-list">
         {mobileDiagnostics.map((item) => (
-          <a key={item.id} href={`#${item.id}`} className="diagnostics-mobile-card">
+          <a key={item.id} href={`#${item.id}-title`} className="diagnostics-mobile-card">
             <div className="diagnostics-mobile-thumb">
               <img src={item.image} alt={item.title} loading="lazy" />
             </div>
@@ -99,7 +99,7 @@ const Diagnostics = () => {
           <img src={medgenomeImg} alt="MedGenome" />
         </div>
         <div className="medgenome-copy">
-          <h3>Medgenome</h3>
+          <h3 id="medgenome-title">Medgenome</h3>
           <p>
             MedGenome is a genomics and clinical data driven genetic testing and drug
             discovery research company and a leader in genetic testing with expertise
@@ -122,7 +122,7 @@ const Diagnostics = () => {
           <img src={dxImg} alt="Oncotype DX" />
         </div>
         <div className="dx-copy">
-          <h3>Oncotype DX</h3>
+          <h3 id="oncotype-title">Oncotype DX</h3>
           <p>
             We joined hands with MediLinks to provide Oncotype DX to Sri Lankans. The Oncotype DX test is a genomic test that analyzes the activity of a group of genes that can affect how a cancer is likely to behave and respond to treatment.
           </p>
@@ -166,7 +166,7 @@ const Diagnostics = () => {
           </p>
         </div>
         <div className="foundation-copy">
-          <h3>FoundationOne CDx</h3>
+          <h3 id="foundation-title">FoundationOne CDx</h3>
           <p>
             FoundationOne CDx is a broad companion diagnostic (CDx) that is clinically and analytically validated for solid tumors including: NSCLC, Colorectal, Breast, Ovarian, and Melanoma. The test is designed to provide physicians with clinically actionable information.
           </p>
@@ -186,7 +186,7 @@ const Diagnostics = () => {
           <img src={tempusImg} alt="Tempus" />
         </div>
         <div className="tempus-copy">
-          <h3>Tempus</h3>
+          <h3 id="tempus-title">Tempus</h3>
           <p>
             Tempus delivers data-driven insights that help clinicians personalize care by combining
             advanced diagnostics with real-world evidence.
@@ -205,7 +205,7 @@ const Diagnostics = () => {
           <img src={dataGeneticImg} alt="Data Genetic" />
         </div>
         <div className="data-genetic-copy">
-          <h3>Datar Genatic</h3>
+          <h3 id="data-genetic-title">Datar Genatic</h3>
           <h4>exacta</h4>
           <p>
             Every human being is different and unique, similarly every person’s cancer is unique.
@@ -226,7 +226,7 @@ const Diagnostics = () => {
           <img src={canassistImg} alt="CanAssist Breast" />
         </div>
         <div className="dx-copy">
-          <h3>CanAssist-Breast Test</h3>
+          <h3 id="canassist-title">CanAssist-Breast Test</h3>
           <p>
             CanAssist-Breast test helps clinicians formulate personalized therapeutic programs for their patients. The result is precision medicine that could shorten recovery time and improve the patient's quality of life.
           </p>
@@ -243,7 +243,7 @@ const Diagnostics = () => {
           <img src={basecareImg} alt="4baseCare Genomic Data" />
         </div>
         <div className="basecare-copy">
-          <h3>4baseCare</h3>
+          <h3 id="basecare-title">4baseCare</h3>
           <p>
             4baseCare is a precision oncology company leveraging advanced genomic technologies to provide personalized cancer care.
             4BaseCare performs the DNA and RNA sequencing to generate high-quality somatic and germline molecular data. The results empower physicians to make data-driven personalized treatment decisions.
@@ -296,7 +296,7 @@ const Diagnostics = () => {
           <img src={centogImg} alt="Centogene" />
         </div>
         <div className="centogene-copy">
-          <h3>CENTOGENE</h3>
+          <h3 id="centogene-title">CENTOGENE</h3>
           <p>
             Centogene is one of the largest genetic biotech companies worldwide, the
             European market leader, and one of the global leaders in genetic

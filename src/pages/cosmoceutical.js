@@ -1,7 +1,7 @@
 // src/pages/cosmoceutical.js
 import React from "react";
 import "../styles/cosmoceutical.css";
-import cosmeceuticalCover from "../assets/9 pages/cosmoceutical/cosmeceutical.png";
+import cosmeceuticalCover from "../assets/9 pages/brand/consumetic.png";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 const Cosmoceutical = () => {

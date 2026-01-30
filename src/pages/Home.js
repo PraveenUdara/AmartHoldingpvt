@@ -209,33 +209,8 @@ const Home = () => {
     sources.map((item) => `${item.src} ${item.width}w`).join(", ");
 
   useEffect(() => {
-    let cancelled = false;
-    const img = new Image();
-    img.src = currentSlide.imageSet.sample;
-    img.onload = () => {
-      if (cancelled) return;
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d", { willReadFrequently: true });
-      if (!ctx) return;
-      const size = 64;
-      canvas.width = size;
-      canvas.height = size;
-      ctx.drawImage(img, 0, 0, size, size);
-      const data = ctx.getImageData(0, 0, size, size).data;
-      let total = 0;
-      for (let i = 0; i < data.length; i += 4) {
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        total += 0.2126 * r + 0.7152 * g + 0.0722 * b;
-      }
-      const avg = total / (data.length / 4);
-      setIsHeroLight(avg > 175);
-    };
-    return () => {
-      cancelled = true;
-    };
-  }, [currentSlide.imageSet.sample]);
+    setIsHeroLight(heroIndex === 0);
+  }, [heroIndex]);
 
   useEffect(() => {
     document.body.classList.toggle("home-hero-light", isHeroLight);
@@ -279,7 +254,7 @@ const Home = () => {
     <div className="home">
 
       {/* ================= HERO SECTION ================= */}
-      <section className="hero-section">
+      <section className="hero-section h-hero-mobile min-h-hero-mobile xs:h-hero-tablet xs:min-h-hero-tablet lg:h-hero-desktop lg:min-h-hero-desktop">
         <Breadcrumbs variant="hero" />
 
         <div className="hero-media">

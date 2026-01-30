@@ -107,7 +107,7 @@ const Footer = () => {
 
           <div className="footer-business-row">
             <div className="footer-link-group">
-              <Link className="footer-main-link" to="/business/healthcare-services">A Mart Holding</Link>
+              <Link className="footer-main-link" to="/business/healthcare-services">A Mart Holdings</Link>
               <div className="footer-sublinks">
                 <Link className="footer-link" to="/business/pharmaceuticals">Pharmaceuticals</Link>
                 <Link className="footer-link" to="/business/diagnostics">Diagnostics</Link>

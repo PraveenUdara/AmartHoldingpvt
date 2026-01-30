@@ -100,7 +100,7 @@ const Pharmaceuticals = () => {
         {mobilePartners
           .filter((item) => item.id !== "quality")
           .map((item) => (
-            <a key={item.id} href={`#${item.id}`} className="pharma-mobile-card">
+            <a key={item.id} href={`#${item.id}-title`} className="pharma-mobile-card">
               <div className="pharma-mobile-thumb">
                 <img src={item.image} alt={item.title} loading="lazy" />
               </div>
@@ -116,7 +116,7 @@ const Pharmaceuticals = () => {
           <img src={sayreImage} alt="Sayre Therapeutics" />
         </div>
         <div className="pharma-partner-text">
-          <h3>Sayre Therapeutics</h3>
+          <h3 id="sayre-title">Sayre Therapeutics</h3>
           <p>
             Sayre Therapeutics is a healthcare company founded in 2015 with a mission
             to transform patient care by bringing life-saving therapies to those who
@@ -131,7 +131,7 @@ const Pharmaceuticals = () => {
 
       <section className="pharma-partner reveal" id="portfolio">
         <div className="pharma-partner-text">
-          <h3>Therapeutic Portfolio</h3>
+          <h3 id="portfolio-title">Therapeutic Portfolio</h3>
           <p>
             The company specialises in developing and marketing a wide range of
             pharmaceutical drugs, medical devices, and nutraceuticals (food supplements)
@@ -152,7 +152,7 @@ const Pharmaceuticals = () => {
           <img src={cimImage} alt="CIM" />
         </div>
         <div className="pharma-partner-text">
-          <h3>CIM</h3>
+          <h3 id="cim-title">CIM</h3>
           <p>
             CIM is a Cuban public biotech research and pharmaceutical institution specializing in
             immunotherapy, cancer vaccines, monoclonal antibodies, and biologically derived
@@ -165,7 +165,7 @@ const Pharmaceuticals = () => {
 
       <section className="pharma-partner reveal" id="gp">
         <div className="pharma-partner-text">
-          <h3>GP Pharm</h3>
+          <h3 id="gp-title">GP Pharm</h3>
           <p>
             GP Pharm is an innovative Spanish pharma company that develops sophisticated injectable
             medicines, leverages advanced delivery technologies, and operates internationally both
@@ -185,7 +185,7 @@ const Pharmaceuticals = () => {
         </div>
 
         <div className="pharma-quality-text">
-          <h3>Latest and highest quality products</h3>
+          <h3 id="quality-title">Latest and highest quality products</h3>
 
           <p>
             We are committed to introducing the latest and highest quality pharmaceutical

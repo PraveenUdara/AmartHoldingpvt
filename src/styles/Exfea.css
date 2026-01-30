@@ -86,8 +86,24 @@
 
 @media (max-width: 900px) {
   .exfea-hero {
-    height: 50vh;
-    min-height: 320px;
+    height: 100vh;
+    min-height: 100vh;
+    aspect-ratio: auto;
+  }
+
+  .exfea-hero-img {
+    transform: none !important;
+    object-fit: cover;
+    object-position: center;
+    animation: none;
+    filter: none;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  .exfea-hero-overlay {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .exfea-hero-content h1 {

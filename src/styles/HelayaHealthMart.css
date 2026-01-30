@@ -123,6 +123,7 @@
   gap: 10px;
   padding: 26px;
   color: #ffffff;
+  text-align: center;
   background: linear-gradient(
     180deg,
     rgba(6, 18, 32, 0.05) 0%,
@@ -167,6 +168,7 @@
   box-shadow: 0 10px 24px rgba(10, 75, 134, 0.15);
   transition: background 0.2s ease, color 0.2s ease;
   gap: 6px;
+  align-self: center;
 }
 
 .helaya-healthmart-btn:hover {
@@ -185,8 +187,8 @@
 
 @media (max-width: 900px) {
   .helaya-healthmart-hero {
-    height: 50vh;
-    min-height: 320px;
+    height: 100vh;
+    min-height: 100vh;
   }
 
   .helaya-healthmart-hero-content h1 {
@@ -206,8 +208,8 @@
   }
 
   .helaya-healthmart-feature {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
     padding: 10px 6% 50px;
   }
 
@@ -220,27 +222,33 @@
   }
 
   .helaya-healthmart-feature-overlay h2 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 
   .helaya-healthmart-feature-overlay p {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
 
   .helaya-healthmart-btn {
-    font-size: 0.65rem;
-    padding: 4px 6px;
+    font-size: 0.8rem;
+    padding: 6px 10px;
     box-shadow: 0 6px 12px rgba(10, 36, 60, 0.18);
     align-self: center;
   }
 }
 
 @media (max-width: 600px) {
+  .helaya-healthmart-feature {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .helaya-healthmart-feature-card {
-    height: 180px;
+    height: 220px;
   }
 
   .helaya-healthmart-feature-overlay p {
-    display: none;
+    display: block;
+    font-size: 0.92rem;
   }
 }

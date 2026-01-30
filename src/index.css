@@ -37,10 +37,84 @@ p {
   background: transparent;
 }
 
+.pharma-hero-text,
+.business-cover-content,
+.tourism-cover-content,
+.exfea-hero-content,
+.events-hero-overlay,
+.cosmoceutical-hero-content,
+.contact-hero-inner,
+.clinic-hero-text,
+.design-hero-text,
+.about-hero-inner,
+.helaya-diagnostic-hero-content,
+.intl-hero-text,
+.helaya-healthmart-hero-content,
+.helaya-cover-content,
+.ai-hero-inner,
+.healthservice-hero-content {
+  text-align: left !important;
+}
+
 .tourism-overlay::after {
   content: none;
 }
 
+@keyframes heroKenBurns {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+@keyframes heroBgKenBurns {
+  0% { background-size: 100% 100%; }
+  50% { background-size: 110% 110%; }
+  100% { background-size: 100% 100%; }
+}
+
+.pharma-hero img,
+.manufacture-hero img,
+.clinic-hero-img,
+.design-hero-img,
+.cosmoceutical-hero-img,
+.contact-hero-img,
+.events-hero-img,
+.helaya-diagnostic-hero-img,
+.helaya-healthmart-hero-img,
+.helaya-cover-img,
+.ai-hero-img,
+.intl-hero-img,
+.exfea-hero-img {
+  animation: heroKenBurns 14s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.business-cover,
+.tourism-cover {
+  animation: heroBgKenBurns 14s ease-in-out infinite;
+}
+
+.pharma-hero,
+.healthservice-hero,
+.manufacture-hero,
+.search-hero,
+.business-cover,
+.tourism-cover,
+.exfea-hero,
+.cosmoceutical-hero,
+.contact-hero,
+.events-hero,
+.clinic-hero,
+.design-hero,
+.about-hero,
+.helaya-diagnostic-hero,
+.intl-hero,
+.helaya-healthmart-hero,
+.helaya-cover,
+.ai-hero {
+  height: 450px;
+  min-height: 450px;
+}
 
 .app {
   min-height: 100vh;
@@ -148,7 +222,6 @@ p {
 }
 
 @media (max-width: 768px) {
-  .hero-section,
   .pharma-hero,
   .healthservice-hero,
   .manufacture-hero,
@@ -165,9 +238,10 @@ p {
   .helaya-diagnostic-hero,
   .intl-hero,
   .helaya-healthmart-hero,
-  .helaya-cover {
-    height: 56vh;
-    min-height: 360px;
+  .helaya-cover,
+  .ai-hero {
+    height: 52vh !important;
+    min-height: 320px !important;
   }
 
   .hero-content-right,
@@ -229,7 +303,6 @@ p {
 }
 
 @media (max-width: 480px) {
-  .hero-section,
   .pharma-hero,
   .healthservice-hero,
   .manufacture-hero,
@@ -246,9 +319,10 @@ p {
   .helaya-diagnostic-hero,
   .intl-hero,
   .helaya-healthmart-hero,
-  .helaya-cover {
-    height: 52vh;
-    min-height: 300px;
+  .helaya-cover,
+  .ai-hero {
+    height: 52vh !important;
+    min-height: 320px !important;
   }
 
   .hero-title,

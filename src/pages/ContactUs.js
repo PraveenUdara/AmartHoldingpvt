@@ -85,8 +85,7 @@ const ContactUs = () => {
         </div>
         <div className="highlight-card fade-up delay-2">
           <span className="highlight-label">Visit</span>
-          <span className="highlight-value">City Center, Sunethradevi Rd</span>
-          <span className="highlight-value">Kohuwala, Sri Lanka</span>
+          <span className="highlight-value">Address: No.12, City Center, Sunethradevi Rd, Kohuwala, Sri Lanka</span>
         </div>
       </div>
 
@@ -197,13 +196,11 @@ const ContactUs = () => {
 
             <div className="info-panel fade-up delay-1">
               <div className="info-block">
-                <h3 className="info-title">Address</h3>
-                <p className="info-text">
-                  A Mart Holdings (Pvt) Ltd <br />
-                  City Center, No.12,<br />
-                  Sunethradevi Road, Kohuwala,<br />
-                  Sri Lanka.
-                </p>
+              <h3 className="info-title">Address</h3>
+              <p className="info-text">
+                A Mart Holdings (Pvt) Ltd<br />
+                Address: No.12, City Center, Sunethradevi Rd, Kohuwala, Sri Lanka
+              </p>
               </div>
 
               <div className="info-block">
@@ -225,6 +222,11 @@ const ContactUs = () => {
           {/* BOTTOM BOXES */}
           <div className="bottom-boxes">
             <div className="box get-direction-box fade-up">
+              <span className="box-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                </svg>
+              </span>
               <h3>Get Directions</h3>
               <a
                 href="https://www.google.com/maps?q=A%20Mart%20Holdings%20(Pvt)%20Ltd,%20City%20Center,%20Sunethradevi%20Rd,%20Kohuwala"
@@ -236,6 +238,11 @@ const ContactUs = () => {
             </div>
 
             <div className="box open-hours-box fade-up delay-1">
+              <span className="box-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 11h5v-2h-4V6h-2v7z" />
+                </svg>
+              </span>
               <h3>Open Hours</h3>
               <p>Mon - Fri: 8.30 am - 6.00 pm</p>
               <p>Sat - Sun: Closed</p>

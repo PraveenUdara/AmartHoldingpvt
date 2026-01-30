@@ -17,7 +17,6 @@ const AiSolution = () => {
         />
         <Breadcrumbs variant="hero" />
         <div className="ai-hero-inner">
-          <p className="ai-eyebrow">A Mart Branding & Solutions</p>
           <h1>A.I Solution</h1>
           <p className="ai-hero-text">
             Practical AI tools designed to improve decision-making, automate routine work,

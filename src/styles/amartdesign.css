@@ -184,8 +184,21 @@
 }
 
 @media (max-width: 900px) {
+  .design-hero {
+    height: 100vh;
+    min-height: 100vh;
+    aspect-ratio: auto;
+  }
+
+  .design-hero-img {
+    transform: none;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .design-hero-overlay {
     padding: 0 6% 42px;
+    align-items: flex-end;
   }
 
   .design-hero-text h1 {
@@ -208,7 +221,9 @@
 
 @media (max-width: 620px) {
   .design-hero {
-    min-height: 360px;
+    height: 100vh;
+    min-height: 100vh;
+    aspect-ratio: auto;
   }
 
   .cta-card {

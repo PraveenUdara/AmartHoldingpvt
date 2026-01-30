@@ -8,16 +8,14 @@
 .healthservice-hero {
   position: relative;
   width: 100%;
-  height: 50vh;
-  min-height: 320px;
   overflow: hidden;
 }
 
 .healthservice-hero-img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
-  object-position: center;
 }
 
 .healthservice-hero-content {
@@ -109,6 +107,7 @@
   gap: 8px;
   padding: 22px;
   color: #ffffff;
+  text-align: center;
   background: linear-gradient(
     180deg,
     rgba(6, 18, 32, 0.08) 0%,
@@ -139,7 +138,7 @@
 }
 
 .healthservice-icon-btn {
-  align-self: flex-start;
+  align-self: center;
   margin-top: 6px;
   display: inline-flex;
   align-items: center;
@@ -163,8 +162,12 @@
 
 @media (max-width: 768px) {
   .healthservice-hero {
-    height: 45vh;
-    min-height: 280px;
+    height: 100vh;
+    min-height: 100vh;
+  }
+
+  .healthservice-hero-img {
+    object-fit: cover;
   }
 
   .healthservice-hero-content {
@@ -172,6 +175,7 @@
     right: 6%;
     max-width: 100%;
   }
+
 
   .healthservice-hero-content h1 {
     font-size: 2.1rem;
@@ -190,12 +194,12 @@
   }
 
   .healthservice-icon-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .healthservice-icon-card {
-    height: 220px;
+    height: 260px;
   }
 
   .healthservice-icon-overlay {
@@ -203,26 +207,27 @@
   }
 
   .healthservice-icon-overlay h3 {
-    font-size: 0.95rem;
+    font-size: 1.15rem;
     line-height: 1.2;
   }
 
   .healthservice-icon-overlay p {
-    display: none;
+    display: block;
+    font-size: 0.92rem;
   }
 
   .healthservice-icon-btn {
     padding: 6px 12px;
     font-size: 0.78rem;
     border-radius: 10px;
-    align-self: flex-start;
+    align-self: center;
   }
 }
 
 @media (max-width: 480px) {
   .healthservice-hero {
-    height: 40vh;
-    min-height: 240px;
+    height: 100vh;
+    min-height: 100vh;
   }
 
   .healthservice-hero-content h1 {
@@ -230,12 +235,12 @@
   }
 
   .healthservice-icon-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .healthservice-icon-card {
-    height: 170px;
+    height: 230px;
   }
 
   .healthservice-icon-overlay {
@@ -244,7 +249,11 @@
   }
 
   .healthservice-icon-overlay h3 {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
+  }
+
+  .healthservice-icon-overlay p {
+    font-size: 0.88rem;
   }
 
   .healthservice-icon-btn {

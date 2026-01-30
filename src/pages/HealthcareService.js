@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/HealthcareService.css";
 import heroImage from "../assets/9 pages/healthservice/healthcareservice.png";
+import heroImageMobile from "../assets/mobileimage/exfea/healthcare.mobile.png";
 import tourismImg from "../assets/9 pages/healthservice/tourisam.png";
 import pharmaImg from "../assets/9 pages/healthservice/pharamacutical.png";
 import diagnosticImg from "../assets/9 pages/healthservice/diagnostic.png";
@@ -16,8 +17,17 @@ const HealthcareService = () => {
 
   return (
     <div className="healthservice-page">
-      <section className="healthservice-hero">
-        <img src={heroImage} alt="Healthcare Services" className="healthservice-hero-img" />
+      <section className="healthservice-hero relative w-full bg-[#0a2540] flex items-center justify-center h-hero-mobile min-h-hero-mobile xs:h-hero-tablet xs:min-h-hero-tablet lg:h-hero-desktop lg:min-h-hero-desktop">
+        <picture className="w-full h-full">
+          <source media="(max-width: 768px)" srcSet={heroImageMobile} />
+          <img
+            src={heroImage}
+            alt="Healthcare Services"
+            className="healthservice-hero-img w-full h-full max-w-full max-h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
         <Breadcrumbs variant="hero" />
         <div className="healthservice-hero-content">
           <h1>Healthcare Services</h1>

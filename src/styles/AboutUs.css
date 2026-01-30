@@ -396,8 +396,9 @@
 /* ------------------------------------- */
 
 @media (max-width: 900px) {
-  .about-hero {
-    height: 40vh;
+  .about-page .about-hero {
+    height: 52vh !important;
+    min-height: 320px !important;
   }
 
   .about-highlight {
@@ -444,8 +445,9 @@
 }
 
 @media (max-width: 600px) {
-  .about-hero {
-    height: 36vh;
+  .about-page .about-hero {
+    height: 52vh !important;
+    min-height: 320px !important;
   }
 
   .about-hero-overlay {

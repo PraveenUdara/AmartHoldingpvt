@@ -37,10 +37,11 @@
 
 .ai-hero-inner {
   max-width: 760px;
-  margin: 0 auto;
-  text-align: center;
+  margin: 0;
+  text-align: left;
   position: relative;
   z-index: 2;
+  color: #ffffff;
 }
 
 .ai-eyebrow {
@@ -55,12 +56,13 @@
 .ai-hero h1 {
   font-size: clamp(2.2rem, 3vw + 1rem, 3.1rem);
   margin: 0 0 12px;
+  color: #ffffff;
 }
 
 .ai-hero-text {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #425468;
+  color: #ffffff;
   margin: 0 auto;
 }
 
@@ -162,7 +164,44 @@
 
 @media (max-width: 600px) {
   .ai-hero {
-    padding: 100px 6% 50px;
+    padding: 72px 6% 48px;
+    min-height: 52vh;
+  }
+
+  .ai-hero::after {
+    background: linear-gradient(135deg, rgba(7, 28, 52, 0.55), rgba(12, 48, 86, 0.4));
+  }
+
+  .ai-hero-img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-position: center 25%;
+    display: block;
+  }
+
+  .ai-hero-inner {
+    padding: 0;
+    text-align: left;
+    max-width: 520px;
+  }
+
+  .ai-eyebrow {
+    display: none;
+  }
+
+  .ai-hero h1,
+  .ai-hero-text {
+    color: #ffffff;
+    text-shadow: 0 8px 20px rgba(4, 20, 35, 0.45);
+  }
+
+  .ai-hero h1 {
+    font-size: 2rem;
+  }
+
+  .ai-hero-text {
+    font-size: 0.95rem;
   }
 
   .ai-card {

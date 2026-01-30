@@ -59,7 +59,7 @@
   background: transparent;
   border: none;
   z-index: 5;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .breadcrumbs-hero .breadcrumbs-inner {
