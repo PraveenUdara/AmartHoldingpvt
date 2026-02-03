@@ -1,6 +1,7 @@
 // src/pages/helaya-international.js
 import React, { useEffect } from "react";
 import intlCover from "../assets/9 pages/international/international.png";
+import intlCoverMobile from "../assets/mobileimage/international/internationalmobile.png";
 import "../styles/helaya-international.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
@@ -25,7 +26,10 @@ const HelayaInternational = () => {
   return (
     <div className="intl-page">
       <section className="intl-hero">
-        <img src={intlCover} alt="Helaya International cover" className="intl-hero-img" />
+        <picture className="intl-hero-picture">
+          <source media="(max-width: 768px)" srcSet={intlCoverMobile} />
+          <img src={intlCover} alt="Helaya International cover" className="intl-hero-img" />
+        </picture>
         <Breadcrumbs variant="hero" />
         <div className="intl-hero-overlay">
           <div className="intl-hero-text">

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/HealthcareService.css";
 import heroImage from "../assets/9 pages/healthservice/healthcareservice.png";
-import heroImageMobile from "../assets/mobileimage/exfea/healthcare.mobile.png";
+import heroImageMobile from "../assets/mobileimage/amart holding/amrtmobilehero.png";
 import tourismImg from "../assets/9 pages/healthservice/tourisam.png";
 import pharmaImg from "../assets/9 pages/healthservice/pharamacutical.png";
 import diagnosticImg from "../assets/9 pages/healthservice/diagnostic.png";

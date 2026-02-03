@@ -1,6 +1,7 @@
 // src/pages/amart-design.js
 import React, { useEffect } from "react";
 import brandingCover from "../assets/9 pages/design/branding.png";
+import brandingCoverMobile from "../assets/mobileimage/brandinganddesign/branding.png";
 import "../styles/amartdesign.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
@@ -25,7 +26,10 @@ const BrandingDesign = () => {
   return (
     <div className="design-page">
       <section className="design-hero">
-        <img src={brandingCover} alt="Branding and design cover" className="design-hero-img" />
+        <picture className="design-hero-picture">
+          <source media="(max-width: 768px)" srcSet={brandingCoverMobile} />
+          <img src={brandingCover} alt="Branding and design cover" className="design-hero-img" />
+        </picture>
         <Breadcrumbs variant="hero" />
         <div className="design-hero-overlay">
           <div className="design-hero-text">

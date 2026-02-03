@@ -89,8 +89,7 @@ p {
   transform-origin: center;
 }
 
-.business-cover,
-.tourism-cover {
+.business-cover {
   animation: heroBgKenBurns 14s ease-in-out infinite;
 }
 

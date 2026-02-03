@@ -5,6 +5,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 
 // COVER IMAGE
 import diagnosticsCover from "../assets/9 pages/diagnostics.jpg";
+import diagnosticsCoverMobile from "../assets/mobileimage/diagnostic/diagnostics_mobile hero.png";
 import medgenomeImg from "../assets/9 pages/diagnostic/Medgenome.webp";
 import centogImg from "../assets/9 pages/diagnostic/centog.webp";
 import dxImg from "../assets/9 pages/diagnostic/dx.webp";
@@ -44,6 +45,10 @@ const Diagnostics = () => {
         className="business-cover"
         style={{ backgroundImage: `url(${diagnosticsCover})` }}
       >
+        <picture className="business-cover-mobile">
+          <source media="(max-width: 768px)" srcSet={diagnosticsCoverMobile} />
+          <img src={diagnosticsCover} alt="" aria-hidden="true" />
+        </picture>
         <Breadcrumbs variant="hero" />
         <div className="business-cover-overlay">
           <div className="business-cover-content">

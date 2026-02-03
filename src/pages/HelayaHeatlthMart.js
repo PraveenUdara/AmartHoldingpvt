@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/HelayaHealthMart.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 import helayaHealthMartCover from "../assets/HelayaHealthmart.png";
+import helayaHealthMartCoverMobile from "../assets/mobileimage/helayahealthmart/helayahealthmart.png";
 import helayaPharmacyImg from "../assets/9 pages/helacolombo.webp";
 import medicalClinicImg from "../assets/clinic1.png";
 import medicalDiagnosticImg from "../assets/medicaldiagnostic.png";
@@ -12,11 +13,14 @@ const HelayaHeatlthMart = () => {
   return (
     <div className="helaya-healthmart-page">
       <section className="helaya-healthmart-hero">
-        <img
-          src={helayaHealthMartCover}
-          alt="Helaya Health Mart"
-          className="helaya-healthmart-hero-img"
-        />
+        <picture>
+          <source media="(max-width: 768px)" srcSet={helayaHealthMartCoverMobile} />
+          <img
+            src={helayaHealthMartCover}
+            alt="Helaya Health Mart"
+            className="helaya-healthmart-hero-img"
+          />
+        </picture>
         <Breadcrumbs variant="hero" />
         <div className="helaya-healthmart-hero-overlay">
           <div className="helaya-healthmart-hero-content">

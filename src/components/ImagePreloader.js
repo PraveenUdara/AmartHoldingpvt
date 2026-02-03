@@ -19,6 +19,9 @@ import manufactureImg from "../assets/9 pages/manufacture/manufatcure.png";
 import cosmeceuticalCover from "../assets/9 pages/brand/consumetic.png";
 import exfeaCover from "../assets/energy.png";
 import healthcareHero from "../assets/9 pages/healthservice/healthcareservice.png";
+import logoDark from "../assets/logo.png";
+import logoWhite from "../assets/whiellogo.png";
+import logoLight from "../assets/footerlogo.png";
 
 const HERO_IMAGES = [
   aboutUsImg,
@@ -39,6 +42,9 @@ const HERO_IMAGES = [
   cosmeceuticalCover,
   exfeaCover,
   healthcareHero,
+  logoDark,
+  logoWhite,
+  logoLight,
 ];
 
 const ImagePreloader = () => {

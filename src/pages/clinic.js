@@ -1,6 +1,7 @@
 // src/pages/clinic.js
 import React, { useEffect } from "react";
 import clinicCover from "../assets/9 pages/medical/clinic.png";
+import clinicCoverMobile from "../assets/mobileimage/medical center/medical_centermobile.png";
 import "../styles/clinic.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
@@ -25,7 +26,10 @@ const MedicalCenters = () => {
   return (
     <div className="clinic-page">
       <section className="clinic-hero">
-        <img src={clinicCover} alt="Medical center cover" className="clinic-hero-img" />
+        <picture>
+          <source media="(max-width: 768px)" srcSet={clinicCoverMobile} />
+          <img src={clinicCover} alt="Medical center cover" className="clinic-hero-img" />
+        </picture>
         <Breadcrumbs variant="hero" />
         <div className="clinic-hero-overlay">
           <div className="clinic-hero-text">

@@ -2,19 +2,23 @@
 import React from "react";
 import "../styles/AiSolution.css";
 import aiHeroImg from "../assets/9 pages/Ai solution/AI_solution_hero.png";
+import aiHeroImgMobile from "../assets/mobileimage/ai/Ai_hero.png";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 const AiSolution = () => {
   return (
     <div className="ai-page">
       <section className="ai-hero">
-        <img
-          src={aiHeroImg}
-          alt="AI Solution"
-          className="ai-hero-img"
-          loading="eager"
-          decoding="async"
-        />
+        <picture className="ai-hero-picture">
+          <source media="(max-width: 768px)" srcSet={aiHeroImgMobile} />
+          <img
+            src={aiHeroImg}
+            alt="AI Solution"
+            className="ai-hero-img"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
         <Breadcrumbs variant="hero" />
         <div className="ai-hero-inner">
           <h1>A.I Solution</h1>

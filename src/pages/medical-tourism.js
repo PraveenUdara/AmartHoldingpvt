@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/tourism.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 import tourismCover from "../assets/9 pages/medicaltcover.jpg";
+import tourismCoverMobile from "../assets/mobileimage/medicaltourisam/medical_travel_.png";
 import indiaImage from "../assets/9 pages/medicalt/MH.jpg";
 import asterImage from "../assets/9 pages/medicalt/A-CMI.jpg";
 import apolloImage from "../assets/9 pages/medicalt/appolo.webp";
@@ -141,6 +142,10 @@ const MedicalTourism = () => {
         className="tourism-cover"
         style={{ backgroundImage: `url(${tourismCover})` }}
       >
+        <picture className="tourism-cover-mobile">
+          <source media="(max-width: 768px)" srcSet={tourismCoverMobile} />
+          <img src={tourismCover} alt="" aria-hidden="true" />
+        </picture>
         <Breadcrumbs variant="hero" />
         <div className="tourism-overlay">
           <div className="tourism-cover-content">

@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/manufacture.css";
 import manufactureImg from "../assets/9 pages/manufacture/manufatcure.png";
+import manufactureImgMobile from "../assets/mobileimage/manufacture/manufacturemobilehero.png";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 const Manufacture = () => {
@@ -54,7 +55,10 @@ const Manufacture = () => {
 
       {/* HERO */}
       <section className="manufacture-hero">
-        <img src={manufactureImg} alt="Manufacturing" />
+        <picture className="manufacture-hero-picture">
+          <source media="(max-width: 768px)" srcSet={manufactureImgMobile} />
+          <img src={manufactureImg} alt="Manufacturing" />
+        </picture>
         <Breadcrumbs variant="hero" />
       </section>
 

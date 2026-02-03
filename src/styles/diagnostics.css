@@ -12,10 +12,27 @@
 .business-cover {
   width: 100%;
   height: 50vh;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0b1a2a;
   position: relative;
   display: flex;
+}
+
+.business-cover-mobile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.business-cover-mobile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Overlay for readability */
