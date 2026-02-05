@@ -19,6 +19,17 @@ import manufactureImg from "../assets/9 pages/manufacture/manufatcure.png";
 import cosmeceuticalCover from "../assets/9 pages/brand/consumetic.png";
 import exfeaCover from "../assets/energy.png";
 import healthcareHero from "../assets/9 pages/healthservice/healthcareservice.png";
+import aiHeroMobile from "../assets/mobileimage/ai/Ai_hero.png";
+import amartHoldingMobile from "../assets/mobileimage/amart holding/amrtmobilehero.png";
+import brandingMobile from "../assets/mobileimage/brandinganddesign/branding.png";
+import diagnosticsMobile from "../assets/mobileimage/diagnostic/diagnostics_mobile hero.png";
+import exfeaMobile from "../assets/mobileimage/exfea/exfea-hero-mobile.png";
+import healthcareMobile from "../assets/mobileimage/exfea/healthcare.mobile.png";
+import helayaHealthMartMobile from "../assets/mobileimage/helayahealthmart/helayahealthmart.png";
+import internationalMobile from "../assets/mobileimage/international/internationalmobile.png";
+import manufactureMobile from "../assets/mobileimage/manufacture/manufacturemobilehero.png";
+import medicalCenterMobile from "../assets/mobileimage/medical center/medical_centermobile.png";
+import medicalTourismMobile from "../assets/mobileimage/medicaltourisam/medical_travel_.png";
 import logoDark from "../assets/logo.png";
 import logoWhite from "../assets/whiellogo.png";
 import logoLight from "../assets/footerlogo.png";
@@ -42,6 +53,17 @@ const HERO_IMAGES = [
   cosmeceuticalCover,
   exfeaCover,
   healthcareHero,
+  aiHeroMobile,
+  amartHoldingMobile,
+  brandingMobile,
+  diagnosticsMobile,
+  exfeaMobile,
+  healthcareMobile,
+  helayaHealthMartMobile,
+  internationalMobile,
+  manufactureMobile,
+  medicalCenterMobile,
+  medicalTourismMobile,
   logoDark,
   logoWhite,
   logoLight,

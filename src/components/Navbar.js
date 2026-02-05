@@ -61,6 +61,7 @@ const Navbar = () => {
   const [bizOpen, setBizOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
   const [isHomeHeroLight, setIsHomeHeroLight] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -145,10 +146,11 @@ const Navbar = () => {
   const closeMenus = () => {
     setBizOpen(false);
     setMobileMenu(false);
+    setSearchOpen(false);
   };
 
   return (
-    <nav ref={navRef} className={`navbar ${shrink ? "navbar-shrink" : ""}`}>
+    <nav ref={navRef} className={`navbar ${shrink ? "navbar-shrink" : ""} ${searchOpen ? "search-open" : ""}`}>
       <div className="navbar-inner">
         {/* LEFT : LOGO */}
         <NavLink to="/" className="navbar-logo" onClick={closeMenus}>
@@ -273,16 +275,26 @@ const Navbar = () => {
           />
         </form>
 
-        {/* MOBILE HAMBURGER */}
-        <button
-          className={`hamburger ${mobileMenu ? "open" : ""}`}
-          onClick={() => setMobileMenu((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        {/* MOBILE SEARCH + HAMBURGER */}
+        <div className="nav-mobile-actions">
+          <button
+            className="search-toggle"
+            type="button"
+            onClick={() => setSearchOpen((v) => !v)}
+            aria-label="Toggle search"
+          >
+            <span className="search-icon" />
+          </button>
+          <button
+            className={`hamburger ${mobileMenu ? "open" : ""}`}
+            onClick={() => setMobileMenu((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
     </nav>
   );

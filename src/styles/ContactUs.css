@@ -457,8 +457,12 @@
   }
 
   .contact-top-section {
-    min-height: 450px;
-    padding: 20px 16px;
+    min-height: auto;
+    padding: 18px 14px;
+  }
+
+  .contact-top-section::before {
+    inset: 0;
   }
 
   .help-text p {

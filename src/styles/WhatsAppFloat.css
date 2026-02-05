@@ -1,0 +1,62 @@
+.social-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1200;
+}
+
+.social-float-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #1877f2;
+}
+
+.social-float-btn img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+}
+
+.social-float-btn svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.social-float-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 600px) {
+  .social-float {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .social-float-btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .social-float-btn img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .social-float-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+}

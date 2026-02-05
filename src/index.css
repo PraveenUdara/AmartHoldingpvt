@@ -98,7 +98,6 @@ p {
 .manufacture-hero,
 .search-hero,
 .business-cover,
-.tourism-cover,
 .exfea-hero,
 .cosmoceutical-hero,
 .contact-hero,
@@ -221,12 +220,11 @@ p {
 }
 
 @media (max-width: 768px) {
-  .pharma-hero,
+.pharma-hero,
   .healthservice-hero,
   .manufacture-hero,
   .search-hero,
   .business-cover,
-  .tourism-cover,
   .exfea-hero,
   .cosmoceutical-hero,
   .contact-hero,
@@ -302,12 +300,11 @@ p {
 }
 
 @media (max-width: 480px) {
-  .pharma-hero,
+.pharma-hero,
   .healthservice-hero,
   .manufacture-hero,
   .search-hero,
   .business-cover,
-  .tourism-cover,
   .exfea-hero,
   .cosmoceutical-hero,
   .contact-hero,

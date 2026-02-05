@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import ImagePreloader from "./components/ImagePreloader";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 // Main Pages
 import Home from "./pages/Home";
@@ -41,7 +42,8 @@ function AnimatedRoutes() {
         return !el.classList.contains("reveal")
           && !el.classList.contains("fade-up")
           && !el.classList.contains("fade-in-up")
-          && !el.classList.contains("scroll-reveal");
+          && !el.classList.contains("scroll-reveal")
+          && !el.classList.contains("no-scroll-reveal");
       });
 
     targets.forEach((el) => el.classList.add("scroll-reveal"));
@@ -100,6 +102,7 @@ function App() {
       <ImagePreloader />
 
       <Navbar />
+      <WhatsAppFloat />
 
       <main className="main-content">
         <AnimatedRoutes />

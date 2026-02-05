@@ -158,7 +158,7 @@ const MedicalTourism = () => {
         </div>
       </section>
 
-      <section className="tourism-content">
+      <section className="tourism-content no-scroll-reveal">
         <img
           src={medicalTourismBg}
           alt=""
