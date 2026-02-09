@@ -125,6 +125,14 @@ p {
   padding: 0;
 }
 
+body.search-active .main-content {
+  filter: blur(2px);
+}
+
+body.search-active .main-content * {
+  pointer-events: none;
+}
+
 .page-fade {
   animation: pageFadeIn 0.45s ease;
 }

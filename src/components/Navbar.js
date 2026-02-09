@@ -121,6 +121,14 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (searchOpen) {
+      document.body.classList.add("search-active");
+    } else {
+      document.body.classList.remove("search-active");
+    }
+  }, [searchOpen]);
+
 
   // Close menus when clicking outside
   useEffect(() => {

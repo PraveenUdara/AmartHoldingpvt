@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/WhatsAppFloat.css";
 import whatsappIcon from "../assets/whatapp.png";
 
 const WhatsAppFloat = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <div className="social-float">
+      <button
+        type="button"
+        className="social-float-close"
+        onClick={() => setIsOpen(false)}
+        aria-label="Close social buttons"
+      >
+        ×
+      </button>
       <a
         className="social-float-btn social-float-facebook"
         href="https://www.facebook.com/amartholdings/"

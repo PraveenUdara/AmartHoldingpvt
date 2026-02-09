@@ -8,6 +8,28 @@
   z-index: 1200;
 }
 
+.social-float-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0a2540;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-float-close:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.2);
+}
+
 .social-float-btn {
   width: 68px;
   height: 68px;
@@ -43,6 +65,12 @@
   .social-float {
     right: 14px;
     bottom: 14px;
+  }
+
+  .social-float-close {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
   }
 
   .social-float-btn {
