@@ -18,15 +18,6 @@
   border-bottom: 1px solid rgba(12, 38, 60, 0.08);
 }
 
-.ai-hero-picture {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: 0;
-}
-
 .ai-hero::after {
   content: "";
   position: absolute;
@@ -174,22 +165,22 @@
 @media (max-width: 600px) {
   .ai-hero {
     padding: 72px 6% 48px;
-    min-height: 100vh;
+    min-height: clamp(520px, 70vh, 760px); /* CHANGED: show more of the image */
   }
 
   .ai-hero::after {
     background: linear-gradient(135deg, rgba(7, 28, 52, 0.55), rgba(12, 48, 86, 0.4));
   }
 
-.ai-hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* 🔥 KEY: shows full image */
-  object-position: center;
-  display: block;
-}
+  .ai-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;              /* ADDED: keep full width */
+    height: 100%;
+    object-fit: cover;        /* ADDED: ensure cover stays */
+    object-position: center 40%; /* CHANGED: less aggressive crop than 25% */
+    display: block;
+  }
 
   .ai-hero-inner {
     padding: 0;
@@ -219,4 +210,3 @@
     padding: 18px;
   }
 }
-
