@@ -87,7 +87,7 @@ const Navbar = () => {
 
   // Sticky shrink on scroll
   useEffect(() => {
-    const onScroll = () => setShrink(window.scrollY > 12);
+    const onScroll = () => setShrink(window.scrollY > 80);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
