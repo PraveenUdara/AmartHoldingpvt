@@ -237,7 +237,7 @@ const AboutUs = () => {
           </p>
           <p className="chairman-text chairman-text-long signature">
             Anjana Athukorala<br />
-            Chairman / Managing Director
+            <span className="chairman-role">Chairman / Managing Director</span>
           </p>
         </div>
 

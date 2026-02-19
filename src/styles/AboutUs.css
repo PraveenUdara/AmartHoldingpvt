@@ -186,6 +186,10 @@
   margin-top: 14px;
 }
 
+.chairman-role {
+  font-weight: 400;
+}
+
 .chairman-image-wrapper {
   flex: 1;
   display: flex;

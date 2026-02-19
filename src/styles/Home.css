@@ -74,6 +74,14 @@
   transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
+.hero-brand-copy {
+  text-align: right;
+}
+
+.hero-title-line {
+  display: block;
+}
+
 /* ---------------------- BRAND TEXT ---------------------- */
 .hero-title {
   font-size: 3rem;
@@ -114,6 +122,14 @@ body.home-hero-light .hero-content-right {
 body.home-hero-light .hero-slide-info {
   color: #ffffff;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1024px) {
+  body.home-hero-clinic-dark-desktop .hero-content-right,
+  body.home-hero-clinic-dark-desktop .hero-slide-info {
+    color: #0a2540;
+    text-shadow: none;
+  }
 }
 
 .hero-slide-title {

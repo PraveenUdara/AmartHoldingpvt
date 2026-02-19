@@ -64,6 +64,7 @@ const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
   const [isHomeHeroLight, setIsHomeHeroLight] = useState(false);
+  const [isClinicHeroDarkDesktop, setIsClinicHeroDarkDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
 
@@ -96,6 +97,9 @@ const Navbar = () => {
   useEffect(() => {
     const updateHeroLight = () => {
       setIsHomeHeroLight(document.body.classList.contains("home-hero-light"));
+      setIsClinicHeroDarkDesktop(
+        document.body.classList.contains("home-hero-clinic-dark-desktop")
+      );
     };
     updateHeroLight();
     const observer = new MutationObserver(updateHeroLight);
@@ -163,8 +167,20 @@ const Navbar = () => {
         {/* LEFT : LOGO */}
         <NavLink to="/" className="navbar-logo" onClick={closeMenus}>
           <img
-            src={shrink ? logo : isMobile ? whiteLogo : isHomeHeroLight ? lightLogo : whiteLogo}
-            className={`nav-logo-img ${!shrink && (isMobile || !isHomeHeroLight) ? "nav-logo-white" : ""}`}
+            src={
+              shrink
+                ? logo
+                : isMobile
+                  ? whiteLogo
+                  : isHomeHeroLight || isClinicHeroDarkDesktop
+                    ? lightLogo
+                    : whiteLogo
+            }
+            className={`nav-logo-img ${
+              !shrink && (isMobile || (!isHomeHeroLight && !isClinicHeroDarkDesktop))
+                ? "nav-logo-white"
+                : ""
+            }`}
             alt="A Mart Holdings Logo"
           />
         </NavLink>

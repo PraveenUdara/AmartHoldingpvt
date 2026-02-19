@@ -147,33 +147,34 @@ const HERO_SLIDES = [
   },
 ];
 
-const PARTNER_LOGOS = [
-  partner21,
-  partner16,
-  partner20,
-  partner14,
-  partner19,
-  partner01,
-  partner05,
-  partner04,
-  partner08,
-  partner07,
-  partner03,
-  partner09,
-  partner10,
-  partner11,
-  partner17,
-  partner12,
-  partner02,
-  partner13,
-  partner15,
-  partner18,
+const PARTNER_SLOTS = [
+  { slot: 1, logo: partner21 }, // CIM
+  { slot: 2, logo: partner16 }, // GP Pharm
+  { slot: 3, logo: partner20 }, // ELBI Pharma
+  { slot: 4, logo: partner14 }, // S&R
+  { slot: 5, logo: partner19 }, // Sayre
+  { slot: 6, logo: partner01 }, // Oncotype Dx
+  { slot: 7, logo: partner02 }, // Foundation one Dx
+  { slot: 8, logo: partner04 }, // Medgenome
+  { slot: 9, logo: partner08 }, // Tempus
+  { slot: 10, logo: partner07 }, // Oncostem
+  { slot: 11, logo: partner03 }, // Centogene
+  { slot: 12, logo: partner05 }, // Manipal
+  { slot: 13, logo: partner09 }, // Aster
+  { slot: 14, logo: partner10 }, // Singapore Hospitals
+  { slot: 15, logo: partner17 }, // Rela
+  { slot: 16, logo: partner12 }, // Apollo
+  { slot: 17, logo: partner11 },
+  { slot: 18, logo: partner13 },
+  { slot: 19, logo: partner15 },
+  { slot: 20, logo: partner18 },
 ];
 
 const Home = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [storyIndex, setStoryIndex] = useState(0);
   const [isHeroLight, setIsHeroLight] = useState(false);
+  const [isClinicHeroDesktopDark, setIsClinicHeroDesktopDark] = useState(false);
 
   /* ---------------- HERO SLIDER (OPTION A) ---------------- */
   useEffect(() => {
@@ -210,14 +211,20 @@ const Home = () => {
 
   useEffect(() => {
     setIsHeroLight(heroIndex === 0);
+    setIsClinicHeroDesktopDark(heroIndex === 3);
   }, [heroIndex]);
 
   useEffect(() => {
     document.body.classList.toggle("home-hero-light", isHeroLight);
+    document.body.classList.toggle(
+      "home-hero-clinic-dark-desktop",
+      isClinicHeroDesktopDark
+    );
     return () => {
       document.body.classList.remove("home-hero-light");
+      document.body.classList.remove("home-hero-clinic-dark-desktop");
     };
-  }, [isHeroLight]);
+  }, [isHeroLight, isClinicHeroDesktopDark]);
 
   /* ---------------- BUSINESS PREVIEW ---------------- */
   const defaultHoverData = {
@@ -291,14 +298,17 @@ const Home = () => {
           <div className="hero-content hero-content-right">
 
             {/* MAIN BRAND MESSAGE ’'?" DO NOT REMOVE */}
-            <h1 className="hero-title fade-in delay-1">
-              Welcome to A Mart Holdings
-            </h1>
+            <div className="hero-brand-copy">
+              <h1 className="hero-title fade-in delay-1">
+                <span className="hero-title-line">Welcome to</span>
+                <span className="hero-title-line">A Mart Holdings</span>
+              </h1>
 
-            <p className="hero-text hero-text-strong fade-in delay-2">
-              One of Sri Lanka's fastest-growing conglomerates, built on
-              innovation, leadership, and trust.
-            </p>
+              <p className="hero-text hero-text-strong fade-in delay-2">
+                One of Sri Lanka's fastest-growing healthcare and enterprise groups,
+                driven by innovation, guided by integrity, and built on trust.
+              </p>
+            </div>
 
             {/* SLIDE LABEL */}
             <div key={heroIndex} className="hero-slide-info">
@@ -317,7 +327,7 @@ const Home = () => {
       {/* ================= ABOUT A MART ================= */}
       <section className="about-amart reveal">
         <div className="about-card">
-          <h2>About A Mart Holdings</h2>
+          <h2>A Mart Holdings</h2>
           <p>
             A Mart is one of Sri Lanka's fastest growing companies, established in 2018 with a strong
             focus on healthcare and innovation. Over the years, the company has successfully diversified
@@ -340,7 +350,7 @@ const Home = () => {
         <div className="home-post-card">
           <img src={leftPost} alt="Diagnostics" width="640" height="280" className="post-img" />
           <div className="post-overlay">
-            <h2>Introducing</h2>
+        
             <h1>Latest Diagnostic Services</h1>
             <p>
               We bring advanced diagnostic services to Sri Lanka through leading labs.
@@ -351,7 +361,7 @@ const Home = () => {
         <div className="home-post-card">
           <img src={rightPost} alt="Technologies" width="640" height="280" className="post-img" />
           <div className="post-overlay">
-            <h2>Introducing</h2>
+            
             <h1>Latest Technologies</h1>
             <p>
               We introduce AI-driven technologies for healthcare, retail and finance.
@@ -421,7 +431,7 @@ const Home = () => {
             </p>
 
             <p>
-              At A Mart, every decision is guided by one principle -- putting our customers first.
+              At A Mart, every decision is guided by one principle putting our customers first.
             </p>
           </div>
 
@@ -472,8 +482,11 @@ const Home = () => {
                 width="1980"
                 height="1080"
                 controls
+                controlsList="nodownload"
+                disablePictureInPicture
                 preload="metadata"
                 playsInline
+                onContextMenu={(e) => e.preventDefault()}
                 title={`Customer Feedback featuring ${STORIES[storyIndex].name}`}
               />
             </div>
@@ -495,10 +508,10 @@ const Home = () => {
           <p>Trusted collaborations powering our healthcare ecosystem.</p>
         </div>
         <div className={`partners-grid ${activePartner !== null ? "has-active" : ""}`}>
-          {PARTNER_LOGOS.map((logo, index) => (
+          {PARTNER_SLOTS.map((item, index) => (
             <div
               className={`partner-card ${activePartner === index ? "is-active" : ""}`}
-              key={logo}
+              key={item.slot}
               onClick={() => setActivePartner(activePartner === index ? null : index)}
               role="button"
               tabIndex={0}
@@ -510,8 +523,8 @@ const Home = () => {
               }}
             >
               <img
-                src={logo}
-                alt={`Partner ${index + 1}`}
+                src={item.logo}
+                alt={`Partner ${item.slot}`}
                 className="partner-logo"
                 loading="lazy"
               />
