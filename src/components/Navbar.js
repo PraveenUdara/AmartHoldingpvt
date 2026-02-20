@@ -2,8 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
-import whiteLogo from "../assets/whiellogo.png";
-import lightLogo from "../assets/footerlogo.png";
 import "./Navbar.css";
 
 const businessColumns = [
@@ -63,9 +61,6 @@ const Navbar = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
-  const [isHomeHeroLight, setIsHomeHeroLight] = useState(false);
-  const [isClinicHeroDarkDesktop, setIsClinicHeroDarkDesktop] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
 
   const navRef = useRef(null);
@@ -92,37 +87,6 @@ const Navbar = () => {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const updateHeroLight = () => {
-      setIsHomeHeroLight(document.body.classList.contains("home-hero-light"));
-      setIsClinicHeroDarkDesktop(
-        document.body.classList.contains("home-hero-clinic-dark-desktop")
-      );
-    };
-    updateHeroLight();
-    const observer = new MutationObserver(updateHeroLight);
-    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const media = window.matchMedia("(max-width: 900px)");
-    const updateMobile = () => setIsMobile(media.matches);
-    updateMobile();
-    if (media.addEventListener) {
-      media.addEventListener("change", updateMobile);
-    } else {
-      media.addListener(updateMobile);
-    }
-    return () => {
-      if (media.removeEventListener) {
-        media.removeEventListener("change", updateMobile);
-      } else {
-        media.removeListener(updateMobile);
-      }
-    };
   }, []);
 
   useEffect(() => {
@@ -167,20 +131,8 @@ const Navbar = () => {
         {/* LEFT : LOGO */}
         <NavLink to="/" className="navbar-logo" onClick={closeMenus}>
           <img
-            src={
-              shrink
-                ? logo
-                : isMobile
-                  ? whiteLogo
-                  : isHomeHeroLight || isClinicHeroDarkDesktop
-                    ? lightLogo
-                    : whiteLogo
-            }
-            className={`nav-logo-img ${
-              !shrink && (isMobile || (!isHomeHeroLight && !isClinicHeroDarkDesktop))
-                ? "nav-logo-white"
-                : ""
-            }`}
+            src={logo}
+            className="nav-logo-img"
             alt="A Mart Holdings Logo"
           />
         </NavLink>

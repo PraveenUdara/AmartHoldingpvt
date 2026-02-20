@@ -293,6 +293,33 @@
   to { transform: scale(1.08); }
 }
 
+.event-reveal {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.event-reveal.reveal-left {
+  transform: translateX(-34px);
+}
+
+.event-reveal.reveal-right {
+  transform: translateX(34px);
+}
+
+.event-reveal.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .events-mobile-nav {

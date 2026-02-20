@@ -1,5 +1,5 @@
 // src/pages/ContactUs.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../index.css";
 import "../styles/ContactUs.css";
 import contactCover from "../assets/contact_cover.jpg";
@@ -12,6 +12,30 @@ const ContactUs = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const items = Array.from(document.querySelectorAll(".contact-page .contact-reveal"));
+    if (!items.length) return undefined;
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach((el) => el.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    items.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   // ================= SUBMIT HANDLER =================
   const handleSubmit = async (e) => {
@@ -74,16 +98,16 @@ const ContactUs = () => {
 
       {/* QUICK INFO */}
       <div className="contact-highlight">
-        <div className="highlight-card fade-up">
+        <div className="highlight-card contact-reveal reveal-left">
           <span className="highlight-label">Call / WhatsApp</span>
           <span className="highlight-value">+94 77 7744 816</span>
           <span className="highlight-value">+94 77 7648 888</span>
         </div>
-        <div className="highlight-card fade-up delay-1">
+        <div className="highlight-card contact-reveal reveal-right">
           <span className="highlight-label">Email</span>
           <span className="highlight-value">info@amartholdings.com</span>
         </div>
-        <div className="highlight-card fade-up delay-2">
+        <div className="highlight-card contact-reveal reveal-left">
           <span className="highlight-label">Visit</span>
           <span className="highlight-value">Address: No.12, City Center, Sunethradevi Rd, Kohuwala, Sri Lanka</span>
         </div>
@@ -92,7 +116,7 @@ const ContactUs = () => {
       {/* MESSAGE + FORM */}
       <div className="contact-top-section">
 
-        <div className="help-text fade-up">
+        <div className="help-text contact-reveal reveal-left">
           <h2>We are here to help!</h2>
           <p>
             Let us know how we can best serve you. Use the contact form to email us,
@@ -104,7 +128,7 @@ const ContactUs = () => {
           </p>
         </div>
 
-        <div className="form-wrapper fade-up delay-1">
+        <div className="form-wrapper contact-reveal reveal-right">
           <div className="contact-container">
             <h1 className="contact-title">Send Us a Message</h1>
             <p className="contact-subtitle">
@@ -176,13 +200,13 @@ const ContactUs = () => {
       <section className="contact-location-section">
         <div className="contact-location-shell">
 
-          <div className="contact-location-header fade-up">
+          <div className="contact-location-header contact-reveal reveal-left">
             <h2>Visit Us</h2>
             <p>Find us easily and reach out with any questions.</p>
           </div>
 
           <div className="map-info-section">
-            <div className="map-container fade-up">
+            <div className="map-container contact-reveal reveal-left">
               <iframe
                 title="A Mart Location"
                 width="100%"
@@ -194,7 +218,7 @@ const ContactUs = () => {
               ></iframe>
             </div>
 
-            <div className="info-panel fade-up delay-1">
+            <div className="info-panel contact-reveal reveal-right">
               <div className="info-block">
               <h3 className="info-title">Address</h3>
               <p className="info-text">
@@ -221,7 +245,7 @@ const ContactUs = () => {
 
           {/* BOTTOM BOXES */}
           <div className="bottom-boxes">
-            <div className="box get-direction-box fade-up">
+            <div className="box get-direction-box contact-reveal reveal-left">
               <span className="box-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
@@ -237,7 +261,7 @@ const ContactUs = () => {
               </a>
             </div>
 
-            <div className="box open-hours-box fade-up delay-1">
+            <div className="box open-hours-box contact-reveal reveal-right">
               <span className="box-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 11h5v-2h-4V6h-2v7z" />

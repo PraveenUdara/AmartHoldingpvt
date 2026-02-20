@@ -109,6 +109,20 @@
   color: #e3f2fd;
 }
 
+body.nav-blacktext .breadcrumbs-hero .breadcrumbs-inner,
+body.nav-blacktext .breadcrumbs-hero .breadcrumb-link,
+body.nav-blacktext .breadcrumbs-hero .breadcrumb-current,
+body.nav-blacktext .breadcrumbs-hero .breadcrumb-separator,
+body.nav-blacktext .breadcrumbs-hero .breadcrumb-back {
+  color: #0a2540;
+}
+
+body.nav-blacktext .breadcrumb-back-hero {
+  color: #0a2540;
+  border-color: rgba(10, 37, 64, 0.45);
+  background: rgba(255, 255, 255, 0.8);
+}
+
 @media (max-width: 768px) {
   .breadcrumbs-inner {
     font-size: 0.85rem;

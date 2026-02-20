@@ -73,6 +73,30 @@ const AboutUs = () => {
     return () => clearInterval(interval);
   }, [tabKeys]);
 
+  useEffect(() => {
+    const items = Array.from(document.querySelectorAll(".about-page .reveal-on-scroll"));
+    if (!items.length) return undefined;
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach((el) => el.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    items.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   const handlePrev = () => {
     const index = tabKeys.indexOf(activeKey);
     const nextIndex = (index - 1 + tabKeys.length) % tabKeys.length;
@@ -105,17 +129,17 @@ const AboutUs = () => {
 
       {/* HIGHLIGHT CARDS */}
       <div className="about-highlight">
-        <div className="highlight-card fade-up">
+        <div className="highlight-card reveal-on-scroll reveal-left">
           <span className="highlight-label">Founded</span>
           <span className="highlight-value">2018</span>
           <span className="highlight-note">Built on ambition, resilience, and innovation.</span>
         </div>
-        <div className="highlight-card fade-up delay-1">
+        <div className="highlight-card reveal-on-scroll reveal-right">
           <span className="highlight-label">Business Verticals</span>
           <span className="highlight-value">7+</span>
           <span className="highlight-note">Pharma, diagnostics, medical tourism, design and more.</span>
         </div>
-        <div className="highlight-card fade-up delay-2">
+        <div className="highlight-card reveal-on-scroll reveal-left">
           <span className="highlight-label">Global Network</span>
           <span className="highlight-value">Worldwide</span>
           <span className="highlight-note">Trusted partnerships and international certifications.</span>
@@ -123,7 +147,7 @@ const AboutUs = () => {
       </div>
 
       {/* MAIN ABOUT */}
-      <section className="about-card fade-up">
+      <section className="about-card reveal-on-scroll reveal-left">
         <h2 className="about-card-title">About A Mart Holdings</h2>
         <p>
           A Mart is one of Sri Lanka's fastest growing companies, built on a foundation
@@ -156,7 +180,7 @@ const AboutUs = () => {
       </section>
 
       {/* MISSION / VISION / VALUES */}
-      <section className="mv-modern fade-up">
+      <section className="mv-modern reveal-on-scroll reveal-right">
         <div className="mv-tabs-modern" ref={tabsWrapRef}>
           {Object.values(sections).map((sec) => (
             <button
@@ -218,7 +242,7 @@ const AboutUs = () => {
       </section>
 
       {/* CHAIRMAN MESSAGE */}
-      <section className="chairman-section fade-up">
+      <section className="chairman-section reveal-on-scroll reveal-left">
         <div className="chairman-content">
           <h2 className="chairman-title">Chairman's Message</h2>
           <p className="chairman-text">

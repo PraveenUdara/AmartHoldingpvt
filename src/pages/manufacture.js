@@ -33,6 +33,11 @@ const Manufacture = () => {
   };
 
   useEffect(() => {
+    document.body.classList.add("nav-blacktext");
+    return () => document.body.classList.remove("nav-blacktext");
+  }, []);
+
+  useEffect(() => {
     const syncFromHash = () => {
       const hash = window.location.hash.toLowerCase();
       if (hash.includes("helaya-biocim")) {

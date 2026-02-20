@@ -6,7 +6,6 @@ import heroImage from "../assets/9 pages/healthservice/healthcareservice.png";
 import heroImageMobile from "../assets/mobileimage/amart holding/amrtmobilehero.png";
 import tourismImg from "../assets/9 pages/healthservice/tourisam.png";
 import pharmaImg from "../assets/9 pages/healthservice/pharamacutical.png";
-import diagnosticImg from "../assets/9 pages/healthservice/diagnostic.png";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 const HealthcareService = () => {
@@ -56,16 +55,6 @@ const HealthcareService = () => {
               <h3>Pharmaceuticals</h3>
               <p>Reliable medicines, cold-chain compliance, and trusted pharmacists across our Helaya network.</p>
               <Link className="healthservice-icon-btn" to="/business/pharmaceuticals">
-                Explore more
-              </Link>
-            </div>
-          </div>
-          <div className="healthservice-icon-card">
-            <img src={diagnosticImg} alt="Diagnostics" />
-            <div className="healthservice-icon-overlay">
-              <h3>Diagnostics</h3>
-              <p>Advanced testing and lab services with fast turnaround and quality assurance.</p>
-              <Link className="healthservice-icon-btn" to="/business/diagnostics">
                 Explore more
               </Link>
             </div>

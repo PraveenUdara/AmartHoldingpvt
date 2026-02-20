@@ -6,7 +6,7 @@ import "../index.css";
 
 // New home button icons
 import holdingIcon from "../assets/Home page icon/A Mart Holdings Logo.png";
-import aiIcon from "../assets/Home page icon/Aisolution.png";
+import aiIcon from "../assets/diagnostics.jpg";
 import brandingIcon from "../assets/Home page icon/Branding Design.png";
 import energyIcon from "../assets/Home page icon/Energy & treading.png";
 import helayaHealthIcon from "../assets/Home page icon/HelayaHealthMArt.png";
@@ -14,7 +14,7 @@ import manufactureIcon from "../assets/Home page icon/manufacture.png";
 
 // Preview images (reused)
 import holdingPreview from "../assets/businessPreview/AmartHoldings.png";
-import aiPreview from "../assets/businessPreview/Ai solution.png";
+import aiPreview from "../assets/diagnostics.jpg";
 import brandingPreview from "../assets/businessPreview/branding and design.png";
 import healthMartPreview from "../assets/businessPreview/HealayaHealth Mart.png";
 import energyPreview from "../assets/businessPreview/Energey And trading.png";
@@ -37,8 +37,8 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
       ],
     },
     {
-      title: "AI Solution",
-      path: "/business/ai-solution",
+      title: "A Mart Diagnostic",
+      path: "/business/diagnostics",
       icon: aiIcon,
       preview: aiPreview,
       desc: "AI Solution",

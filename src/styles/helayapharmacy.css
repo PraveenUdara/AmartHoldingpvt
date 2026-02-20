@@ -61,7 +61,7 @@
 
 .helaya-body {
   padding: 60px 8%;
-  max-width: 900px;
+  max-width: 1180px;
   line-height: 1.8;
   margin: 0 auto;
 }
@@ -74,9 +74,22 @@
   color: #0a2540;
 }
 
+.helaya-brand-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 24px;
+}
+
+.helaya-brand-logo img {
+  width: clamp(140px, 22vw, 280px);
+  height: auto;
+  object-fit: contain;
+}
+
 .helaya-body p {
   margin: 0 auto 16px;
-  max-width: 780px;
+  max-width: 980px;
   text-align: center;
   line-height: 1.6;
 }
@@ -246,6 +259,11 @@
 
   .helaya-body {
     padding: 50px 6%;
+    max-width: 100%;
+  }
+
+  .helaya-body p {
+    max-width: 100%;
   }
 
   .branch-feature {

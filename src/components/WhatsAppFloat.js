@@ -32,7 +32,7 @@ const WhatsAppFloat = () => {
       </a>
       <a
         className="social-float-btn social-float-whatsapp"
-        href="https://wa.me/94777744816"
+        href="https://wa.me/94777648888"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with A Mart Holdings on WhatsApp"

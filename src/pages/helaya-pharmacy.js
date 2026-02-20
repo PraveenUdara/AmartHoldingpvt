@@ -5,6 +5,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import helayaCover from "../assets/9 pages/helaya paharmcey.png";
 import helacolombo from "../assets/9 pages/helacolombo.webp";
 import helkandy from "../assets/9 pages/helaya kandy.jpg";
+import helayaLogo from "../assets/Helaya Logo.png";
 
 const HelayaPharmacy = () => {
   const [activeBranch, setActiveBranch] = useState("kandy");
@@ -72,6 +73,9 @@ const HelayaPharmacy = () => {
         <div id="kandy"></div>
         <div id="kohuwala"></div>
         <h2 className="helaya-section-title">About Helaya Pharmacy</h2>
+        <div className="helaya-brand-logo">
+          <img src={helayaLogo} alt="Helaya Pharmacy Logo" />
+        </div>
         <p>
           Helaya Health Mart Pharmacy is a trusted pharmaceutical retail chain committed to
           delivering high-quality medicines, healthcare products, and reliable patient care. With a
@@ -106,14 +110,6 @@ const HelayaPharmacy = () => {
           >
             Kohuwala
           </button>
-        </div>
-        <div className="helaya-hours">
-          <div className="hour-card">
-            <div className="hour-location">Kandy</div>
-          </div>
-          <div className="hour-card">
-            <div className="hour-location">Kohuwala</div>
-          </div>
         </div>
       </section>
 

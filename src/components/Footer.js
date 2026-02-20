@@ -3,6 +3,7 @@ import React from "react";
 import "../styles/Footer.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/footerlogo.png";
+import helayaLogo from "../assets/Helaya Logo.png";
 
 const Footer = () => {
   return (
@@ -12,6 +13,13 @@ const Footer = () => {
 
         <div className="footer-col footer-info">
           <img src={logo} alt="A Mart Holdings" className="footer-logo" />
+          <p className="footer-brand-line">
+            One of Sri Lanka's fastest-growing healthcare and enterprise groups, driven by innovation, guided by integrity, and built on trust.
+          </p>
+          <img src={helayaLogo} alt="Helaya Pharmacy" className="footer-sub-logo" />
+          <p className="footer-brand-line footer-brand-line-sub">
+            Premium Healthcare, Rooted in Ceylon.
+          </p>
         </div>
 
         <div className="footer-col footer-contact">
@@ -89,7 +97,7 @@ const Footer = () => {
             <iframe
               className="footer-map"
               title="A Mart Holdings Location"
-              loading="lazy"
+              loading="eager"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps?q=A%20Mart%20Holdings%20(Pvt)%20Ltd,%20City%20Center,%20Sunethradevi%20Road&output=embed"

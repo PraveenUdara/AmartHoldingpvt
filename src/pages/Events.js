@@ -1,5 +1,5 @@
 // src/pages/Events.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Events.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
@@ -132,6 +132,30 @@ const Events = () => {
     },
   ];
 
+  useEffect(() => {
+    const items = Array.from(document.querySelectorAll(".events-page .event-reveal"));
+    if (!items.length) return undefined;
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach((el) => el.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    items.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="events-page">
 
@@ -184,6 +208,7 @@ const Events = () => {
                 key={i}
                 src={img}
                 alt="Academic Session"
+                className={`event-reveal ${i % 2 === 0 ? "reveal-left" : "reveal-right"}`}
                 onClick={() => setSelectedImage(img)}
               />
             ))}
@@ -202,6 +227,7 @@ const Events = () => {
                 key={i}
                 src={img}
                 alt="Stem Cell Master Class"
+                className={`event-reveal ${i % 2 === 0 ? "reveal-left" : "reveal-right"}`}
                 onClick={() => setSelectedImage(img)}
               />
             ))}
@@ -223,6 +249,7 @@ const Events = () => {
                 key={i}
                 src={img}
                 alt="CME Event"
+                className={`event-reveal ${i % 2 === 0 ? "reveal-left" : "reveal-right"}`}
                 onClick={() => setSelectedImage(img)}
               />
             ))}
@@ -238,6 +265,7 @@ const Events = () => {
                 key={i}
                 src={img}
                 alt="Kandy Helaya Pharmacy"
+                className={`event-reveal ${i % 2 === 0 ? "reveal-left" : "reveal-right"}`}
                 onClick={() => setSelectedImage(img)}
               />
             ))}
@@ -253,7 +281,7 @@ const Events = () => {
                     poster={video.poster}
                     controls
                     preload="metadata"
-                    className="event-video"
+                    className={`event-video event-reveal ${i % 2 === 0 ? "reveal-left" : "reveal-right"}`}
                   />
                 ))}
               </div>
@@ -270,6 +298,7 @@ const Events = () => {
                 key={i}
                 src={img}
                 alt="KDU chemotherapy unit"
+                className={`event-reveal ${i % 2 === 0 ? "reveal-left" : "reveal-right"}`}
                 onClick={() => setSelectedImage(img)}
               />
             ))}
@@ -285,6 +314,7 @@ const Events = () => {
                 key={i}
                 src={img}
                 alt="Manipal Hospital Event"
+                className={`event-reveal ${i % 2 === 0 ? "reveal-left" : "reveal-right"}`}
                 onClick={() => setSelectedImage(img)}
               />
             ))}

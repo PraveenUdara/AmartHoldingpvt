@@ -522,7 +522,8 @@
   }
 
   .navbar-logo {
-    margin-left: -10px;
+    margin-left: 0;
+    align-self: center;
   }
 
   .nav-logo-img {
@@ -641,10 +642,64 @@
 
   .hamburger {
     display: flex;
-    margin-left: auto;
     width: 38px;
     height: 38px;
     padding: 6px;
+    margin-left: 0;
+    align-self: center;
+  }
+
+  .nav-mobile-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  .search-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    align-self: center;
+  }
+
+  .search-icon {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .search-icon::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 2px;
+    background: #ffffff;
+    right: -6px;
+    bottom: -2px;
+    transform: rotate(45deg);
+  }
+
+  .navbar-shrink .search-toggle {
+    background: #ffffff;
+    border-color: rgba(209, 219, 233, 0.95);
+  }
+
+  .navbar-shrink .search-icon {
+    border-color: #0a2540;
+  }
+
+  .navbar-shrink .search-icon::after {
+    background: #0a2540;
   }
 
   .mega-panel {
@@ -753,7 +808,7 @@
   }
 
   .navbar-logo {
-    margin-left: -14px;
+    margin-left: 0;
   }
 
   .navbar-inner {
@@ -822,13 +877,13 @@
   }
 
   .navbar:not(.navbar-shrink) .nav-logo-img {
-    height: 72px;
-    width: 120px;
+    height: 92px;
+    width: 150px;
   }
 
   .navbar:not(.navbar-shrink) .nav-logo-img.nav-logo-white {
-    height: 76px;
-    width: 128px;
+    height: 92px;
+    width: 150px;
   }
 
   .navbar-shrink .nav-logo-img {
@@ -858,8 +913,9 @@
     padding-bottom: 0; /* remove extra push */
   }
 
-  .nav-business-btn {
-    padding: 12px 0; /* match .nav-link exactly */
+  .navbar:not(.navbar-shrink) .nav-business-btn,
+  .navbar-shrink .nav-business-btn {
+    padding: 8px 0;
     display: inline-flex;
     align-items: center;
   }
@@ -908,6 +964,20 @@
 
 .nav-blacktext .navbar .arrow {
   border-color: #0a2540;
+}
+
+.nav-blacktext .navbar .nav-search input {
+  color: #0a2540;
+  border-color: rgba(12, 38, 60, 0.28);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.nav-blacktext .navbar .nav-search input::placeholder {
+  color: #5a6a7a;
+}
+
+.nav-blacktext .navbar .nav-search::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='7' stroke='%230a2540' stroke-width='2'/%3E%3Cline x1='16.2929' y1='16.7071' x2='20' y2='20.4142' stroke='%230a2540' stroke-width='2'/%3E%3C/svg%3E");
 }
 
 body.home-hero-light .navbar .nav-link,
