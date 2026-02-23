@@ -231,6 +231,7 @@ const Home = () => {
     title: "Our Services",
     desc: "",
     preview: defaultPreview,
+    textTone: "dark",
     services: [
       "A Mart Holdings",
       "AI Solution",
@@ -382,7 +383,11 @@ const Home = () => {
               className="business-preview-image"
             />
             {(hoverData?.desc || hoverData?.services) && (
-              <div className="business-preview-overlay">
+              <div
+                className={`business-preview-overlay ${
+                  hoverData?.textTone === "light" ? "business-preview-overlay-light" : ""
+                }`}
+              >
                 {hoverData?.title && (
                   <div className="business-preview-overlay-title">
                     {hoverData.title}

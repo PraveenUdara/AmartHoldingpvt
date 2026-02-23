@@ -25,6 +25,7 @@ import HelayaDiagnostic from "./pages/HelayaDiagnostic";
 import MedicalCenters from "./pages/clinic";
 import BrandingDesign from "./pages/amart-design";
 import AiSolution from "./pages/AiSolution";
+import BarandingAndAiSolution from "./pages/barandingandAisolution";
 import HelayaInternational from "./pages/helaya-international";
 import Manufacture from "./pages/manufacture";
 import Expia from "./pages/exfea";
@@ -83,7 +84,8 @@ function AnimatedRoutes() {
         <Route path="/business/helaya-health-mart" element={<HelayaHeatlthMart />} />
         <Route path="/business/helaya-diagnostic" element={<HelayaDiagnostic />} />
         <Route path="/business/medical-centers" element={<MedicalCenters />} />
-        <Route path="/business/branding-design" element={<BrandingDesign />} />
+        <Route path="/business/branding-design" element={<BarandingAndAiSolution />} />
+        <Route path="/business/branding-design-details" element={<BrandingDesign />} />
         <Route path="/business/ai-solution" element={<AiSolution />} />
         <Route path="/business/helaya-international" element={<HelayaInternational />} />
         <Route path="/business/manufacture" element={<Manufacture />} />

@@ -14,7 +14,7 @@ import manufactureIcon from "../assets/Home page icon/manufacture.png";
 
 // Preview images (reused)
 import holdingPreview from "../assets/businessPreview/AmartHoldings.png";
-import aiPreview from "../assets/diagnostics.jpg";
+import aiPreview from "../assets/businessPreview/Diagnostic.png";
 import brandingPreview from "../assets/businessPreview/branding and design.png";
 import healthMartPreview from "../assets/businessPreview/HealayaHealth Mart.png";
 import energyPreview from "../assets/businessPreview/Energey And trading.png";
@@ -32,7 +32,6 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
       desc: "Pharmaceuticals, diagnostics, and medical tourism under one group.",
       services: [
         "Pharmaceuticals",
-        "Diagnostics",
         "Medical Tourism",
       ],
     },
@@ -41,14 +40,23 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
       path: "/business/diagnostics",
       icon: aiIcon,
       preview: aiPreview,
-      desc: "AI Solution",
+      desc: "Advanced testing and lab services with fast turnaround and quality assurance.",
+      textTone: "light",
+      services: [
+        "Advanced Lab Diagnostics",
+        "Quality-Assured Testing",
+      ],
     },
     {
-      title: "Branding & Design",
+      title: "Branding & Design + AI Solution",
       path: "/business/branding-design",
       icon: brandingIcon,
       preview: brandingPreview,
-      desc: "A Mart Branding & Design",
+      desc: "Creative brand building and practical AI solutions in one integrated team.",
+      services: [
+        "Brand Identity & Design",
+        "AI Workflow Automation",
+      ],
     },
     {
       title: "Helaya Health Mart",
@@ -100,6 +108,7 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
               desc: btn.desc,
               preview: btn.preview,
               services: btn.services,
+              textTone: btn.textTone,
             });
           }}
           onMouseLeave={() => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import searchCover from "../assets/9 pages/search/search.png";
+import searchCoverMobile from "../assets/mobileimage/serach/search.png";
 import "../styles/search.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
@@ -108,6 +109,7 @@ const normalize = (value) => value.toLowerCase();
 const SearchPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
   const initialQuery = useMemo(() => new URLSearchParams(location.search).get("q") || "", [location.search]);
   const [input, setInput] = useState(initialQuery);
 
@@ -119,6 +121,24 @@ const SearchPage = () => {
   useEffect(() => {
     setInput(initialQuery);
   }, [initialQuery]);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 768px)");
+    const updateMobile = () => setIsMobile(media.matches);
+    updateMobile();
+    if (media.addEventListener) {
+      media.addEventListener("change", updateMobile);
+    } else {
+      media.addListener(updateMobile);
+    }
+    return () => {
+      if (media.removeEventListener) {
+        media.removeEventListener("change", updateMobile);
+      } else {
+        media.removeListener(updateMobile);
+      }
+    };
+  }, []);
 
   const searchTerm = initialQuery.trim();
 
@@ -150,7 +170,7 @@ const SearchPage = () => {
       <div
         className="search-hero"
         style={{
-          backgroundImage: `url(${searchCover})`,
+          backgroundImage: `url(${isMobile ? searchCoverMobile : searchCover})`,
         }}
       >
         <Breadcrumbs variant="hero" />

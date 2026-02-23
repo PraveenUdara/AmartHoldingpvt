@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
+import whiteLogo from "../assets/whiellogo.png";
 import "./Navbar.css";
 
 const businessColumns = [
@@ -10,7 +11,6 @@ const businessColumns = [
     path: "/business/healthcare-services",
     items: [
       { label: "Pharmaceuticals", path: "/business/pharmaceuticals" },
-      { label: "Diagnostics", path: "/business/diagnostics" },
       { label: "Medical Tourism", path: "/business/medical-tourism" },
     ],
   },
@@ -60,7 +60,8 @@ const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
-  const [shrink, setShrink] = useState(false);
+  const [hideOnScroll, setHideOnScroll] = useState(false);
+  const [useWhiteLogo, setUseWhiteLogo] = useState(true);
   const navigate = useNavigate();
 
   const navRef = useRef(null);
@@ -81,14 +82,6 @@ const Navbar = () => {
     }, 120);
   };
 
-  // Sticky shrink on scroll
-  useEffect(() => {
-    const onScroll = () => setShrink(window.scrollY > 80);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   useEffect(() => {
     if (searchOpen) {
       document.body.classList.add("search-active");
@@ -96,6 +89,29 @@ const Navbar = () => {
       document.body.classList.remove("search-active");
     }
   }, [searchOpen]);
+
+  useEffect(() => {
+    const onScroll = () => setHideOnScroll(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const updateLogoMode = () => {
+      const body = document.body;
+      const hasBlackTextNav =
+        body.classList.contains("nav-blacktext") ||
+        body.classList.contains("home-hero-light") ||
+        body.classList.contains("home-hero-clinic-dark-desktop");
+      setUseWhiteLogo(!hasBlackTextNav);
+    };
+
+    updateLogoMode();
+    const observer = new MutationObserver(updateLogoMode);
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
 
   // Close menus when clicking outside
@@ -126,12 +142,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav ref={navRef} className={`navbar ${shrink ? "navbar-shrink" : ""} ${searchOpen ? "search-open" : ""}`}>
+    <nav
+      ref={navRef}
+      className={`navbar ${searchOpen ? "search-open" : ""} ${hideOnScroll ? "navbar-hidden" : ""}`}
+    >
       <div className="navbar-inner">
         {/* LEFT : LOGO */}
         <NavLink to="/" className="navbar-logo" onClick={closeMenus}>
           <img
-            src={logo}
+            src={useWhiteLogo ? whiteLogo : logo}
             className="nav-logo-img"
             alt="A Mart Holdings Logo"
           />
@@ -231,6 +250,10 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+
+          <NavLink to="/business/diagnostics" className="nav-link" onClick={closeMenus}>
+            Diagnostics
+          </NavLink>
 
           <NavLink to="/events" className="nav-link" onClick={closeMenus}>
             Events

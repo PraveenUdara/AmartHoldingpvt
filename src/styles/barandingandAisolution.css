@@ -1,0 +1,187 @@
+.ba-page {
+  width: 100%;
+  background: #f5f7fa;
+  font-family: "Poppins", sans-serif;
+}
+
+.ba-hero {
+  position: relative;
+  width: 100%;
+  height: 44vh;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.ba-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(8, 29, 50, 0.24), rgba(8, 29, 50, 0.5));
+  padding: 0 20px;
+}
+
+.ba-hero-overlay h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+.ba-hero-overlay p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+.ba-chooser {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+}
+
+.ba-intro {
+  max-width: 980px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.ba-intro h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  color: #0a2540;
+}
+
+.ba-intro p {
+  margin: 0 auto;
+  max-width: 860px;
+  color: #445b70;
+  line-height: 1.7;
+}
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.ba-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  min-height: 420px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ba-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.2);
+}
+
+.ba-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.ba-card:hover .ba-card-img {
+  transform: scale(1.03);
+}
+
+.ba-card-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 24, 42, 0.12) 0%,
+    rgba(8, 54, 108, 0.58) 68%,
+    rgba(8, 54, 108, 0.86) 100%
+  );
+}
+
+.ba-card-overlay h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.ba-card-overlay p {
+  margin: 0;
+  color: #ebf4ff;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.ba-readmore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #eef7ff;
+  color: #0a2540;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(10, 75, 134, 0.18);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.ba-card:hover .ba-readmore {
+  background: #0a4b86;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .ba-hero {
+    height: 38vh;
+    min-height: 250px;
+  }
+
+  .ba-chooser {
+    padding: 42px 16px 64px;
+  }
+
+  .ba-intro {
+    margin-bottom: 20px;
+  }
+
+  .ba-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ba-card {
+    min-height: 330px;
+  }
+
+  .ba-card-overlay {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .ba-card-overlay p {
+    font-size: 0.92rem;
+  }
+}

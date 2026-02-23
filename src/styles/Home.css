@@ -482,6 +482,14 @@ body.home-hero-light .hero-slide-info {
   line-height: 1.5;
 }
 
+.business-preview-overlay-light,
+.business-preview-overlay-light .business-preview-overlay-title,
+.business-preview-overlay-light .business-preview-overlay-desc,
+.business-preview-overlay-light .business-preview-overlay-sub,
+.business-preview-overlay-light ul {
+  color: #ffffff;
+}
+
 /* ---------------------- BUTTON GRID ---------------------- */
 .business-buttons-container {
   flex: 1.5;

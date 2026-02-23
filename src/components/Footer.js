@@ -144,11 +144,11 @@ const Footer = () => {
             </div>
 
             <div className="footer-link-group">
-              <Link className="footer-main-link" to="/business/branding-design">Branding & Design</Link>
-            </div>
-
-            <div className="footer-link-group">
-              <Link className="footer-main-link" to="/business/ai-solution">AI Solutions</Link>
+              <Link className="footer-main-link" to="/business/branding-design">Branding & Design + AI Solution</Link>
+              <div className="footer-sublinks">
+                <Link className="footer-link" to="/business/branding-design-details">Branding & Design</Link>
+                <Link className="footer-link" to="/business/ai-solution">AI Solution</Link>
+              </div>
             </div>
           </div>
         </div>
