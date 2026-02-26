@@ -3,12 +3,27 @@ import React, { useState, useEffect } from "react";
 import "../styles/helayapharmacy.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 import helayaCover from "../assets/9 pages/helaya paharmcey.png";
-import helacolombo from "../assets/9 pages/helacolombo.webp";
-import helkandy from "../assets/9 pages/helaya kandy.jpg";
 import helayaLogo from "../assets/Helaya Logo.png";
+
+const kandyBranchContext = require.context(
+  "../assets/9 pages/helaya kandy",
+  false,
+  /\.(webp|jpg|jpeg|png)$/
+);
+
+const kohuwalaBranchContext = require.context(
+  "../assets/9 pages/helaya kohuwala",
+  false,
+  /\.(webp|jpg|jpeg|png)$/
+);
+
+const kandyBranchImageKeys = kandyBranchContext.keys().sort();
+const kohuwalaBranchImageKeys = kohuwalaBranchContext.keys().sort();
 
 const HelayaPharmacy = () => {
   const [activeBranch, setActiveBranch] = useState("kandy");
+  const [branchSlideDirection, setBranchSlideDirection] = useState("next");
+  const [branchImageIndex, setBranchImageIndex] = useState(0);
 
   // Sync tab with hash from navbar sublinks
   useEffect(() => {
@@ -25,6 +40,11 @@ const HelayaPharmacy = () => {
     return () => window.removeEventListener("hashchange", syncFromHash);
   }, []);
 
+  useEffect(() => {
+    setBranchImageIndex(0);
+    setBranchSlideDirection("next");
+  }, [activeBranch]);
+
   const branchContent = {
     kandy: {
       title: "Kandy Outlet",
@@ -34,7 +54,8 @@ const HelayaPharmacy = () => {
         "Serving central Sri Lanka with a full range of prescriptions, OTC essentials, and wellness products.",
         "Ask our pharmacists for medication guidance and personalized support for you and your family.",
       ],
-      image: helkandy,
+      imageKeys: kandyBranchImageKeys,
+      resolveImage: (key) => kandyBranchContext(key),
       alt: "Helaya Pharmacy Kandy",
     },
     kohuwala: {
@@ -45,12 +66,40 @@ const HelayaPharmacy = () => {
         "Supporting the Colombo suburb with quick access to prescriptions and attentive pharmacist advice.",
         "Drop in for wellness products, medication reviews, and caring service close to home.",
       ],
-      image: helacolombo,
+      imageKeys: kohuwalaBranchImageKeys,
+      resolveImage: (key) => kohuwalaBranchContext(key),
       alt: "Helaya Pharmacy Kohuwala",
     },
   };
 
   const current = branchContent[activeBranch];
+  const currentBranchImageKeys = current.imageKeys && current.imageKeys.length > 0 ? current.imageKeys : [];
+  const hasImageCarousel = currentBranchImageKeys.length > 1;
+  const safeImageIndex =
+    currentBranchImageKeys.length > 0
+      ? Math.min(branchImageIndex, currentBranchImageKeys.length - 1)
+      : 0;
+  const mainImageKey = currentBranchImageKeys[safeImageIndex];
+  const nextImageKey =
+    hasImageCarousel
+      ? currentBranchImageKeys[(safeImageIndex + 1) % currentBranchImageKeys.length]
+      : null;
+  const mainImage = mainImageKey ? current.resolveImage(mainImageKey) : null;
+  const nextImage = nextImageKey ? current.resolveImage(nextImageKey) : null;
+
+  const goBranchImagePrev = () => {
+    if (!hasImageCarousel) return;
+    setBranchSlideDirection("prev");
+    setBranchImageIndex((prev) =>
+      prev === 0 ? currentBranchImageKeys.length - 1 : prev - 1
+    );
+  };
+
+  const goBranchImageNext = () => {
+    if (!hasImageCarousel) return;
+    setBranchSlideDirection("next");
+    setBranchImageIndex((prev) => (prev + 1) % currentBranchImageKeys.length);
+  };
 
   return (
     <div className="helaya-page">
@@ -114,8 +163,49 @@ const HelayaPharmacy = () => {
       </section>
 
       <section className="branch-feature">
-        <div className="branch-image" key={`${activeBranch}-image`}>
-          <img src={current.image} alt={current.alt} />
+        <div className="branch-image-carousel" key={`${activeBranch}-image`}>
+          {hasImageCarousel && (
+            <button
+              type="button"
+              className="branch-image-arrow branch-image-arrow-left"
+              onClick={goBranchImagePrev}
+              aria-label="Previous branch image"
+            >
+              &lt;
+            </button>
+          )}
+
+          <div className="branch-image-stage">
+            {hasImageCarousel && nextImage && (
+              <div
+                key={`branch-next-${activeBranch}-${safeImageIndex}-${branchSlideDirection}`}
+                className={`branch-image-card branch-image-card-next ${branchSlideDirection === "next" ? "branch-image-switch-next" : "branch-image-switch-prev"}`}
+                aria-hidden="true"
+              >
+                <img src={nextImage} alt={`${current.alt} preview`} />
+              </div>
+            )}
+
+            {mainImage && (
+              <div
+                key={`branch-main-${activeBranch}-${safeImageIndex}-${branchSlideDirection}`}
+                className={`branch-image-card branch-image-card-main ${branchSlideDirection === "next" ? "branch-image-switch-next" : "branch-image-switch-prev"}`}
+              >
+                <img src={mainImage} alt={current.alt} />
+              </div>
+            )}
+          </div>
+
+          {hasImageCarousel && (
+            <button
+              type="button"
+              className="branch-image-arrow branch-image-arrow-right"
+              onClick={goBranchImageNext}
+              aria-label="Next branch image"
+            >
+              &gt;
+            </button>
+          )}
         </div>
         <div className="branch-text" key={`${activeBranch}-text`}>
           <h3>{current.title}</h3>

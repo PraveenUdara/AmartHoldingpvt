@@ -67,6 +67,21 @@
   opacity: 0.95;
 }
 
+.diagnostics-page .business-cover-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.58),
+    rgba(255, 255, 255, 0.2)
+  );
+}
+
+.diagnostics-page .business-cover-content,
+.diagnostics-page .business-cover-title,
+.diagnostics-page .business-cover-desc {
+  color: #0a2540;
+  text-shadow: none;
+}
+
 /* =================================================
    PAGE CONTENT
 ================================================= */
@@ -132,9 +147,10 @@
 .business-content p {
   font-size: 15px;
   line-height: 1.8;
-  max-width: 900px;
+  max-width: 1050px;
   color: #333;
   margin: 0 auto 12px;
+  text-align: left;
 }
 
 /* =================================================

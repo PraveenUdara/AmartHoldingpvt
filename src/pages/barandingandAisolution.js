@@ -12,10 +12,6 @@ const BarandingAndAiSolution = () => {
       <section className="ba-hero">
         <img src={heroImg} alt="Branding and AI Solutions" className="ba-hero-img" />
         <Breadcrumbs variant="hero" />
-        <div className="ba-hero-overlay">
-          <h1>Choose a Service</h1>
-          <p>Select a business unit to continue.</p>
-        </div>
       </section>
 
       <section className="ba-chooser">

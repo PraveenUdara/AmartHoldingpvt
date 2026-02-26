@@ -1,9 +1,25 @@
 // src/components/Navbar.js
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import whiteLogo from "../assets/whiellogo.png";
 import "./Navbar.css";
+
+const SEARCH_SUGGESTIONS = [
+  { title: "Home", path: "/", keywords: "amart holdings" },
+  { title: "About Us", path: "/about", keywords: "company vision mission" },
+  { title: "Pharmaceuticals", path: "/business/pharmaceuticals", keywords: "medicine pharma" },
+  { title: "Diagnostics", path: "/business/diagnostics", keywords: "lab testing diagnostic" },
+  { title: "Medical Tourism", path: "/business/medical-tourism", keywords: "travel treatment hospitals" },
+  { title: "Helaya Pharmacy", path: "/business/helaya-pharmacy", keywords: "pharmacy retail" },
+  { title: "Helaya Diagnostic", path: "/business/helaya-diagnostic", keywords: "helaya lab center" },
+  { title: "Medical Centers", path: "/business/medical-centers", keywords: "clinic clinical" },
+  { title: "Helaya Health Mart", path: "/business/helaya-health-mart", keywords: "health mart" },
+  { title: "Branding & Design", path: "/business/branding-design-details", keywords: "branding design creative" },
+  { title: "AI Solution", path: "/business/ai-solution", keywords: "ai automation" },
+  { title: "Events", path: "/events", keywords: "programs activities" },
+  { title: "Contact Us", path: "/contact", keywords: "contact support inquiry" },
+];
 
 const businessColumns = [
   {
@@ -12,6 +28,13 @@ const businessColumns = [
     items: [
       { label: "Pharmaceuticals", path: "/business/pharmaceuticals" },
       { label: "Medical Tourism", path: "/business/medical-tourism" },
+    ],
+  },
+  {
+    title: "Diagnostics",
+    path: "/business/diagnostics",
+    items: [
+      { label: "Diagnostics", path: "/business/diagnostics" },
     ],
   },
   {
@@ -40,16 +63,10 @@ const businessColumns = [
     ],
   },
   {
-    title: "Branding & Design",
+    title: "Branding & AI Solution",
     path: "/business/branding-design",
     items: [
-      { label: "A Mart Branding & Design", path: "/business/branding-design" },
-    ],
-  },
-  {
-    title: "AI Solutions",
-    path: "/business/ai-solution",
-    items: [
+      { label: "Branding & Design", path: "/business/branding-design-details" },
       { label: "AI Solution", path: "/business/ai-solution" },
     ],
   },
@@ -60,8 +77,9 @@ const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
-  const [hideOnScroll, setHideOnScroll] = useState(false);
   const [useWhiteLogo, setUseWhiteLogo] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [searchFocused, setSearchFocused] = useState(false);
   const navigate = useNavigate();
 
   const navRef = useRef(null);
@@ -88,13 +106,27 @@ const Navbar = () => {
     } else {
       document.body.classList.remove("search-active");
     }
+    return () => {
+      document.body.classList.remove("search-active");
+    };
   }, [searchOpen]);
 
   useEffect(() => {
-    const onScroll = () => setHideOnScroll(window.scrollY > 10);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const media = window.matchMedia("(max-width: 900px)");
+    const updateMobile = () => setIsMobile(media.matches);
+    updateMobile();
+    if (media.addEventListener) {
+      media.addEventListener("change", updateMobile);
+    } else {
+      media.addListener(updateMobile);
+    }
+    return () => {
+      if (media.removeEventListener) {
+        media.removeEventListener("change", updateMobile);
+      } else {
+        media.removeListener(updateMobile);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -139,18 +171,44 @@ const Navbar = () => {
     setBizOpen(false);
     setMobileMenu(false);
     setSearchOpen(false);
+    setSearchFocused(false);
+  };
+
+  const filteredSuggestions = useMemo(() => {
+    const term = searchValue.trim().toLowerCase();
+    if (!term) return [];
+    return SEARCH_SUGGESTIONS.filter((item) => {
+      const haystack = `${item.title} ${item.keywords || ""}`.toLowerCase();
+      return haystack.includes(term);
+    }).slice(0, 7);
+  }, [searchValue]);
+
+  const showSuggestions = searchFocused && filteredSuggestions.length > 0;
+
+  const handleSuggestionClick = (item) => {
+    setSearchValue("");
+    closeMenus();
+    navigate(item.path);
   };
 
   return (
     <nav
       ref={navRef}
-      className={`navbar ${searchOpen ? "search-open" : ""} ${hideOnScroll ? "navbar-hidden" : ""}`}
+      className={`navbar ${searchOpen ? "search-open" : ""}`}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        transform: "none",
+        zIndex: 3000,
+      }}
     >
       <div className="navbar-inner">
         {/* LEFT : LOGO */}
         <NavLink to="/" className="navbar-logo" onClick={closeMenus}>
           <img
-            src={useWhiteLogo ? whiteLogo : logo}
+            src={isMobile ? whiteLogo : useWhiteLogo ? whiteLogo : logo}
             className="nav-logo-img"
             alt="A Mart Holdings Logo"
           />
@@ -251,10 +309,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          <NavLink to="/business/diagnostics" className="nav-link" onClick={closeMenus}>
-            Diagnostics
-          </NavLink>
-
           <NavLink to="/events" className="nav-link" onClick={closeMenus}>
             Events
           </NavLink>
@@ -271,7 +325,25 @@ const Navbar = () => {
             placeholder="Search..."
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setTimeout(() => setSearchFocused(false), 120)}
           />
+          {showSuggestions && (
+            <div className="nav-search-suggestions" role="listbox" aria-label="Search suggestions">
+              {filteredSuggestions.map((item) => (
+                <button
+                  key={item.path}
+                  type="button"
+                  className="nav-search-suggestion-item"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => handleSuggestionClick(item)}
+                >
+                  <span className="nav-search-suggestion-title">{item.title}</span>
+                  <span className="nav-search-suggestion-path">{item.path}</span>
+                </button>
+              ))}
+            </div>
+          )}
         </form>
 
         {/* MOBILE SEARCH + HAMBURGER */}

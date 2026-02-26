@@ -1,0 +1,67 @@
+.scroll-top-btn {
+  position: fixed;
+  right: 104px;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: #2eb8b6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  z-index: 1300;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.scroll-top-btn.slot-left {
+  right: 104px;
+  bottom: 22px;
+}
+
+.scroll-top-btn.slot-whatsapp {
+  right: 22px;
+  bottom: 22px;
+}
+
+.scroll-top-btn.slot-facebook {
+  right: 22px;
+  bottom: 102px;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+  background: #25a5a3;
+}
+
+@media (max-width: 600px) {
+  .scroll-top-btn {
+    right: 78px;
+    bottom: 14px;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .scroll-top-btn.slot-left {
+    right: 78px;
+    bottom: 14px;
+  }
+
+  .scroll-top-btn.slot-whatsapp {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .scroll-top-btn.slot-facebook {
+    right: 14px;
+    bottom: 82px;
+  }
+}

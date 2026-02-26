@@ -1,10 +1,11 @@
 // src/pages/Events.js
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/Events.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 // 🔹 EVENTS COVER IMAGE
 import eventsCover from "../assets/events_cover.jpg";
+import helayaVideoThumb from "../assets/thumbnial/helayapharmacey.webp";
 
 /* AUTO IMPORT ALL IMAGES FROM FOLDERS */
 const importAll = (r) => r.keys().map(r);
@@ -70,7 +71,7 @@ const kandyHelayaVideoItems = kandyHelayaVideos.map((src) => {
   const baseName = match ? match[1] : "";
   return {
     src,
-    poster: kandyHelayaPosterMap[baseName],
+    poster: kandyHelayaPosterMap[baseName] || helayaVideoThumb,
   };
 });
 
@@ -92,6 +93,8 @@ const manipalEventImages = importAll(
 
 const Events = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [playingMap, setPlayingMap] = useState({});
+  const videoRefs = useRef({});
   const getCover = (images) => (images && images.length ? images[0] : eventsCover);
   const mobileEventCards = [
     {
@@ -155,6 +158,16 @@ const Events = () => {
     items.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  const handleVideoToggle = (idx) => {
+    const video = videoRefs.current[idx];
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
 
   return (
     <div className="events-page">
@@ -275,14 +288,42 @@ const Events = () => {
               <h4>Event Videos</h4>
               <div className="event-video-grid">
                 {kandyHelayaVideoItems.map((video, i) => (
-                  <video
+                  <div
                     key={i}
-                    src={video.src}
-                    poster={video.poster}
-                    controls
-                    preload="metadata"
-                    className={`event-video event-reveal ${i % 2 === 0 ? "reveal-left" : "reveal-right"}`}
-                  />
+                    className={`event-video-wrap event-reveal ${i % 2 === 0 ? "reveal-left" : "reveal-right"}`}
+                  >
+                    <button
+                      type="button"
+                      className={`event-video-center-toggle ${playingMap[i] ? "is-playing" : ""}`}
+                      onClick={() => handleVideoToggle(i)}
+                      aria-label={playingMap[i] ? "Pause event video" : "Play event video"}
+                    >
+                      {playingMap[i] ? (
+                        <span className="event-toggle-icon event-toggle-icon-pause" aria-hidden="true">
+                          <span></span>
+                          <span></span>
+                        </span>
+                      ) : (
+                        <span className="event-toggle-icon event-toggle-icon-play" aria-hidden="true"></span>
+                      )}
+                    </button>
+                    <video
+                      ref={(el) => {
+                        if (el) videoRefs.current[i] = el;
+                      }}
+                      src={video.src}
+                      poster={video.poster || helayaVideoThumb}
+                      controls
+                      controlsList="nodownload"
+                      disablePictureInPicture
+                      preload="none"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onPlay={() => setPlayingMap((prev) => ({ ...prev, [i]: true }))}
+                      onPause={() => setPlayingMap((prev) => ({ ...prev, [i]: false }))}
+                      onEnded={() => setPlayingMap((prev) => ({ ...prev, [i]: false }))}
+                      className="event-video"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -349,3 +390,4 @@ const Events = () => {
 };
 
 export default Events;
+

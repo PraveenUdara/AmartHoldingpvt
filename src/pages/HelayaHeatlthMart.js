@@ -5,7 +5,7 @@ import "../styles/HelayaHealthMart.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 import helayaHealthMartCover from "../assets/HelayaHealthmart.png";
 import helayaHealthMartCoverMobile from "../assets/mobileimage/helayahealthmart/helayahealthmart.png";
-import helayaPharmacyImg from "../assets/9 pages/helacolombo.webp";
+import helayaPharmacyImg from "../assets/9 pages/helaya kohuwala/helacolombo.webp";
 import medicalClinicImg from "../assets/clinic1.png";
 import medicalDiagnosticImg from "../assets/medicaldiagnostic.png";
 

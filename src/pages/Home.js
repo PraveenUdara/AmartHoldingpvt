@@ -1,5 +1,5 @@
 // src/pages/Home.js
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "../styles/Home.css";
 import BusinessButtons from "../components/BusinessButtons";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -59,11 +59,19 @@ import partner20 from "../assets/Partners/20.png";
 import partner21 from "../assets/Partners/21.png";
 import feedbackVideo1 from "../assets/feedbackvideo/Customer Feedback.mp4";
 import feedbackVideo2 from "../assets/feedbackvideo/Customer Feedback 2.mp4";
+import feedbackThumbnail from "../assets/thumbnial/feedback.png";
+import feedbackThumbnail2 from "../assets/thumbnial/feedback2.png";
 
 import "../styles/Home.css";
 
 // DEFAULT PREVIEW IMAGE
 import defaultPreview from "../assets/businessPreview/default.jpg";
+import holdingPreview from "../assets/businessPreview/AmartHoldings.png";
+import aiPreview from "../assets/businessPreview/Diagnostic.png";
+import brandingPreview from "../assets/businessPreview/branding and design.png";
+import healthMartPreview from "../assets/businessPreview/HealayaHealth Mart.png";
+import energyPreview from "../assets/businessPreview/Energey And trading.png";
+import manufacturePreview from "../assets/businessPreview/Manufacring.png";
 
 /* ---------------------------------
    HERO SLIDES (IMAGE + TEXT)
@@ -170,11 +178,49 @@ const PARTNER_SLOTS = [
   { slot: 20, logo: partner18 },
 ];
 
+const MOBILE_PREVIEW_ROTATION = [
+  {
+    title: "A Mart Holdings",
+    preview: holdingPreview,
+    desc: "Pharmaceuticals, diagnostics, and medical tourism under one group.",
+    services: ["Pharmaceuticals", "Medical Tourism"],
+  },
+  {
+    title: "A Mart Diagnostic",
+    preview: aiPreview,
+    desc: "Advanced testing and lab services with fast turnaround and quality assurance.",
+    services: ["Advanced Lab Diagnostics", "Quality-Assured Testing"],
+    textTone: "light",
+  },
+  {
+    title: "Branding & Design + AI Solution",
+    preview: brandingPreview,
+    desc: "Creative brand building and practical AI solutions in one integrated team.",
+    services: ["Brand Identity & Design", "AI Workflow Automation"],
+  },
+  {
+    title: "Helaya Health Mart",
+    preview: healthMartPreview,
+    desc: "Helaya Pharmacy, Helaya Diagnostic, and Medical Centers",
+    services: ["Helaya Pharmacy", "Helaya Diagnostic", "Medical Centers"],
+  },
+  {
+    title: "Energy & Trading",
+    preview: energyPreview,
+    desc: "Exfea and Helaya International",
+    services: ["Exfea", "Helaya International"],
+  },
+  {
+    title: "Manufacture",
+    preview: manufacturePreview,
+    desc: "Helaya Biocim (Pvt) Ltd and Helaya CosmoDerma (Pvt) Ltd",
+    services: ["Helaya Biocim (Pvt) Ltd", "Helaya CosmoDerma (Pvt) Ltd"],
+  },
+];
+
 const Home = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [storyIndex, setStoryIndex] = useState(0);
-  const [isHeroLight, setIsHeroLight] = useState(false);
-  const [isClinicHeroDesktopDark, setIsClinicHeroDesktopDark] = useState(false);
 
   /* ---------------- HERO SLIDER (OPTION A) ---------------- */
   useEffect(() => {
@@ -205,58 +251,137 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    document.body.classList.remove("home-hero-light");
+    document.body.classList.remove("home-hero-clinic-dark-desktop");
+  }, []);
+
   const currentSlide = HERO_SLIDES[heroIndex];
   const buildSrcSet = (sources) =>
     sources.map((item) => `${item.src} ${item.width}w`).join(", ");
 
-  useEffect(() => {
-    setIsHeroLight(heroIndex === 0);
-    setIsClinicHeroDesktopDark(heroIndex === 3);
-  }, [heroIndex]);
-
-  useEffect(() => {
-    document.body.classList.toggle("home-hero-light", isHeroLight);
-    document.body.classList.toggle(
-      "home-hero-clinic-dark-desktop",
-      isClinicHeroDesktopDark
-    );
-    return () => {
-      document.body.classList.remove("home-hero-light");
-      document.body.classList.remove("home-hero-clinic-dark-desktop");
-    };
-  }, [isHeroLight, isClinicHeroDesktopDark]);
-
   /* ---------------- BUSINESS PREVIEW ---------------- */
-  const defaultHoverData = {
-    title: "Our Services",
-    desc: "",
-    preview: defaultPreview,
-    textTone: "dark",
-    services: [
-      "A Mart Holdings",
-      "AI Solution",
-      "Branding & Design",
-      "Helaya Health Mart",
-      "Energy & Trading",
-      "Manufacture",
-    ],
-  };
+  const defaultHoverData = useMemo(
+    () => ({
+      title: "Our Services",
+      desc: "",
+      preview: defaultPreview,
+      textTone: "dark",
+      services: [
+        "A Mart Holdings",
+        "AI Solution",
+        "Branding & Design",
+        "Helaya Health Mart",
+        "Energy & Trading",
+        "Manufacture",
+      ],
+    }),
+    []
+  );
 
   const [hoverData, setHoverData] = useState(defaultHoverData);
+  const [previewAnimKey, setPreviewAnimKey] = useState(0);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [mobilePreviewIndex, setMobilePreviewIndex] = useState(0);
   const [activePartner, setActivePartner] = useState(null);
+  const [isStoryPlaying, setIsStoryPlaying] = useState(false);
+  const [isStoryHover, setIsStoryHover] = useState(false);
+  const [storySlideDirection, setStorySlideDirection] = useState("next");
+  const storyVideoRef = useRef(null);
+  const storyTouchStartX = useRef(0);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 768px)");
+    const updateView = () => setIsMobileView(media.matches);
+    updateView();
+    if (media.addEventListener) {
+      media.addEventListener("change", updateView);
+    } else {
+      media.addListener(updateView);
+    }
+    return () => {
+      if (media.removeEventListener) {
+        media.removeEventListener("change", updateView);
+      } else {
+        media.removeListener(updateView);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobileView) {
+      setHoverData(defaultHoverData);
+      return;
+    }
+    setHoverData(MOBILE_PREVIEW_ROTATION[mobilePreviewIndex]);
+    setPreviewAnimKey((prev) => prev + 1);
+  }, [defaultHoverData, isMobileView, mobilePreviewIndex]);
+
+  useEffect(() => {
+    if (!isMobileView) {
+      return;
+    }
+    const timer = setInterval(() => {
+      setMobilePreviewIndex((prev) => (prev + 1) % MOBILE_PREVIEW_ROTATION.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [isMobileView]);
+
+  useEffect(() => {
+    setIsStoryPlaying(false);
+    setIsStoryHover(false);
+  }, [storyIndex]);
+
+  const handleStoryToggle = () => {
+    const video = storyVideoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      return;
+    }
+    video.pause();
+  };
 
   const STORIES = [
     {
       src: feedbackVideo1,
+      poster: feedbackThumbnail,
       name: "Ms. Nishanthi Ernadima Munasingha",
       label: "Customer Feedback",
     },
     {
       src: feedbackVideo2,
+      poster: feedbackThumbnail2,
       name: "Mr. W.P.S.T Sadruwan",
       label: "Customer Feedback",
     },
   ];
+
+  const nextStoryIndex = (storyIndex + 1) % STORIES.length;
+  const prevStory = () => {
+    setStorySlideDirection("prev");
+    setStoryIndex((prev) => (prev === 0 ? STORIES.length - 1 : prev - 1));
+  };
+
+  const nextStory = () => {
+    setStorySlideDirection("next");
+    setStoryIndex((prev) => (prev + 1) % STORIES.length);
+  };
+
+  const handleStoryTouchStart = (event) => {
+    storyTouchStartX.current = event.changedTouches[0].clientX;
+  };
+
+  const handleStoryTouchEnd = (event) => {
+    const endX = event.changedTouches[0].clientX;
+    const deltaX = endX - storyTouchStartX.current;
+    const threshold = 36;
+    if (deltaX <= -threshold) {
+      nextStory();
+    } else if (deltaX >= threshold) {
+      prevStory();
+    }
+  };
 
   return (
     <div className="home">
@@ -376,6 +501,7 @@ const Home = () => {
         <div className="business-left-content">
           <div className="business-preview-wrapper">
             <img
+              key={`${hoverData?.preview}-${previewAnimKey}`}
               src={hoverData?.preview || defaultPreview}
               alt="Preview"
               width="640"
@@ -385,7 +511,7 @@ const Home = () => {
             {(hoverData?.desc || hoverData?.services) && (
               <div
                 className={`business-preview-overlay ${
-                  hoverData?.textTone === "light" ? "business-preview-overlay-light" : ""
+                  hoverData?.textTone === "blue" ? "business-preview-overlay-blue" : ""
                 }`}
               >
                 {hoverData?.title && (
@@ -414,6 +540,7 @@ const Home = () => {
         <BusinessButtons
           onHoverChange={setHoverData}
           resetPreview={() => setHoverData(defaultHoverData)}
+          currentPreviewData={hoverData}
         />
       </section>
 
@@ -456,50 +583,109 @@ const Home = () => {
         </div>
 
         <div className="stories-slider">
-          <div className="stories-nav">
-            <button
-              type="button"
-              className="stories-arrow"
-              onClick={() => setStoryIndex((prev) => (prev === 0 ? STORIES.length - 1 : prev - 1))}
-              aria-label="Previous story"
-            >
-              ‹
-            </button>
-            <div className="stories-indicator">
-              {storyIndex + 1} / {STORIES.length}
+          <div className="stories-carousel">
+            {!isMobileView && (
+              <button
+                type="button"
+                className="story-side-arrow story-side-arrow-left"
+                onClick={prevStory}
+                aria-label="Previous story"
+              >
+                &lt;
+              </button>
+            )}
+
+            <div className="story-stack">
+              <div
+                key={`next-${nextStoryIndex}-${storySlideDirection}`}
+                className={`story-card story-card-next ${storySlideDirection === "next" ? "story-switch-next" : "story-switch-prev"}`}
+                aria-hidden="true"
+              >
+                <div className="story-media">
+                  <img
+                    className="story-video story-video-preview"
+                    src={STORIES[nextStoryIndex].poster}
+                    alt={`${STORIES[nextStoryIndex].name} preview`}
+                    width="1980"
+                    height="1080"
+                  />
+                </div>
+                <div className="story-meta">
+                  <h3>{STORIES[nextStoryIndex].name}</h3>
+                  <p>Up next</p>
+                </div>
+              </div>
+
+              <div
+                key={`main-${storyIndex}-${storySlideDirection}`}
+                className={`story-card story-card-main ${storySlideDirection === "next" ? "story-switch-next" : "story-switch-prev"}`}
+                onTouchStart={handleStoryTouchStart}
+                onTouchEnd={handleStoryTouchEnd}
+              >
+                <div
+                  className="story-media"
+                  onMouseEnter={() => setIsStoryHover(true)}
+                  onMouseLeave={() => setIsStoryHover(false)}
+                >
+                  <button
+                    type="button"
+                    className={`story-center-toggle ${isStoryPlaying ? "is-playing" : ""} ${!isStoryPlaying || isStoryHover ? "is-visible" : ""}`}
+                    onClick={handleStoryToggle}
+                    aria-label={isStoryPlaying ? "Pause feedback video" : "Play feedback video"}
+                  >
+                    {isStoryPlaying ? (
+                      <span className="story-toggle-icon story-toggle-icon-pause" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                      </span>
+                    ) : (
+                      <span className="story-toggle-icon story-toggle-icon-play" aria-hidden="true"></span>
+                    )}
+                  </button>
+                  <video
+                    key={STORIES[storyIndex].src}
+                    ref={storyVideoRef}
+                    className="story-video"
+                    src={STORIES[storyIndex].src}
+                    poster={STORIES[storyIndex].poster}
+                    width="1980"
+                    height="1080"
+                    controls
+                    controlsList="nodownload"
+                    disablePictureInPicture
+                    preload="metadata"
+                    playsInline
+                    onContextMenu={(e) => e.preventDefault()}
+                    onPlay={() => setIsStoryPlaying(true)}
+                    onPause={() => setIsStoryPlaying(false)}
+                    onEnded={() => setIsStoryPlaying(false)}
+                    title={`Customer Feedback featuring ${STORIES[storyIndex].name}`}
+                  />
+                </div>
+                <div className="story-meta">
+                  <h3>{STORIES[storyIndex].name}</h3>
+                  <p>{STORIES[storyIndex].label}</p>
+                </div>
+              </div>
             </div>
-            <button
-              type="button"
-              className="stories-arrow"
-              onClick={() => setStoryIndex((prev) => (prev + 1) % STORIES.length)}
-              aria-label="Next story"
-            >
-              ›
-            </button>
+
+            {!isMobileView && (
+              <button
+                type="button"
+                className="story-side-arrow story-side-arrow-right"
+                onClick={nextStory}
+                aria-label="Next story"
+              >
+                &gt;
+              </button>
+            )}
           </div>
 
-          <div className="story-card">
-            <div className="story-media">
-              <video
-                key={STORIES[storyIndex].src}
-                className="story-video"
-                src={STORIES[storyIndex].src}
-                width="1980"
-                height="1080"
-                controls
-                controlsList="nodownload"
-                disablePictureInPicture
-                preload="metadata"
-                playsInline
-                onContextMenu={(e) => e.preventDefault()}
-                title={`Customer Feedback featuring ${STORIES[storyIndex].name}`}
-              />
-            </div>
-            <div className="story-meta">
-              <h3>{STORIES[storyIndex].name}</h3>
-              <p>{STORIES[storyIndex].label}</p>
-            </div>
-          </div>
+          {isMobileView && (
+            <div className="stories-swipe-hint">Swipe right or left to view more videos</div>
+          )}
+
+          <div className="stories-light-line" aria-hidden="true"></div>
         </div>
       </section>
 
@@ -543,3 +729,4 @@ const Home = () => {
 };
 
 export default Home;
+

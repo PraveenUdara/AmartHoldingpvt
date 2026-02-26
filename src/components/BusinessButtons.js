@@ -1,5 +1,5 @@
 // src/components/BusinessButtons.js
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "../components/BusinessButtons.css";
 import "../index.css";
@@ -20,8 +20,10 @@ import healthMartPreview from "../assets/businessPreview/HealayaHealth Mart.png"
 import energyPreview from "../assets/businessPreview/Energey And trading.png";
 import manufacturePreview from "../assets/businessPreview/Manufacring.png";
 
-const BusinessButtons = ({ onHoverChange, resetPreview }) => {
+const BusinessButtons = ({ onHoverChange, resetPreview, currentPreviewData }) => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const currentPreviewRef = useRef(currentPreviewData || null);
+  const previousPreviewRef = useRef(null);
 
   const items = [
     {
@@ -41,7 +43,7 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
       icon: aiIcon,
       preview: aiPreview,
       desc: "Advanced testing and lab services with fast turnaround and quality assurance.",
-      textTone: "light",
+      textTone: "blue",
       services: [
         "Advanced Lab Diagnostics",
         "Quality-Assured Testing",
@@ -94,6 +96,10 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
     },
   ];
 
+  useEffect(() => {
+    currentPreviewRef.current = currentPreviewData || null;
+  }, [currentPreviewData]);
+
   return (
     <div className="business-buttons-container">
       {items.map((btn, index) => (
@@ -102,17 +108,26 @@ const BusinessButtons = ({ onHoverChange, resetPreview }) => {
           to={btn.path}
           className={`business-btn-card ${activeIndex === index ? "active" : ""}`}
           onMouseEnter={() => {
-            setActiveIndex(index);
-            onHoverChange({
+            previousPreviewRef.current = currentPreviewRef.current;
+            const nextPreview = {
               title: btn.title,
               desc: btn.desc,
               preview: btn.preview,
               services: btn.services,
               textTone: btn.textTone,
-            });
+            };
+            currentPreviewRef.current = nextPreview;
+            setActiveIndex(index);
+            onHoverChange(nextPreview);
           }}
           onMouseLeave={() => {
             setActiveIndex(null);
+            const restorePreview = previousPreviewRef.current;
+            if (restorePreview) {
+              currentPreviewRef.current = restorePreview;
+              onHoverChange(restorePreview);
+              return;
+            }
             resetPreview();
           }}
         >

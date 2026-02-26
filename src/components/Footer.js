@@ -1,13 +1,35 @@
 // src/components/Footer.js
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/Footer.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/footerlogo.png";
 import helayaLogo from "../assets/Helaya Logo.png";
+import facebookVideo from "../assets/Facebook.mp4";
 
 const Footer = () => {
+  const footerRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!footerRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
+
+    observer.observe(footerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <footer className="footer">
+    <footer ref={footerRef} className={`footer ${inView ? "footer-inview" : ""}`}>
 
       <div className="footer-top">
 
@@ -71,7 +93,7 @@ const Footer = () => {
 
           <div className="footer-social">
             <a
-              href="https://www.facebook.com/amartholdings"
+              href={facebookVideo}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="A Mart Holdings Facebook"
@@ -159,6 +181,12 @@ const Footer = () => {
 
       <div className="footer-bottom">
          {new Date().getFullYear()} A Mart Holdings. All rights reserved.
+      </div>
+
+      <div className="footer-legal">
+        <Link className="footer-legal-link" to="/terms-and-conditions">Terms & Conditions</Link>
+        <span className="footer-legal-sep">|</span>
+        <Link className="footer-legal-link" to="/privacy-policy">Privacy Policy</Link>
       </div>
 
     </footer>

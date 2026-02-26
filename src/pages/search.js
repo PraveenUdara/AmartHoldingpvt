@@ -110,6 +110,7 @@ const SearchPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
+  const [searchFocused, setSearchFocused] = useState(false);
   const initialQuery = useMemo(() => new URLSearchParams(location.search).get("q") || "", [location.search]);
   const [input, setInput] = useState(initialQuery);
 
@@ -159,11 +160,25 @@ const SearchPage = () => {
   };
 
   const handleBlur = () => {
-    if (!input.trim()) return;
-    setInput("");
-    navigate("/search", { replace: true });
+    setTimeout(() => setSearchFocused(false), 120);
   };
 
+  const suggestions = useMemo(() => {
+    const term = input.trim().toLowerCase();
+    if (!term) return [];
+    return SEARCH_INDEX.filter((item) => {
+      const haystack = `${item.title} ${item.description} ${item.keywords || ""}`.toLowerCase();
+      return haystack.includes(term);
+    }).slice(0, 8);
+  }, [input]);
+
+  const showSuggestions = searchFocused && suggestions.length > 0;
+
+  const handleSuggestionClick = (item) => {
+    setSearchFocused(false);
+    setInput("");
+    navigate(item.path);
+  };
 
   return (
     <div className="search-page">
@@ -186,9 +201,26 @@ const SearchPage = () => {
               placeholder="Search for services, pages, or products..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onFocus={() => setSearchFocused(true)}
               onBlur={handleBlur}
             />
             <button type="submit">Search</button>
+            {showSuggestions && (
+              <div className="search-form-suggestions" role="listbox" aria-label="Search suggestions">
+                {suggestions.map((item) => (
+                  <button
+                    key={item.path}
+                    type="button"
+                    className="search-form-suggestion-item"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => handleSuggestionClick(item)}
+                  >
+                    <span className="search-form-suggestion-title">{item.title}</span>
+                    <span className="search-form-suggestion-desc">{item.description}</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </form>
         </div>
 

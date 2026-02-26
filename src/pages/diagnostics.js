@@ -1,5 +1,5 @@
 // src/pages/diagnostics.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/diagnostics.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
@@ -37,8 +37,13 @@ const Diagnostics = () => {
     { id: "centogene", title: "Centogene", image: centogImg },
   ];
 
+  useEffect(() => {
+    document.body.classList.add("nav-blacktext");
+    return () => document.body.classList.remove("nav-blacktext");
+  }, []);
+
   return (
-    <div className="business-page">
+    <div className="business-page diagnostics-page">
 
       {/* ================= COVER SECTION ================= */}
       <section

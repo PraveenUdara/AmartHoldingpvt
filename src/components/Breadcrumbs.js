@@ -8,6 +8,8 @@ const routeLabels = {
   "/about": "About Us",
   "/events": "Events",
   "/contact": "Contact Us",
+  "/terms-and-conditions": "Terms & Conditions",
+  "/privacy-policy": "Privacy Policy",
   "/search": "Search",
   "/business/healthcare-services": "A Mart Holdings",
   "/business/pharmaceuticals": "Pharmaceuticals",
