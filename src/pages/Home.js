@@ -72,12 +72,14 @@ import brandingPreview from "../assets/businessPreview/branding and design.png";
 import healthMartPreview from "../assets/businessPreview/HealayaHealth Mart.png";
 import energyPreview from "../assets/businessPreview/Energey And trading.png";
 import manufacturePreview from "../assets/businessPreview/Manufacring.png";
+import homeBgOriginal from "../assets/home_bg.jpg";
 
 /* ---------------------------------
    HERO SLIDES (IMAGE + TEXT)
 ---------------------------------- */
 const HERO_SLIDES = [
   {
+    singleImage: homeBgOriginal,
     imageSet: {
       webp: [
         { src: homeBg640Webp, width: 640 },
@@ -260,6 +262,16 @@ const Home = () => {
   const buildSrcSet = (sources) =>
     sources.map((item) => `${item.src} ${item.width}w`).join(", ");
 
+  useEffect(() => {
+    const useBlackNavOnThisSlide = heroIndex === 0;
+    document.body.classList.toggle("nav-blacktext", useBlackNavOnThisSlide);
+    document.body.classList.toggle("home-hero-desc-black", heroIndex === 0);
+    return () => {
+      document.body.classList.remove("nav-blacktext");
+      document.body.classList.remove("home-hero-desc-black");
+    };
+  }, [heroIndex]);
+
   /* ---------------- BUSINESS PREVIEW ---------------- */
   const defaultHoverData = useMemo(
     () => ({
@@ -393,29 +405,44 @@ const Home = () => {
         <div className="hero-media">
           {/* HERO IMAGES */}
           {HERO_SLIDES.map((slide, index) => (
-            <picture key={index}>
-              <source
-                type="image/webp"
-                srcSet={buildSrcSet(slide.imageSet.webp)}
-                sizes="100vw"
+            slide.singleImage ? (
+              <img
+                key={index}
+                src={slide.singleImage}
+                alt={slide.title}
+                width="1920"
+                height="1080"
+                className={`home-bg ${index === heroIndex ? "active" : ""}`}
+                style={{ "--mobile-position": slide.mobilePosition }}
+                loading={index === heroIndex ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={index === 0 ? "high" : "auto"}
               />
-              <source
-                type="image/jpeg"
-                srcSet={buildSrcSet(slide.imageSet.jpg)}
-                sizes="100vw"
-              />
-            <img
-              src={slide.imageSet.fallback}
-              alt={slide.title}
-              width="1920"
-              height="1080"
-              className={`home-bg ${index === heroIndex ? "active" : ""}`}
-              style={{ "--mobile-position": slide.mobilePosition }}
-              loading={index === heroIndex ? "eager" : "lazy"}
-              decoding="async"
-              fetchPriority={index === 0 ? "high" : "auto"}
-            />
-            </picture>
+            ) : (
+              <picture key={index}>
+                <source
+                  type="image/webp"
+                  srcSet={buildSrcSet(slide.imageSet.webp)}
+                  sizes="100vw"
+                />
+                <source
+                  type="image/jpeg"
+                  srcSet={buildSrcSet(slide.imageSet.jpg)}
+                  sizes="100vw"
+                />
+                <img
+                  src={slide.imageSet.fallback}
+                  alt={slide.title}
+                  width="1920"
+                  height="1080"
+                  className={`home-bg ${index === heroIndex ? "active" : ""}`}
+                  style={{ "--mobile-position": slide.mobilePosition }}
+                  loading={index === heroIndex ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={index === 0 ? "high" : "auto"}
+                />
+              </picture>
+            )
           ))}
         </div>
 
@@ -627,21 +654,26 @@ const Home = () => {
                   onMouseEnter={() => setIsStoryHover(true)}
                   onMouseLeave={() => setIsStoryHover(false)}
                 >
-                  <button
-                    type="button"
-                    className={`story-center-toggle ${isStoryPlaying ? "is-playing" : ""} ${!isStoryPlaying || isStoryHover ? "is-visible" : ""}`}
-                    onClick={handleStoryToggle}
-                    aria-label={isStoryPlaying ? "Pause feedback video" : "Play feedback video"}
-                  >
-                    {isStoryPlaying ? (
-                      <span className="story-toggle-icon story-toggle-icon-pause" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                      </span>
-                    ) : (
-                      <span className="story-toggle-icon story-toggle-icon-play" aria-hidden="true"></span>
-                    )}
-                  </button>
+                  {isMobileView && (
+                    <div className="story-swipe-overlay">Swipe for more videos</div>
+                  )}
+                  {!isMobileView && (
+                    <button
+                      type="button"
+                      className={`story-center-toggle ${isStoryPlaying ? "is-playing" : ""} ${!isStoryPlaying || isStoryHover ? "is-visible" : ""}`}
+                      onClick={handleStoryToggle}
+                      aria-label={isStoryPlaying ? "Pause feedback video" : "Play feedback video"}
+                    >
+                      {isStoryPlaying ? (
+                        <span className="story-toggle-icon story-toggle-icon-pause" aria-hidden="true">
+                          <span></span>
+                          <span></span>
+                        </span>
+                      ) : (
+                        <span className="story-toggle-icon story-toggle-icon-play" aria-hidden="true"></span>
+                      )}
+                    </button>
+                  )}
                   <video
                     key={STORIES[storyIndex].src}
                     ref={storyVideoRef}
@@ -681,16 +713,9 @@ const Home = () => {
             )}
           </div>
 
-          {isMobileView && (
-            <div className="stories-swipe-hint">Swipe right or left to view more videos</div>
-          )}
-
           <div className="stories-light-line" aria-hidden="true"></div>
         </div>
       </section>
-
-      {/* ================= SECTION DIVIDER ================= */}
-      <div className="home-section-divider reveal" aria-hidden="true"></div>
 
       {/* ================= GLOBAL PARTNERS ================= */}
       <section className="partners-section reveal">

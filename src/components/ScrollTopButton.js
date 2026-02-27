@@ -6,6 +6,7 @@ const ScrollTopButton = () => {
   const [socialState, setSocialState] = useState({
     showFacebook: true,
     showWhatsApp: true,
+    showChatbot: true,
   });
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const ScrollTopButton = () => {
       setSocialState({
         showFacebook: detail.showFacebook !== false,
         showWhatsApp: detail.showWhatsApp !== false,
+        showChatbot: detail.showChatbot !== false,
       });
     };
 
@@ -30,12 +32,12 @@ const ScrollTopButton = () => {
 
   if (!show) return null;
 
-  const placementClass = (() => {
-    if (!socialState.showFacebook && socialState.showWhatsApp) return "slot-facebook";
-    if (socialState.showFacebook && !socialState.showWhatsApp) return "slot-whatsapp";
-    if (!socialState.showFacebook && !socialState.showWhatsApp) return "slot-whatsapp";
-    return "slot-left";
-  })();
+  const allSocialClosed =
+    !socialState.showFacebook &&
+    !socialState.showWhatsApp &&
+    !socialState.showChatbot;
+
+  const placementClass = allSocialClosed ? "slot-whatsapp" : "slot-left";
 
   return (
     <button

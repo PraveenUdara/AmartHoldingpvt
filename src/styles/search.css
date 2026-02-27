@@ -19,6 +19,14 @@
   min-height: 50vh;
   display: flex;
   align-items: center;
+  animation: searchHeroZoom 14s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes searchHeroZoom {
+  0% { background-size: 100% 100%; }
+  50% { background-size: 110% 110%; }
+  100% { background-size: 100% 100%; }
 }
 
 .search-form {
@@ -243,4 +251,10 @@
     align-self: flex-start;
   }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-hero {
+    animation: none;
+  }
 }

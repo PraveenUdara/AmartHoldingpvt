@@ -182,11 +182,12 @@
 .branch-feature {
   padding: 40px 8% 70px;
   display: grid;
-  grid-template-columns: 1.05fr 1.1fr;
-  gap: 26px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 42px;
+  align-items: stretch;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), #eef3f9);
-  margin: 10px 8%;
+  margin: 10px auto;
+  max-width: 1260px;
   border-radius: 16px;
   box-shadow: 0 14px 38px rgba(0, 0, 0, 0.12);
 }
@@ -197,12 +198,15 @@
   align-items: center;
   justify-content: center;
   gap: 22px;
+  justify-self: stretch;
+  width: 100%;
 }
 
 .branch-image-stage {
   position: relative;
-  width: min(560px, calc(100% - 96px));
-  min-height: 360px;
+  width: calc(100% - 96px);
+  min-height: 100%;
+  margin: 0 auto;
 }
 
 .branch-image-card {
@@ -222,7 +226,8 @@
 .branch-image-card-main {
   position: relative;
   z-index: 3;
-  max-width: 520px;
+  width: 100%;
+  max-width: 100%;
   animation: fadeUp 0.55s ease;
 }
 
@@ -230,6 +235,17 @@
   position: absolute;
   top: 18px;
   right: -90px;
+  width: 58%;
+  z-index: 2;
+  opacity: 0.74;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
+.branch-image-card-prev {
+  position: absolute;
+  top: 18px;
+  left: -90px;
   width: 58%;
   z-index: 2;
   opacity: 0.74;
@@ -273,6 +289,14 @@
   animation: branchImageBackInPrev 0.36s ease both;
 }
 
+.branch-image-card-prev.branch-image-switch-next {
+  animation: branchImageBackInNext 0.36s ease both;
+}
+
+.branch-image-card-prev.branch-image-switch-prev {
+  animation: branchImageBackInPrev 0.36s ease both;
+}
+
 @keyframes branchImageMainInNext {
   from { opacity: 0.78; transform: translateX(20px) scale(0.98); }
   to { opacity: 1; transform: translateX(0) scale(1); }
@@ -298,6 +322,15 @@
   font-size: 26px;
   font-weight: 700;
   color: #0a2540;
+}
+
+.branch-text {
+  max-width: 100%;
+  margin: 0;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .branch-hours {
@@ -362,7 +395,9 @@
   .branch-feature {
     grid-template-columns: 1fr;
     padding: 30px 6% 60px;
-    margin: 10px 4%;
+    margin: 10px auto;
+    gap: 26px;
+    align-items: center;
   }
 
   .branch-image-carousel {
@@ -385,12 +420,20 @@
     display: none;
   }
 
+  .branch-image-card-prev {
+    display: none;
+  }
+
   .branch-image-card-main {
     max-width: 100%;
   }
 
   .helaya-btn {
     min-width: 130px;
+  }
+
+  .branch-text {
+    text-align: center;
   }
 }
 

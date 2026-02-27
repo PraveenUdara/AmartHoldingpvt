@@ -80,6 +80,7 @@ const Navbar = () => {
   const [useWhiteLogo, setUseWhiteLogo] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
 
   const navRef = useRef(null);
@@ -130,12 +131,18 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
     const updateLogoMode = () => {
       const body = document.body;
       const hasBlackTextNav =
-        body.classList.contains("nav-blacktext") ||
-        body.classList.contains("home-hero-light") ||
-        body.classList.contains("home-hero-clinic-dark-desktop");
+        body.classList.contains("nav-darktext") ||
+        body.classList.contains("nav-blacktext");
       setUseWhiteLogo(!hasBlackTextNav);
     };
 
@@ -194,7 +201,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`navbar ${searchOpen ? "search-open" : ""}`}
+      className={`navbar ${searchOpen ? "search-open" : ""} ${isScrolled ? "navbar-scrolled" : ""}`}
       style={{
         position: "fixed",
         top: 0,
@@ -208,7 +215,7 @@ const Navbar = () => {
         {/* LEFT : LOGO */}
         <NavLink to="/" className="navbar-logo" onClick={closeMenus}>
           <img
-            src={isMobile ? whiteLogo : useWhiteLogo ? whiteLogo : logo}
+            src={isScrolled ? logo : isMobile ? whiteLogo : useWhiteLogo ? whiteLogo : logo}
             className="nav-logo-img"
             alt="A Mart Holdings Logo"
           />
@@ -351,7 +358,10 @@ const Navbar = () => {
           <button
             className="search-toggle"
             type="button"
-            onClick={() => setSearchOpen((v) => !v)}
+            onClick={() => {
+              setMobileMenu(false);
+              setSearchOpen((v) => !v);
+            }}
             aria-label="Toggle search"
           >
             <span className="search-icon" />
@@ -367,6 +377,44 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
+      {isMobile && searchOpen && (
+        <form className="nav-search nav-search-mobile" onSubmit={handleSearchSubmit}>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setTimeout(() => setSearchFocused(false), 120)}
+            autoFocus
+          />
+          <button
+            type="button"
+            className="nav-search-mobile-close"
+            onClick={() => setSearchOpen(false)}
+            aria-label="Close search"
+          >
+            ×
+          </button>
+          {showSuggestions && (
+            <div className="nav-search-suggestions" role="listbox" aria-label="Search suggestions">
+              {filteredSuggestions.map((item) => (
+                <button
+                  key={item.path}
+                  type="button"
+                  className="nav-search-suggestion-item"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => handleSuggestionClick(item)}
+                >
+                  <span className="nav-search-suggestion-title">{item.title}</span>
+                  <span className="nav-search-suggestion-path">{item.path}</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </form>
+      )}
     </nav>
   );
 };

@@ -4,7 +4,6 @@ import "../styles/Footer.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/footerlogo.png";
 import helayaLogo from "../assets/Helaya Logo.png";
-import facebookVideo from "../assets/Facebook.mp4";
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -93,7 +92,7 @@ const Footer = () => {
 
           <div className="footer-social">
             <a
-              href={facebookVideo}
+              href="https://www.facebook.com/amartholdings/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="A Mart Holdings Facebook"

@@ -115,8 +115,8 @@ const SearchPage = () => {
   const [input, setInput] = useState(initialQuery);
 
   useEffect(() => {
-    document.body.classList.add("nav-darktext");
-    return () => document.body.classList.remove("nav-darktext");
+    document.body.classList.remove("nav-darktext");
+    document.body.classList.remove("nav-blacktext");
   }, []);
 
   useEffect(() => {

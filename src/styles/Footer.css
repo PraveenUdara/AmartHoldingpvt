@@ -17,8 +17,21 @@
 .footer-bottom,
 .footer-legal {
   opacity: 0;
-  transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.footer-top > .footer-col:nth-child(odd) {
+  transform: translateX(-28px);
+}
+
+.footer-top > .footer-col:nth-child(even) {
+  transform: translateX(28px);
+}
+
+.footer-divider,
+.footer-bottom,
+.footer-legal {
+  transform: translateY(24px);
 }
 
 .footer.footer-inview .footer-top > .footer-col,

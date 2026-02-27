@@ -1,5 +1,5 @@
 // src/pages/helaya-pharmacy.js
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "../styles/helayapharmacy.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 import helayaCover from "../assets/9 pages/helaya paharmcey.png";
@@ -8,13 +8,13 @@ import helayaLogo from "../assets/Helaya Logo.png";
 const kandyBranchContext = require.context(
   "../assets/9 pages/helaya kandy",
   false,
-  /\.(webp|jpg|jpeg|png)$/
+  /\.(webp|jpg|jpeg|png)$/i
 );
 
 const kohuwalaBranchContext = require.context(
   "../assets/9 pages/helaya kohuwala",
   false,
-  /\.(webp|jpg|jpeg|png)$/
+  /\.(webp|jpg|jpeg|png)$/i
 );
 
 const kandyBranchImageKeys = kandyBranchContext.keys().sort();
@@ -24,6 +24,7 @@ const HelayaPharmacy = () => {
   const [activeBranch, setActiveBranch] = useState("kandy");
   const [branchSlideDirection, setBranchSlideDirection] = useState("next");
   const [branchImageIndex, setBranchImageIndex] = useState(0);
+  const branchTouchStartX = useRef(0);
 
   // Sync tab with hash from navbar sublinks
   useEffect(() => {
@@ -80,11 +81,18 @@ const HelayaPharmacy = () => {
       ? Math.min(branchImageIndex, currentBranchImageKeys.length - 1)
       : 0;
   const mainImageKey = currentBranchImageKeys[safeImageIndex];
+  const prevImageKey =
+    hasImageCarousel
+      ? currentBranchImageKeys[
+        (safeImageIndex - 1 + currentBranchImageKeys.length) % currentBranchImageKeys.length
+      ]
+      : null;
   const nextImageKey =
     hasImageCarousel
       ? currentBranchImageKeys[(safeImageIndex + 1) % currentBranchImageKeys.length]
       : null;
   const mainImage = mainImageKey ? current.resolveImage(mainImageKey) : null;
+  const prevImage = prevImageKey ? current.resolveImage(prevImageKey) : null;
   const nextImage = nextImageKey ? current.resolveImage(nextImageKey) : null;
 
   const goBranchImagePrev = () => {
@@ -99,6 +107,22 @@ const HelayaPharmacy = () => {
     if (!hasImageCarousel) return;
     setBranchSlideDirection("next");
     setBranchImageIndex((prev) => (prev + 1) % currentBranchImageKeys.length);
+  };
+
+  const handleBranchTouchStart = (event) => {
+    branchTouchStartX.current = event.changedTouches[0].clientX;
+  };
+
+  const handleBranchTouchEnd = (event) => {
+    if (!hasImageCarousel) return;
+    const endX = event.changedTouches[0].clientX;
+    const deltaX = endX - branchTouchStartX.current;
+    const threshold = 36;
+    if (deltaX <= -threshold) {
+      goBranchImageNext();
+    } else if (deltaX >= threshold) {
+      goBranchImagePrev();
+    }
   };
 
   return (
@@ -175,7 +199,21 @@ const HelayaPharmacy = () => {
             </button>
           )}
 
-          <div className="branch-image-stage">
+          <div
+            className="branch-image-stage"
+            onTouchStart={handleBranchTouchStart}
+            onTouchEnd={handleBranchTouchEnd}
+          >
+            {hasImageCarousel && prevImage && (
+              <div
+                key={`branch-prev-${activeBranch}-${safeImageIndex}-${branchSlideDirection}`}
+                className={`branch-image-card branch-image-card-prev ${branchSlideDirection === "next" ? "branch-image-switch-next" : "branch-image-switch-prev"}`}
+                aria-hidden="true"
+              >
+                <img src={prevImage} alt={`${current.alt} previous`} />
+              </div>
+            )}
+
             {hasImageCarousel && nextImage && (
               <div
                 key={`branch-next-${activeBranch}-${safeImageIndex}-${branchSlideDirection}`}

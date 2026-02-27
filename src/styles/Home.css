@@ -100,6 +100,16 @@
   font-size: 1.15rem;
 }
 
+body.home-hero-desc-black .hero-text-strong {
+  color: #0a2540;
+  text-shadow: none;
+}
+
+body.home-hero-desc-black .hero-slide-info {
+  color: #0a2540;
+  text-shadow: none;
+}
+
 /* ---------------------- SLIDE LABEL (LEFT-BOTTOM) ---------------------- */
 .hero-slide-info {
   position: absolute;
@@ -479,13 +489,16 @@ body.home-hero-light .hero-slide-info {
 }
 
 .stories-light-line {
-  width: min(860px, calc(100% - 80px));
-  height: 10px;
-  margin: -38px auto 12px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #8fdcff 0%, #42c7c1 45%, #8fdcff 100%);
-  box-shadow: 0 6px 14px rgba(66, 199, 193, 0.28);
+  display: block;
+  width: 100vw;
+  max-width: none;
+  height: 60px;
+  margin: -24px 0 0;
+  background: #42c7c1;
+  border-radius: 0;
   position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
 }
 
@@ -497,6 +510,23 @@ body.home-hero-light .hero-slide-info {
   font-weight: 600;
   letter-spacing: 0.2px;
   color: #40617b;
+}
+
+.story-swipe-overlay {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  background: rgba(8, 27, 42, 0.72);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 .story-card {
@@ -1095,10 +1125,6 @@ body.home-hero-light .hero-slide-info {
     height: 42px;
     border-radius: 12px;
     font-size: 1rem;
-  }
-
-  .stories-swipe-hint {
-    display: block;
   }
 
   .story-card-main {
