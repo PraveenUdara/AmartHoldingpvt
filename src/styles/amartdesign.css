@@ -50,7 +50,7 @@
 }
 
 .design-hero-text p {
-  color: #e6edf5;
+  color: #fff2e6;
   font-size: 1.05rem;
   margin: 0;
 }
@@ -66,6 +66,7 @@
 .design-overview-text h2 {
   margin: 0 0 12px;
   font-size: 28px;
+  color: #9a3412;
 }
 
 .design-overview-text p {
@@ -81,13 +82,13 @@
 }
 
 .tag {
-  background: #0a4b86;
+  background: #d97706;
   color: #ffffff;
   padding: 8px 12px;
   border-radius: 10px;
   font-size: 0.92rem;
   letter-spacing: 0.3px;
-  box-shadow: 0 8px 16px rgba(10, 75, 134, 0.16);
+  box-shadow: 0 8px 16px rgba(217, 119, 6, 0.22);
 }
 
 .design-pillars {
@@ -100,13 +101,14 @@
   background: #ffffff;
   border-radius: 12px;
   padding: 16px;
-  border: 1px solid rgba(10, 75, 134, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.14);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
 }
 
 .pillar-card h3 {
   margin: 0 0 8px;
   font-size: 18px;
+  color: #9a3412;
 }
 
 .pillar-card p {
@@ -121,6 +123,7 @@
 
 .design-services h2 {
   margin: 0 0 16px;
+  color: #9a3412;
 }
 
 .service-grid {
@@ -131,7 +134,7 @@
 
 .service-card {
   background: #ffffff;
-  border: 1px solid rgba(10, 75, 134, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.14);
   border-radius: 12px;
   padding: 16px;
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.07);
@@ -139,7 +142,7 @@
 
 .service-card h4 {
   margin: 0 0 8px;
-  color: #0a2f56;
+  color: #9a3412;
 }
 
 .service-card p {
@@ -153,7 +156,7 @@
 }
 
 .cta-card {
-  background: linear-gradient(135deg, #0a4b86, #0a2f56);
+  background: linear-gradient(135deg, #d97706, #9a3412);
   color: #ffffff;
   border-radius: 14px;
   padding: 22px;
@@ -161,12 +164,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  box-shadow: 0 16px 32px rgba(10, 75, 134, 0.25);
+  box-shadow: 0 16px 32px rgba(217, 119, 6, 0.28);
 }
 
 .cta-button {
   background: #ffffff;
-  color: #0a2f56;
+  color: #9a3412;
   padding: 10px 16px;
   border-radius: 10px;
   font-weight: 700;
@@ -244,3 +247,4 @@
     text-align: center;
   }
 }
+

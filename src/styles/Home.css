@@ -101,7 +101,7 @@
 }
 
 body.home-hero-desc-black .hero-text-strong {
-  color: #0a2540;
+  color: #6ec1ff;
   text-shadow: none;
 }
 
@@ -1116,7 +1116,7 @@ body.home-hero-light .hero-slide-info {
   }
 
   .story-stack {
-    width: calc(100% - 96px);
+    width: 100%;
     min-height: 0;
   }
 
@@ -1131,15 +1131,16 @@ body.home-hero-light .hero-slide-info {
     max-width: 100%;
   }
 
+  .story-video {
+    min-height: 230px;
+  }
+
   .story-card-next {
     display: none;
   }
 
   .stories-light-line {
-    width: calc(100% - 24px);
-    height: 8px;
-    margin-top: -24px;
-    margin-bottom: 8px;
+    display: none;
   }
 
   .story-meta {
@@ -1266,6 +1267,10 @@ body.home-hero-light .hero-slide-info {
 
   .hero-slide-desc {
     font-size: 0.85rem;
+  }
+
+  .story-video {
+    min-height: 250px;
   }
 
   .business-buttons-container {
