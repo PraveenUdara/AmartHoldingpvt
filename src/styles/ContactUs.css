@@ -10,6 +10,11 @@
   overflow-x: hidden;
 }
 
+.contact-page,
+.contact-page * {
+  box-sizing: border-box;
+}
+
 /* ====================== HERO SECTION ====================== */
 .contact-hero {
   position: relative;
@@ -198,6 +203,8 @@
 
 .form-input,
 .form-textarea {
+  width: 100%;
+  max-width: 100%;
   padding: 13px;
   border-radius: 10px;
   border: 1px solid #cfd8dc;
@@ -222,7 +229,6 @@
   width: 100%;
   margin-top: 10px;
   padding: 14px;
-  background: #0d6efd;
   color: white;
   border: none;
   border-radius: 999px;
@@ -231,9 +237,44 @@
   transition: 0.25s ease;
 }
 
-.btn-submit:hover {
-  background: #084dbf;
+.btn-submit-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #25d366, #1ebe5d);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.26);
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.btn-submit-whatsapp:hover {
+  background: linear-gradient(135deg, #22c55e, #18ac52);
   transform: translateY(-2px);
+}
+
+.btn-submit-whatsapp:disabled {
+  opacity: 0.8;
+  cursor: wait;
+  transform: none;
+}
+
+.btn-submit-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-submit-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 
 /* ====================== SECTION DIVIDER ====================== */
@@ -486,14 +527,34 @@
   .contact-top-section {
     min-height: auto;
     padding: 18px 14px;
+    gap: 28px;
   }
 
   .contact-top-section::before {
     inset: 0;
   }
 
+  .help-text,
+  .form-wrapper,
+  .contact-container,
+  .contact-form,
+  .two-column,
+  .form-group {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .help-text {
+    text-align: center;
+  }
+
+  .help-text h2,
   .help-text p {
     margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
+    overflow-wrap: anywhere;
   }
 }
 
@@ -531,6 +592,26 @@
   .contact-highlight {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
+  }
+
+  .contact-top-section {
+    padding: 14px 10px;
+  }
+
+  .contact-container {
+    padding: 24px 16px;
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .btn-submit-whatsapp {
+    font-size: 0.82rem;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    padding: 14px 12px;
   }
 
   .highlight-card {

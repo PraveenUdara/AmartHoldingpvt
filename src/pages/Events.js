@@ -4,15 +4,15 @@ import "../styles/Events.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 // 🔹 EVENTS COVER IMAGE
-import eventsCover from "../assets/events_cover.jpg";
-import helayaVideoThumb from "../assets/thumbnial/helayapharmacey.webp";
+import eventsCover from "../assets/mian pages/Event/events_cover.jpg";
+import helayaVideoThumb from "../assets/mian pages/Event/helayapharmacey.webp";
 
 /* AUTO IMPORT ALL IMAGES FROM FOLDERS */
 const importAll = (r) => r.keys().map(r);
 
 const oncologistImages = importAll(
   require.context(
-    "../assets/Events/oncologists-academic-session-2024",
+    "../assets/mian pages/Event/oncologists-academic-session-2024",
     false,
     /\.(webp|jpg|jpeg|png)$/
   )
@@ -20,7 +20,7 @@ const oncologistImages = importAll(
 
 const stemCellImages = importAll(
   require.context(
-    "../assets/Events/stem-cell-masterclass-2024",
+    "../assets/mian pages/Event/stem-cell-masterclass-2024",
     false,
     /\.(webp|jpg|jpeg|png)$/
   )
@@ -28,7 +28,7 @@ const stemCellImages = importAll(
 
 const cmeImages = importAll(
   require.context(
-    "../assets/Events/thromboembolism-cme-2024",
+    "../assets/mian pages/Event/thromboembolism-cme-2024",
     false,
     /\.(webp|jpg|jpeg|png)$/
   )
@@ -36,7 +36,7 @@ const cmeImages = importAll(
 
 const kandyHelayaImages = importAll(
   require.context(
-    "../assets/Events/Kandy Helaya Pharamcey opens",
+    "../assets/mian pages/Event/Kandy Helaya Pharamcey opens",
     false,
     /\.(webp|jpg|jpeg|png)$/
   )
@@ -44,7 +44,7 @@ const kandyHelayaImages = importAll(
 
 const kandyHelayaVideos = importAll(
   require.context(
-    "../assets/Events/Kandy Helaya Pharamcey opens",
+    "../assets/mian pages/Event/Kandy Helaya Pharamcey opens",
     false,
     /\.(mp4|webm|mov)$/
   )
@@ -52,7 +52,7 @@ const kandyHelayaVideos = importAll(
 
 const kandyHelayaPosters = importAll(
   require.context(
-    "../assets/Events/Kandy Helaya Pharamcey opens",
+    "../assets/mian pages/Event/Kandy Helaya Pharamcey opens",
     false,
     /_poster\.(jpg|jpeg|png)$/
   )
@@ -77,7 +77,7 @@ const kandyHelayaVideoItems = kandyHelayaVideos.map((src) => {
 
 const kduChemoImages = importAll(
   require.context(
-    "../assets/Events/KDU hospital chemotherapy unit opens",
+    "../assets/mian pages/Event/KDU hospital chemotherapy unit opens",
     false,
     /\.(webp|jpg|jpeg|png)$/
   )
@@ -85,7 +85,7 @@ const kduChemoImages = importAll(
 
 const manipalEventImages = importAll(
   require.context(
-    "../assets/Events/Manipal Hospital Event",
+    "../assets/mian pages/Event/Manipal Hospital Event",
     false,
     /\.(webp|jpg|jpeg|png)$/
   )

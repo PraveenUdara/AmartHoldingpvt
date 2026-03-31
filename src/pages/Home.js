@@ -5,81 +5,81 @@ import BusinessButtons from "../components/BusinessButtons";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 // HERO IMAGES (RESPONSIVE)
-import homeBg640Jpg from "../assets/hero-optimized/home_bg-640.jpg";
-import homeBg1024Jpg from "../assets/hero-optimized/home_bg-1024.jpg";
-import homeBg1600Jpg from "../assets/hero-optimized/home_bg-1600.jpg";
-import homeBg640Webp from "../assets/hero-optimized/home_bg-640.webp";
-import homeBg1024Webp from "../assets/hero-optimized/home_bg-1024.webp";
-import homeBg1600Webp from "../assets/hero-optimized/home_bg-1600.webp";
+import homeBg640Jpg from "../assets/mian pages/homepage/home_bg-640.jpg";
+import homeBg1024Jpg from "../assets/mian pages/homepage/home_bg-1024.jpg";
+import homeBg1600Jpg from "../assets/mian pages/homepage/home_bg-1600.jpg";
+import homeBg640Webp from "../assets/mian pages/homepage/home_bg-640.webp";
+import homeBg1024Webp from "../assets/mian pages/homepage/home_bg-1024.webp";
+import homeBg1600Webp from "../assets/mian pages/homepage/home_bg-1600.webp";
 
-import doctorHero640Jpg from "../assets/hero-optimized/hero_diagnostics-640.jpg";
-import doctorHero1024Jpg from "../assets/hero-optimized/hero_diagnostics-1024.jpg";
-import doctorHero1536Jpg from "../assets/hero-optimized/hero_diagnostics-1536.jpg";
-import doctorHero640Webp from "../assets/hero-optimized/hero_diagnostics-640.webp";
-import doctorHero1024Webp from "../assets/hero-optimized/hero_diagnostics-1024.webp";
-import doctorHero1536Webp from "../assets/hero-optimized/hero_diagnostics-1536.webp";
+import doctorHero640Jpg from "../assets/mian pages/homepage/hero_diagnostics-640.jpg";
+import doctorHero1024Jpg from "../assets/mian pages/homepage/hero_diagnostics-1024.jpg";
+import doctorHero1536Jpg from "../assets/mian pages/homepage/hero_diagnostics-1536.jpg";
+import doctorHero640Webp from "../assets/mian pages/homepage/hero_diagnostics-640.webp";
+import doctorHero1024Webp from "../assets/mian pages/homepage/hero_diagnostics-1024.webp";
+import doctorHero1536Webp from "../assets/mian pages/homepage/hero_diagnostics-1536.webp";
 
-import diagnosticsHero640Jpg from "../assets/hero-optimized/labcv-640.jpg";
-import diagnosticsHero1024Jpg from "../assets/hero-optimized/labcv-1024.jpg";
-import diagnosticsHero1536Jpg from "../assets/hero-optimized/labcv-1536.jpg";
-import diagnosticsHero640Webp from "../assets/hero-optimized/labcv-640.webp";
-import diagnosticsHero1024Webp from "../assets/hero-optimized/labcv-1024.webp";
-import diagnosticsHero1536Webp from "../assets/hero-optimized/labcv-1536.webp";
+import diagnosticsHero640Jpg from "../assets/mian pages/homepage/labcv-640.jpg";
+import diagnosticsHero1024Jpg from "../assets/mian pages/homepage/labcv-1024.jpg";
+import diagnosticsHero1536Jpg from "../assets/mian pages/homepage/labcv-1536.jpg";
+import diagnosticsHero640Webp from "../assets/mian pages/homepage/labcv-640.webp";
+import diagnosticsHero1024Webp from "../assets/mian pages/homepage/labcv-1024.webp";
+import diagnosticsHero1536Webp from "../assets/mian pages/homepage/labcv-1536.webp";
 
-import techHero640Jpg from "../assets/hero-optimized/hero_tech_healthcare-640.jpg";
-import techHero1024Jpg from "../assets/hero-optimized/hero_tech_healthcare-1024.jpg";
-import techHero1600Jpg from "../assets/hero-optimized/hero_tech_healthcare-1600.jpg";
-import techHero640Webp from "../assets/hero-optimized/hero_tech_healthcare-640.webp";
-import techHero1024Webp from "../assets/hero-optimized/hero_tech_healthcare-1024.webp";
-import techHero1600Webp from "../assets/hero-optimized/hero_tech_healthcare-1600.webp";
+import techHero640Jpg from "../assets/mian pages/homepage/hero_tech_healthcare-640.jpg";
+import techHero1024Jpg from "../assets/mian pages/homepage/hero_tech_healthcare-1024.jpg";
+import techHero1600Jpg from "../assets/mian pages/homepage/hero_tech_healthcare-1600.jpg";
+import techHero640Webp from "../assets/mian pages/homepage/hero_tech_healthcare-640.webp";
+import techHero1024Webp from "../assets/mian pages/homepage/hero_tech_healthcare-1024.webp";
+import techHero1600Webp from "../assets/mian pages/homepage/hero_tech_healthcare-1600.webp";
 
 // MINI POSTS
-import leftPost from "../assets/lab_bg.jpg";
-import rightPost from "../assets/lab_bg2.jpg";
-import doctorsImg from "../assets/doctors.png";
-import partner01 from "../assets/Partners/1.png";
-import partner02 from "../assets/Partners/2.png";
-import partner03 from "../assets/Partners/3.png";
-import partner04 from "../assets/Partners/4.png";
-import partner05 from "../assets/Partners/5.png";
-import partner07 from "../assets/Partners/7.png";
-import partner08 from "../assets/Partners/8.png";
-import partner09 from "../assets/Partners/9.png";
-import partner10 from "../assets/Partners/10.png";
-import partner11 from "../assets/Partners/11.png";
-import partner12 from "../assets/Partners/12.png";
-import partner13 from "../assets/Partners/13.png";
-import partner14 from "../assets/Partners/14.png";
-import partner15 from "../assets/Partners/15.png";
-import partner16 from "../assets/Partners/16.png";
-import partner17 from "../assets/Partners/17.jpeg";
-import partner18 from "../assets/Partners/18.jpeg";
-import partner19 from "../assets/Partners/19.png";
-import partner20 from "../assets/Partners/20.png";
-import partner21 from "../assets/Partners/21.png";
+import leftPost from "../assets/mian pages/homepage/lab_bg.jpg";
+import rightPost from "../assets/mian pages/homepage/lab_bg2.jpg";
+import doctorsImg from "../assets/mian pages/homepage/doctors.png";
+import partner01 from "../assets/mian pages/homepage/1.png";
+import partner02 from "../assets/mian pages/homepage/2.png";
+import partner03 from "../assets/mian pages/homepage/3.png";
+import partner04 from "../assets/mian pages/homepage/4.png";
+import partner05 from "../assets/mian pages/homepage/5.png";
+import partner07 from "../assets/mian pages/homepage/7.png";
+import partner08 from "../assets/mian pages/homepage/8.png";
+import partner09 from "../assets/mian pages/homepage/9.png";
+import partner10 from "../assets/mian pages/homepage/10.png";
+import partner11 from "../assets/mian pages/homepage/11.png";
+import partner12 from "../assets/mian pages/homepage/12.png";
+import partner13 from "../assets/mian pages/homepage/13.png";
+import partner14 from "../assets/mian pages/homepage/14.png";
+import partner15 from "../assets/mian pages/homepage/15.png";
+import partner16 from "../assets/mian pages/homepage/16.png";
+import partner17 from "../assets/mian pages/homepage/17.jpeg";
+import partner18 from "../assets/mian pages/homepage/18.jpeg";
+import partner19 from "../assets/mian pages/homepage/19.png";
+import partner20 from "../assets/mian pages/homepage/20.png";
+import partner21 from "../assets/mian pages/homepage/21.png";
 import feedbackVideo1 from "../assets/feedbackvideo/Customer Feedback.mp4";
 import feedbackVideo2 from "../assets/feedbackvideo/Customer Feedback 2.mp4";
-import feedbackThumbnail from "../assets/thumbnial/feedback.png";
-import feedbackThumbnail2 from "../assets/thumbnial/feedback2.png";
+import feedbackThumbnail from "../assets/mian pages/homepage/feedback.png";
+import feedbackThumbnail2 from "../assets/mian pages/homepage/feedback2.png";
 
 import "../styles/Home.css";
 
 // DEFAULT PREVIEW IMAGE
-import defaultPreview from "../assets/businessPreview/default.jpg";
-import holdingPreview from "../assets/businessPreview/AmartHoldings.png";
-import aiPreview from "../assets/businessPreview/Diagnostic.png";
-import brandingPreview from "../assets/businessPreview/branding and design.png";
-import healthMartPreview from "../assets/businessPreview/HealayaHealth Mart.png";
-import energyPreview from "../assets/businessPreview/Energey And trading.png";
-import manufacturePreview from "../assets/businessPreview/Manufacring.png";
-import homeBgOriginal from "../assets/home_bg.jpg";
+import defaultPreview from "../assets/mian pages/homepage/default.jpg";
+import holdingPreview from "../assets/mian pages/homepage/AmartHoldings.png";
+import aiPreview from "../assets/mian pages/homepage/Diagnostic.png";
+import brandingPreview from "../assets/mian pages/homepage/branding and design.png";
+import healthMartPreview from "../assets/mian pages/homepage/HealayaHealth Mart.png";
+import energyPreview from "../assets/mian pages/homepage/Energey And trading.png";
+import manufacturePreview from "../assets/mian pages/homepage/Manufacring.png";
+import homeBgMobileHero from "../assets/mian pages/homepage/60ecfeb6-a91f-467e-a752-4f7f131cf499.png";
 
 /* ---------------------------------
    HERO SLIDES (IMAGE + TEXT)
 ---------------------------------- */
 const HERO_SLIDES = [
   {
-    singleImage: homeBgOriginal,
+    mobileImage: homeBgMobileHero,
     imageSet: {
       webp: [
         { src: homeBg640Webp, width: 640 },
@@ -223,6 +223,15 @@ const MOBILE_PREVIEW_ROTATION = [
 const Home = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [storyIndex, setStoryIndex] = useState(0);
+
+  // Ensure direct visits to home always start at the top of the page.
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    const timer = window.setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   /* ---------------- HERO SLIDER (OPTION A) ---------------- */
   useEffect(() => {
@@ -408,7 +417,7 @@ const Home = () => {
             slide.singleImage ? (
               <img
                 key={index}
-                src={slide.singleImage}
+                src={isMobileView && slide.mobileSingleImage ? slide.mobileSingleImage : slide.singleImage}
                 alt={slide.title}
                 width="1920"
                 height="1080"
@@ -420,6 +429,12 @@ const Home = () => {
               />
             ) : (
               <picture key={index}>
+                {slide.mobileImage && (
+                  <source
+                    media="(max-width: 768px)"
+                    srcSet={slide.mobileImage}
+                  />
+                )}
                 <source
                   type="image/webp"
                   srcSet={buildSrcSet(slide.imageSet.webp)}

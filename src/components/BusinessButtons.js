@@ -5,20 +5,20 @@ import "../components/BusinessButtons.css";
 import "../index.css";
 
 // New home button icons
-import holdingIcon from "../assets/Home page icon/A Mart Holdings Logo.png";
-import aiIcon from "../assets/diagnostics.jpg";
-import brandingIcon from "../assets/Home page icon/Branding Design.png";
-import energyIcon from "../assets/Home page icon/Energy & treading.png";
-import helayaHealthIcon from "../assets/Home page icon/HelayaHealthMArt.png";
-import manufactureIcon from "../assets/Home page icon/manufacture.png";
+import holdingIcon from "../assets/mian pages/homepage/A Mart Holdings Logo.png";
+import aiIcon from "../assets/mian pages/homepage/diagnostics.jpg";
+import brandingIcon from "../assets/mian pages/homepage/Branding Design.png";
+import energyIcon from "../assets/mian pages/homepage/Energy & treading.png";
+import helayaHealthIcon from "../assets/mian pages/homepage/HelayaHealthMArt.png";
+import manufactureIcon from "../assets/mian pages/homepage/manufacture.png";
 
 // Preview images (reused)
-import holdingPreview from "../assets/businessPreview/AmartHoldings.png";
-import aiPreview from "../assets/businessPreview/Diagnostic.png";
-import brandingPreview from "../assets/businessPreview/branding and design.png";
-import healthMartPreview from "../assets/businessPreview/HealayaHealth Mart.png";
-import energyPreview from "../assets/businessPreview/Energey And trading.png";
-import manufacturePreview from "../assets/businessPreview/Manufacring.png";
+import holdingPreview from "../assets/mian pages/homepage/AmartHoldings.png";
+import aiPreview from "../assets/mian pages/homepage/Diagnostic.png";
+import brandingPreview from "../assets/mian pages/homepage/branding and design.png";
+import healthMartPreview from "../assets/mian pages/homepage/HealayaHealth Mart.png";
+import energyPreview from "../assets/mian pages/homepage/Energey And trading.png";
+import manufacturePreview from "../assets/mian pages/homepage/Manufacring.png";
 
 const BusinessButtons = ({ onHoverChange, resetPreview, currentPreviewData }) => {
   const [activeIndex, setActiveIndex] = useState(null);

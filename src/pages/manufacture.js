@@ -1,7 +1,7 @@
 // src/pages/Manufacture.js
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/manufacture.css";
-import manufactureImg from "../assets/9 pages/manufacture/manufatcure.png";
+import manufactureImg from "../assets/subpage/manufacture/manufatcure.png";
 import manufactureImgMobile from "../assets/mobileimage/manufacture/manufacturemobilehero.png";
 import Breadcrumbs from "../components/Breadcrumbs";
 

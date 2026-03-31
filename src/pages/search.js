@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import searchCover from "../assets/9 pages/search/search.png";
+import searchCover from "../assets/subpage/search/search.png";
 import searchCoverMobile from "../assets/mobileimage/serach/search.png";
 import "../styles/search.css";
 import Breadcrumbs from "../components/Breadcrumbs";

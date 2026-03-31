@@ -4,16 +4,16 @@ import "../styles/diagnostics.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 // COVER IMAGE
-import diagnosticsCover from "../assets/9 pages/diagnostics.jpg";
+import diagnosticsCover from "../assets/subpage/diagnostics.jpg";
 import diagnosticsCoverMobile from "../assets/mobileimage/diagnostic/diagnostics_mobile hero.png";
-import medgenomeImg from "../assets/9 pages/diagnostic/Medgenome.webp";
-import centogImg from "../assets/9 pages/diagnostic/centog.webp";
-import dxImg from "../assets/9 pages/diagnostic/dx.webp";
-import foundationImg from "../assets/9 pages/diagnostic/foundati.webp";
-import canassistImg from "../assets/9 pages/diagnostic/wrkflow-canassist.webp";
-import basecareImg from "../assets/9 pages/diagnostic/Genomic-Data.webp";
-import tempusImg from "../assets/9 pages/diagnostic/Tempus.png";
-import dataGeneticImg from "../assets/9 pages/diagnostic/datar genatic.webp";
+import medgenomeImg from "../assets/subpage/diagnostic/Medgenome.webp";
+import centogImg from "../assets/subpage/diagnostic/centog.webp";
+import dxImg from "../assets/subpage/diagnostic/dx.webp";
+import foundationImg from "../assets/subpage/diagnostic/foundati.webp";
+import canassistImg from "../assets/subpage/diagnostic/wrkflow-canassist.webp";
+import basecareImg from "../assets/subpage/diagnostic/Genomic-Data.webp";
+import tempusImg from "../assets/subpage/diagnostic/Tempus.png";
+import dataGeneticImg from "../assets/subpage/diagnostic/datar genatic.webp";
 
 const Diagnostics = () => {
   const [openSections, setOpenSections] = useState({

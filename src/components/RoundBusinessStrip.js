@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/RoundBusinessStrip.css";
 
 import pharmaImg from "../assets/pharma.jpg";
-import diagnosticsImg from "../assets/diagnostics.jpg";
+import diagnosticsImg from "../assets/mian pages/homepage/diagnostics.jpg";
 import tourismImg from "../assets/tourism.jpg";
 import helayaPharmacyImg from "../assets/helaya_pharmacy.webp";
 import helayaInternationalImg from "../assets/helaya_international.jpg";

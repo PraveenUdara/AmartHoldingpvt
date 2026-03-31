@@ -1,11 +1,11 @@
 // src/pages/pharma.js
 import React, { useEffect } from "react";
-import pharmaCover from "../assets/9 pages/pharmaceuticals.jpg";
-import pharmaImage2 from "../assets/9 pages/ph2.jpg";
-import gpImage from "../assets/9 pages/pharamcutical/GP.jpg";
-import cimImage from "../assets/9 pages/pharamcutical/Cim.png";
-import sayreImage from "../assets/9 pages/pharamcutical/sy.png";
-import sayrePortfolioImage from "../assets/9 pages/pharamcutical/images.png";
+import pharmaCover from "../assets/subpage/pharmaceuticals.jpg";
+import pharmaImage2 from "../assets/subpage/ph2.jpg";
+import gpImage from "../assets/subpage/pharamcutical/GP.jpg";
+import cimImage from "../assets/subpage/pharamcutical/Cim.png";
+import sayreImage from "../assets/subpage/pharamcutical/sy.png";
+import sayrePortfolioImage from "../assets/subpage/pharamcutical/images.png";
 import "../styles/pharma.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 

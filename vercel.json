@@ -2,6 +2,11 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "outputDirectory": "build",
+  "redirects": [
+    { "source": "/a-mart-holdings", "destination": "/", "permanent": true },
+    { "source": "/a-mart-holdings/", "destination": "/", "permanent": true },
+    { "source": "/a-mart-holdings/:path*", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "../components/Breadcrumbs";
 import "../styles/barandingandAisolution.css";
-import brandingIcon from "../assets/9 pages/brandingandsolution/branding.png";
-import aiIcon from "../assets/9 pages/brandingandsolution/Ai.png";
-import heroImg from "../assets/9 pages/design/branding.png";
+import brandingIcon from "../assets/subpage/brandingandsolution/branding.png";
+import aiIcon from "../assets/subpage/brandingandsolution/Ai.png";
+import heroImg from "../assets/subpage/design/branding.png";
 
 const BarandingAndAiSolution = () => {
   return (

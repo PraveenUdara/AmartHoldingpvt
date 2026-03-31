@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from "react";
 import "../index.css";
 import "../styles/ContactUs.css";
-import contactCover from "../assets/contact_cover.jpg";
+import contactCover from "../assets/mian pages/contact us page/contact_cover.jpg";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 const ContactUs = () => {
+  const whatsappNumber = "94777648888";
   // ================= FORM STATE =================
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -38,40 +39,30 @@ const ContactUs = () => {
   }, []);
 
   // ================= SUBMIT HANDLER =================
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          phone,
-          email,
-          message,
-        }),
-      });
+    const whatsappMessage = [
+      "Hello A Mart Holdings,",
+      "",
+      "I would like to send an inquiry.",
+      "",
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Email: ${email}`,
+      `Message: ${message}`,
+    ].join("\n");
 
-      const data = await response.json();
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-      if (response.ok) {
-        alert("Thank you! Your message has been sent successfully.");
-        setName("");
-        setPhone("");
-        setEmail("");
-        setMessage("");
-      } else {
-        alert(data.message || "Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      alert("Server error. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    setLoading(false);
+    setName("");
+    setPhone("");
+    setEmail("");
+    setMessage("");
   };
 
   return (
@@ -83,6 +74,9 @@ const ContactUs = () => {
           src={contactCover}
           alt="Contact Us Cover"
           className="contact-hero-img"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <Breadcrumbs variant="hero" />
 
@@ -184,8 +178,13 @@ const ContactUs = () => {
                 />
               </div>
 
-              <button className="btn-submit" type="submit" disabled={loading}>
-                {loading ? "Sending..." : "Send Message"}
+              <button className="btn-submit btn-submit-whatsapp" type="submit" disabled={loading}>
+                <span className="btn-submit-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .17 5.33.17 11.89c0 2.1.55 4.15 1.59 5.96L0 24l6.33-1.65a11.82 11.82 0 0 0 5.73 1.46h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.17-1.23-6.14-3.44-8.44zM12.07 21.8h-.01a9.84 9.84 0 0 1-5.02-1.38l-.36-.21-3.75.98 1-3.66-.24-.38a9.86 9.86 0 0 1-1.51-5.26c0-5.44 4.43-9.87 9.89-9.87 2.64 0 5.12 1.03 6.99 2.9a9.8 9.8 0 0 1 2.89 6.98c0 5.45-4.43 9.89-9.88 9.89zm5.42-7.41c-.3-.15-1.77-.88-2.04-.98-.27-.1-.47-.15-.67.15-.19.3-.77.98-.94 1.18-.17.2-.35.23-.64.08-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.53.08-.8.38-.27.3-1.03 1-1.03 2.44s1.06 2.82 1.21 3.02c.15.2 2.08 3.18 5.03 4.45.7.3 1.25.48 1.68.61.71.23 1.35.2 1.86.12.57-.08 1.77-.72 2.02-1.41.25-.69.25-1.28.18-1.41-.08-.12-.27-.2-.57-.35z" />
+                  </svg>
+                </span>
+                <span>{loading ? "OPENING WHATSAPP..." : "CONFIRM & SEND VIA WHATSAPP"}</span>
               </button>
             </form>
           </div>

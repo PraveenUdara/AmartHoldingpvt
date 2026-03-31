@@ -1,7 +1,7 @@
 // src/pages/AiSolution.js
 import React from "react";
 import "../styles/AiSolution.css";
-import aiHeroImg from "../assets/9 pages/Ai solution/AI_solution_hero.png";
+import aiHeroImg from "../assets/subpage/Ai solution/AI_solution_hero.png";
 import aiHeroImgMobile from "../assets/mobileimage/ai/Ai_hero.png";
 import Breadcrumbs from "../components/Breadcrumbs";
 

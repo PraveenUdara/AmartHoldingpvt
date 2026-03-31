@@ -1,6 +1,6 @@
 // src/pages/helaya-international.js
 import React, { useEffect } from "react";
-import intlCover from "../assets/9 pages/international/international.png";
+import intlCover from "../assets/subpage/international/international.png";
 import intlCoverMobile from "../assets/mobileimage/international/internationalmobile.png";
 import "../styles/helaya-international.css";
 import Breadcrumbs from "../components/Breadcrumbs";

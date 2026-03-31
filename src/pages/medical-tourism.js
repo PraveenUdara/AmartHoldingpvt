@@ -3,17 +3,17 @@
 import React, { useEffect, useState } from "react";
 import "../styles/tourism.css";
 import Breadcrumbs from "../components/Breadcrumbs";
-import tourismCover from "../assets/9 pages/medicaltcover.jpg";
+import tourismCover from "../assets/subpage/medicaltcover.jpg";
 import tourismCoverMobile from "../assets/mobileimage/medicaltourisam/medical_travel_.png";
-import indiaImage from "../assets/9 pages/medicalt/MH.jpg";
-import asterImage from "../assets/9 pages/medicalt/A-CMI.jpg";
-import apolloImage from "../assets/9 pages/medicalt/appolo.webp";
-import ggImage from "../assets/9 pages/medicalt/GG.webp";
-import mountImage from "../assets/9 pages/medicalt/Mount-Elizabeth_novena.jpg";
-import mountElizabethImage from "../assets/9 pages/medicalt/mounitel.jpg";
-import parkwayImage from "../assets/9 pages/medicalt/pak-east.jpg";
-import gleneaglesImage from "../assets/9 pages/medicalt/gleneagles.jpg";
-import pccImage from "../assets/9 pages/medicalt/pcc.jpg";
+import indiaImage from "../assets/subpage/medicalt/MH.jpg";
+import asterImage from "../assets/subpage/medicalt/A-CMI.jpg";
+import apolloImage from "../assets/subpage/medicalt/appolo.webp";
+import ggImage from "../assets/subpage/medicalt/GG.webp";
+import mountImage from "../assets/subpage/medicalt/Mount-Elizabeth_novena.jpg";
+import mountElizabethImage from "../assets/subpage/medicalt/mounitel.jpg";
+import parkwayImage from "../assets/subpage/medicalt/pak-east.jpg";
+import gleneaglesImage from "../assets/subpage/medicalt/gleneagles.jpg";
+import pccImage from "../assets/subpage/medicalt/pcc.jpg";
 import medicalTourismBg from "../assets/pageimage/medical tourisam.png";
 
 const hospitalData = {

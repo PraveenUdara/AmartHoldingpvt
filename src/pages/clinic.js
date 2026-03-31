@@ -1,6 +1,6 @@
 // src/pages/clinic.js
 import React, { useEffect } from "react";
-import clinicCover from "../assets/9 pages/medical/clinic.png";
+import clinicCover from "../assets/subpage/medical/clinic.png";
 import clinicCoverMobile from "../assets/mobileimage/medical center/medical_centermobile.png";
 import "../styles/clinic.css";
 import Breadcrumbs from "../components/Breadcrumbs";

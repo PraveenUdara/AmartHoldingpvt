@@ -2,17 +2,17 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../styles/helayapharmacy.css";
 import Breadcrumbs from "../components/Breadcrumbs";
-import helayaCover from "../assets/9 pages/helaya paharmcey.png";
+import helayaCover from "../assets/subpage/helaya paharmcey.png";
 import helayaLogo from "../assets/Helaya Logo.png";
 
 const kandyBranchContext = require.context(
-  "../assets/9 pages/helaya kandy",
+  "../assets/subpage/helaya kandy",
   false,
   /\.(webp|jpg|jpeg|png)$/i
 );
 
 const kohuwalaBranchContext = require.context(
-  "../assets/9 pages/helaya kohuwala",
+  "../assets/subpage/helaya kohuwala",
   false,
   /\.(webp|jpg|jpeg|png)$/i
 );

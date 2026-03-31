@@ -1,13 +1,13 @@
 // src/pages/AboutUs.js
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import aboutUsImg from "../assets/about_bg.jpg";
+import aboutUsImg from "../assets/mian pages/AboutUs page/about_bg.jpg";
 import "../styles/AboutUs.css";
 import Breadcrumbs from "../components/Breadcrumbs";
 
-import missionImg from "../assets/mission.jpg";
-import visionImg from "../assets/vision.jpg";
-import valuesImg from "../assets/values.jpg";
-import chairmanImg from "../assets/chairman.jpg";
+import missionImg from "../assets/mian pages/AboutUs page/mission.jpg";
+import visionImg from "../assets/mian pages/AboutUs page/vision.jpg";
+import valuesImg from "../assets/mian pages/AboutUs page/values.jpg";
+import chairmanImg from "../assets/mian pages/AboutUs page/chairman.jpg";
 
 const AboutUs = () => {
   const sections = {
